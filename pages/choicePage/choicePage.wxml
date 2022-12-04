@@ -1,0 +1,6 @@
+<button bindtap="goIndex" class="button_location" style="width: 60%; height: 30%;"> 
+用户端登录   
+</button>
+<button bindtap="goNext" class="Teacherbutton_location" style="width: 60%; height: 30%;"> 
+审批端登录 
+</button>

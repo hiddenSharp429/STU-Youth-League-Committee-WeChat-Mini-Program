@@ -1,0 +1,7 @@
+<view class="imageBackground"><image class="background" src="/icon/background.jpg"></image></view>
+<image class="return" src="/icon/return.png" alt="" style="width: 60px;height: 60px;" bindtap="return"/>
+<view class="content">
+       <view class="title">温馨提示</view>
+       <view class="main_content">抱歉！目前已经关闭该注册页面，如有需求请联系相关组织的负责人。</view>
+       <view class="postil">注：现在仅开放审批预约端和不受限预约端的注册</view>
+</view>

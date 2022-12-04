@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/choicePage/choicePage",
+    "pages/register/register",
+    "pages/register1/register1",
+    "pages/register2/register2",
+    "pages/register3/register3",
+    "pages/register4/register4",
+    "pages/nextChoice/nextChoice",
+    "pages/indexLogin/indexLogin",
+    "pages/index/index",
+    "pages/eventDetail/eventDetail",
+    "pages/apply/apply",
+    "pages/yuyue/yuyue",
+    "pages/history/history",
+    "pages/history2/history2",
+    "pages/data/data",
+    "pages/summarize/summarize",
+    "pages/approval/approval",
+    "pages/approvalPass/approvaPass",
+    "pages/approvalReject/approvaReject",
+    "pages/approvalEnd/approvalEnd",
+    "pages/approvalLogin/approvalLogin",
+    "pages/TeventDetail/TeventDetail",
+    "pages/appointment/appointment",
+    "pages/appointmentApproval/appointmentApproval",
+    "pages/appointmentApproval2/appointmentApproval2",
+    "pages/appointmentApproval3/appointmentApproval3",
+    "pages/appointmentApprovalLogin/appointmentApprovalLogin",
+    "pages/appointmentDetail/appointmentDetail",
+    "pages/vipLogin/vipLogin",
+    "pages/vip/vip"
+  ],
+  "window": {
+       "backgroundTextStyle": "light",
+       "navigationBarBackgroundColor": "#fff",
+       "navigationBarTitleText": "测试版",
+       "navigationBarTextStyle": "black",
+       "enablePullDownRefresh": true
+  },
+  "tabBar": {
+       "color": "#C0C0C0",
+       "selectedColor": "#000000",
+       "list": [{
+         "pagePath": "pages/index/index",
+         "text": "我的",
+         "iconPath": "/icon/用户 (1).png",
+         "selectedIconPath": "/icon/用户.png"
+       },
+       {
+         "pagePath": "pages/apply/apply",
+         "text": "活动申请",
+         "iconPath": "/icon/测试申请 (1).png",
+         "selectedIconPath": "/icon/测试申请.png"
+       },
+       {
+         "pagePath": "pages/history/history",
+         "text": "活动历史",
+         "iconPath": "/icon/历史 (1).png",
+         "selectedIconPath": "/icon/历史.png"
+       },
+       {
+       "pagePath": "pages/appointment/appointment",
+       "text": "预约老师",
+       "iconPath": "/icon/预约(1).png",
+       "selectedIconPath": "/icon/预约.png"
+       },
+       {
+       "pagePath": "pages/history2/history2",
+       "text": "历史预约",
+       "iconPath": "/icon/历史预约.png",
+       "selectedIconPath": "/icon/历史预约 (1).png"
+       }
+     ]
+},
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+       "request": 6000000
+       }
+}

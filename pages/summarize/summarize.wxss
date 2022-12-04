@@ -1,0 +1,87 @@
+/* pages/summarize/summarize.wxss */
+text{
+       color: red;
+}
+input{ padding-left: 40rpx;
+       box-sizing: border-box;
+       width:730rpx;
+       height: 120rpx;
+       border:1px solid #F2E6E6;
+       border-radius: 80rpx;
+}
+view{  
+       position:relative;
+       margin-top:30rpx;
+}
+.placeholder-style{
+       color:#9FA8BC;
+       padding-left:10rpx;
+}
+.shangchuan{
+       position: relative;
+       border-radius: 80rpx;
+         margin-top: 5%;
+         color:#D43030;
+         background-color: #FFFFFF;
+         box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.35);
+}
+.submit{
+       margin-top: 40px;
+       border-radius: 80rpx;
+       height: 104rpx;
+       line-height:82rpx;
+       background-color: #D43030;
+       box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.35);
+       
+
+
+}
+.sub{ 
+       color:#FFFFFF;
+       text-align: center;
+}
+
+.content{
+       margin-top: 5%;
+}
+.content1{
+       margin-top: 5%;
+}
+
+.subtitle_font{
+       font-size: large;
+       font-weight: 400;
+       color: #D43C33;
+}
+
+.atvmoney{
+       margin-top: 5px;
+}
+
+.tips{
+       margin-top: 0px;
+       color: black;
+}
+
+.add{
+       float: left;
+       position: relative;
+       border-radius: 80rpx;
+       margin-top: 3%;
+       color:#D43030;
+       background-color: #FFFFFF;
+       box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.35);
+       right: 0px;
+}
+
+.del{
+       position: relative;
+       border-radius: 80rpx;
+       margin-top: 5%;
+       color:#D43030;
+       background-color: #FFFFFF;
+       box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.35);
+       left: 0px;
+       bottom: 8px;
+
+}

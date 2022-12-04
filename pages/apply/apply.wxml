@@ -1,0 +1,269 @@
+       <!-- 活动内容 -->
+<view class="subtitle">
+       <text class="subtitle_font">活动内容:</text>
+</view>
+
+       <!-- 活动名称 -->
+<view class="inputborder">
+  <input type="text" placeholder="活动名称（必填*）" class="PnameInput" bindinput="huodongName"/>
+</view>
+
+       <!-- 选择所归属的组织 -->
+<view class="subtitle">
+       <text class="subtitle_font">所归属的组织:</text>  
+</view>
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" class="inputborder">
+  <view class="xuanzheyuyue">
+    当前选择：{{multiArray[0][multiIndex[0]]}}
+    <!-- {{multiArray[1][multiIndex[1]]}} -->
+  </view>
+  </picker>
+       <!-- 活动时间 -->
+<view>
+       <!-- 起始时间 -->
+  <view  class="subtitle">
+       <text class="subtitle_font">起始时间*</text>
+  </view>
+  <view class="inputborder">
+    <view class="StartDate" >
+      <picker mode="date" start="2017-09-01"  bindchange="bindDatechangeStart" >
+        <view>{{liststart}}<image src="../../icon/outline.png" class="_icon"></image></view>
+        
+      </picker>
+    </view>
+  </view>
+</view>
+
+<view>
+       <!-- 截止时间 -->
+<view class="subtitle">
+       <text class="subtitle_font">截止时间*</text>
+</view>
+<view class="inputborder">
+       <view class="eTime">
+    <picker mode="date" class="StartDate" start='{{liststart}}' bindchange="bindDatechangeEnd">
+      <view>{{listend}}<image src="../../icon/outline.png" class="_icon"></image></view>
+    </picker>
+       </view>
+</view>
+</view>
+
+       <!-- 活动地点 -->
+<view class="subtitle">
+       <text class="subtitle_font">活动地点*</text>
+</view>
+<view class="inputborder">
+       <view class="eTime">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+       <view class="xuanzheyuyue">
+              当前选择：{{array[index]}}
+       </view>
+    </picker>
+       </view>
+</view>
+<view class="inputborder">
+       <input type="text" placeholder="活动地点（必填*）" class="PnameInput" bindinput="huodongPlace"/>
+</view>  
+       <!-- 负责人 -->
+<view class="subtitle">
+       <text class="subtitle_font">负责人:</text>
+</view>
+       <!-- 负责人名字 -->
+<view class="inputborder">
+    <input type="text" placeholder="名字（必填*）" class="PnameInput" bindinput="fzrName"/>
+</view>
+       <!-- 负责人年级专业 -->
+<view class="inputborder">
+    <input type="text" placeholder="年级专业（必填*）" class="PnameInput" bindinput="fzrGrade"/>
+</view>
+       <!-- 负责人联系方式 -->
+<view class="inputborder">
+    <input type="number" placeholder="联系方式（必填*）" class="PnameInput" bindinput="fzrTelephone"/>
+</view>
+       <!-- 负责人电子邮箱 -->
+<view class="inputborder">
+    <input type="text" placeholder="电子邮箱（选填*）" class="PnameInput" bindinput="fzrMail"/>
+</view>  
+
+       <!-- 预计参与人数 -->
+<view class="subtitle">
+  <text class="subtitle_font">预计参与人数</text> 
+</view>
+<input type="text" placeholder="数量（必填*）" class="inputborder" bindinput="amount"/>
+
+       <!-- 项目内容阐述 -->
+<view class="subtitle">
+  <text class="subtitle_font">项目内容阐述</text> 
+</view>
+<input type="text" placeholder="简单阐述项目的具体内容" class="inputborder"  bindinput="briefContent"/>
+
+       <!-- 活动经费预算 -->
+<view class="subtitle">
+       <text class="subtitle_font">活动经费预算:</text>
+</view>
+<!-- 预算金额部分 -->
+<view class="inputborder">
+<input type="text" placeholder="合计：xx元" bindinput="ysTotal" class="PnameInput"/>
+</view>
+<view class="inputborder">
+<input type="text" placeholder="自筹数：xx元" bindinput="yssTotal" class="PnameInput"/>
+</view>
+<view class="inputborder">
+<input type="text" placeholder="申请拨款数：xx元" bindinput="ysbTotal" class="PnameInput"/>
+</view>
+
+
+
+
+
+<!-- 是否有赞助 -->
+<view class="inputborder">
+    <view class="Pname">是否有赞助 <view class="xiaozi">*</view> </view>
+    <view>
+    <radio-group bindchange="radioChange2">
+      <label wx:for="{{itens}}" wx:key="index" class="Pnamechoose">
+        <view>
+          <radio value="{{item.value}}"/>
+        </view>
+        <view>{{item.name}}</view>
+      </label>
+    </radio-group>
+    </view>
+    <view hidden="{{displays}}">
+      <view class="Pname">赞助相关信息 <view class="xiaozi">*</view> </view>
+      <input type="text" placeholder="赞助公司(必填)" class="inputborder" bindinput="Company"/>
+      <input type="text" placeholder="赞助形式" class="inputborder" bindinput="Form"/>
+      <input type="number" placeholder="赞助金额(必填)" class="inputborder" bindinput="Money"/>
+      <!-- 选择是否已经提交合同 -->
+      <view class="Pname">是否已经提交合同 <view class="xiaozi">*</view></view>
+      <radio-group bindchange="radioChange2plus">
+      <label wx:for="{{contractItens}}" wx:key="index" class="Pnamechoose">
+        <view>
+          <radio value="{{item.value}}"/>
+        </view>
+        <view>{{item.name}}</view>
+      </label>
+      </radio-group>
+  <!-- <button bindtap="chooseImgs" type="primary" plain class="Button">点击上传协议</button> -->
+  <!-- <text>{{xieyi}}</text>
+  <image src="{{xieyi}}"></image> -->
+  </view>
+</view>
+
+<view class="inputborder">
+  <view class="Pname2">是否需要借款 
+  <view class="xiaozi">*</view> 
+  </view>
+  <view>
+    <radio-group bindchange="radioChange">
+      <label wx:for="{{items}}" wx:key="index" class="Pnamechoose">
+        <view>
+          <radio value="{{item.value}}"/>
+        </view>
+        <view>{{item.name}}</view>
+      </label>
+    </radio-group>
+  </view>   
+
+
+<!-- 勾选需要借款 -->
+<view hidden="{{display}}">
+
+    <view class="Pname2">借款人信息填写</view>
+    <input type="text" placeholder="借款人*"  bindinput="jkrName" class="inputborder"/>
+
+    <input type="text" placeholder="专业*" class="inputborder" bindinput="jkrGrade"/>
+
+    <input type="text" placeholder="年纪*" class="inputborder" bindinput="jkrAge"/>
+
+    
+    <input type="number" placeholder="联系电话*" class="inputborder" bindinput="jkrTelephone"/>
+
+    <input type="number" placeholder="借款金额*" class="inputborder" bindinput="jkrMoney"/>
+
+</view>
+
+</view> 
+
+<!-- 是否需要发放劳务费 -->
+<view class="inputborder">
+  <view class="Pname">是否需要申请发放教师的劳务费</view><view class="xiaozi">*</view>
+  <view class="xiaozi">（劳务申请表需提交两周提交）</view>
+  <view>
+    <radio-group bindchange="radioChange3">
+      <label wx:for="{{itemslwf}}" wx:key="index" class="Pnamechoose">
+        <view>
+          <radio value="{{item.value}}"></radio>
+        </view>
+        <view>{{item.name}}</view>
+      </label>
+    </radio-group>
+  </view>
+  <view hidden="{{displaylwf}}">
+    <view class="subtitle"> 
+    <text class="Pname">劳务费申请事项填写</text>
+    </view>
+    <input type="text" placeholder="发放对象填写"  bindinput="lwfDuix" class="inputborder"/>
+    <input type="number" placeholder="申请金额"  bindinput="lwfMoney" class="inputborder"/>
+  </view>
+
+</view>
+
+
+
+
+
+
+<!-- 预约信息填写 -->
+<!-- <view class="subtitle">
+       <text class="subtitle_font">预约信息填写:</text>  
+</view>
+
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" class="inputborder">
+  <view class="xuanzheyuyue">
+    当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+  </view>
+  </picker> -->
+
+    <!-- <view class="subtitle">
+       <text class="subtitle_font">预约开始时间*</text>
+    </view>
+    <view class="inputborder">
+      <picker mode="date" class="StartDate"  bindchange="bindDatechangeYuyue1">
+        <view>{{listyuyue1}}<image src="../../icon/outline.png" class="_icon"></image>
+        </view>
+      </picker>
+    </view>
+    
+    <view class="subtitle">
+       <text class="subtitle_font">预约截止时间*</text>
+    </view>
+    <view class="inputborder">
+      <picker mode="date" class="StartDate" start='{{listyuyue1}}' bindchange="bindDatechangeYuyue2">
+        <view>{{listyuyue2}}<image src="../../icon/outline.png" class="_icon"></image>
+        </view>
+      </picker>
+    </view>
+
+<view class="subtitle">
+    <view class="Pname"><text class="subtitle_font">预约事项备注</text></view>
+</view>
+<input type="text" placeholder="选填" class="inputborder" bindinput="huodongBeizhu"/> -->
+
+
+ 
+<view class="inputborder">
+    <view class="Pname">是否需要上传至OA <view class="xiaozi">*</view></view>
+    <view>
+    <radio-group bindchange="radioChange4">
+      <label wx:for="{{itemsoa}}" wx:key="index" class="Pnamechoose">
+        <view>
+          <radio value="{{item.value}}"/>
+        </view>
+        <view>{{item.name}}</view>
+      </label>
+    </radio-group>
+    </view>
+  </view>
+
+  <button bindtap="submit" >提交</button> 

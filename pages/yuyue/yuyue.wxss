@@ -1,0 +1,35 @@
+.Pnamechoose{
+  margin: 40rpx 0 40rpx 0;
+  display: flex;
+  width: 50%;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  text-align: center;
+  display: inline-block;
+  display: space;
+}
+.xiaozi{
+  font-size: x-small;
+  color: red;
+  display: inline-block;
+}
+.inputborder{
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right:20px;
+  margin-bottom: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 15px;
+  padding-right:15px;
+  border-radius: 30px;
+  border: 1px solid #F2E6E6;
+}
+button{
+  border-radius: 80rpx;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color:#FFFFFF;
+  background-color: #D43030;
+  box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
+}

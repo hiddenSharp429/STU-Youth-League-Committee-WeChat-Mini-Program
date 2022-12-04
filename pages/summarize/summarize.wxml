@@ -1,0 +1,85 @@
+<view class="sever"placeholder-class="placeholder-style">
+<!-- bindinput 为文本框绑定输入事件 -->  
+       <view> 
+              <text class="subtitle_font">
+                     1.活动实际参与人数:
+              </text>
+              <input type="number"  confirm-type="next" bindinput='atvmemberInput1' 
+              placeholder="必填"
+              class="atvmember"
+              placeholder-class="placeholder-style">
+              </input>
+       </view>
+       <view class="content">
+              <text class="subtitle_font">
+                     2.满意度调查情况：
+              </text>
+              <button bindtap="chooseFile" class='shangchuan' >上传附件调查表
+              </button>
+       
+       </view>
+        <view class="content">
+              <text class="subtitle_font">
+                     3.项目资金实际情况
+              </text>
+              <!-- 总价（必填*） -->
+            <input placeholder="总价（必填*）" type="number" bindinput='atvmoneyInput1' class="atvmoney"
+              placeholder-class="placeholder-style" >
+            总额输入
+            </input>
+            <!-- 实际赞助金额 -->
+            <input placeholder="实际赞助金额" type="number" bindinput='atvmoneyInput2' class="atvmoney"
+              placeholder-class="placeholder-style" >
+            总额输入
+            </input>
+            <!-- 实际申请拨款金额 -->
+            <input placeholder="实际申请拨款金额" type="number" bindinput='atvmoneyInput3' class="atvmoney"
+              placeholder-class="placeholder-style" >
+            总额输入
+            </input>
+            <button bindtap="chooseFile" class="shangchuan">附件细项<text>*</text>
+            </button>
+        </view>
+<!-- //活动文件 -->
+        <view class="content">
+              <text class="subtitle_font">
+              4.活动文件（申报书，总结表，备忘录）：
+              </text>
+              <button bindtap="chooseFile" class='shangchuan' >上传活动文件表
+              </button>
+       
+       </view>
+<!-- 宣传报道链接 -->
+<!-- 这里的content1修改了content的距离bottom的值 -->
+       <view class="content1">
+              <text class="subtitle_font">
+              5.宣传报道链接
+              </text>
+              <block wx:for="{{lists}}" wx:key="{{index}}">
+                     <input class='atvmoney' data-id="{{index}}" placeholder="报道链接"  placeholder-class="placeholder-style" bindinput='bindlinkInput' data-name="link"></input>
+              </block> 
+                     <button class='add' bindtap='addList' style="width:40%">添加输入框</button>
+                     <button class='del' bindtap='delList' style="width:40%">删除输入框</button>
+              <text class="tips">
+              注：包括该活动有关的所有宣传报道
+              </text>
+       
+       </view>
+
+<!-- 办公自动化链接 -->
+       <view class="content1">
+              <text class="subtitle_font">
+              6.办公自动化链接
+              </text>
+              <block wx:for="{{lists1}}" wx:key="{{index}}">
+                     <input class='atvmoney' data-id="{{index}}" placeholder="请输入OA链接"  placeholder-class="placeholder-style" bindinput='bindlinkInput1' data-name="link"></input>
+              </block> 
+                     <button class='add' bindtap='addList1' style="width:40%">添加输入框</button>
+                     <button class='del' bindtap='delList1' style="width:40%">删除输入框</button>
+       
+       </view>
+</view>
+<view>
+<button bindtap="sever" class="submit" style="width:80% "><text class="sub" >提交</text></button>
+</view>
+

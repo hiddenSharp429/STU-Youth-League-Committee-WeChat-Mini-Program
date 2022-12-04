@@ -1,0 +1,6 @@
+<button bindtap="goApprovalLogin" class="button_location" style="width: 60%; height: 30%;"> 
+我要审批活动   
+</button>
+<button bindtap="goAppointmentLogin" class="Teacherbutton_location" style="width: 60%; height: 30%;"> 
+我要审批预约 
+</button>

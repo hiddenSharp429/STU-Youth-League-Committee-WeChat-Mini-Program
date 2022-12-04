@@ -1,0 +1,228 @@
+input{
+       border: 1px solid gray;
+       
+}
+/* 小标题位置 */
+.subtitle{
+       margin-left: 15px;
+       
+}
+/* 小标题内容 */
+.subtitle_font{
+       font-size: large;
+       font-weight: 400;
+       color: #D43C33;
+}
+/* 输入框 */
+.inputborder{
+       margin-top: 15px;
+       margin-left: 20px;
+       margin-right:20px;
+       margin-bottom: 15px;
+       padding-top: 3px;
+       padding-bottom: 3px;
+       padding-left: 15px;
+       padding-right:15px;
+       border-radius: 30px;
+       border: 1px solid #F2E6E6;
+}
+.Pname{
+  margin: 28rpx 0 12rpx 0;
+  font-weight: 900;
+  display: inline-block;
+}
+.PnameInput{
+  border: 1px solid white;
+  border-radius: 1%;
+  display: flex;
+  padding: 15rpx;
+  /* margin-top: 25rpx;
+  margin-left: 0%;
+  margin-right: 0%; */
+  margin: 20rpx 0 20rpx 0;
+}
+.sTime{
+  margin: 30rpx 0 30rpx 0;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background:gainsboro;
+}
+.StartDate{
+  font-size: larger;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right:15px ;
+  margin-right: 0px;
+  width: 95%;
+  
+}
+._icon{
+       height: 20px;
+       width: 20px;
+       float: right;
+       position: relative;
+       
+}
+.seView{
+  font-weight: 900;
+}
+.Onepart{
+  margin: 30rpx 0 30rpx 0;
+  font-weight: 900;
+  font-size: larger;
+}
+
+
+.PmainName{
+  margin-top: 40rpx;
+  background: silver;
+  display: flex;
+  font-size: larger;
+  height: 100rpx;
+  font-weight: 900;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+.xuanzheyuyue{
+  display: flex;
+  font-weight: 900;
+  font-size: large;
+  margin: 40rpx 0 40rpx 0;
+  justify-content: center;
+  align-items: center;
+}
+.Pnamechoose{
+  margin: 40rpx 0 40rpx 0;
+  display: flex;
+  width: 50%;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  text-align: center;
+  display: inline-block;
+  display: space;
+}
+.xiaozi{
+  font-size: x-small;
+  color: red;
+  display: inline-block;
+}
+.Pname2{
+  margin: 30rpx 0 0 0;
+  font-weight: 900;
+}
+.ButtonEnd{
+  margin-top: 80rpx;
+  margin-bottom: 80rpx;
+  
+}
+
+.btn1 {
+  color: white;
+  background-color: thistle;
+}
+.btn1:active{
+  background-color: rgb(224, 115, 64);
+}
+.lines{
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: row;
+}
+.in{
+  box-sizing: border-box;
+  width: 240rpx;
+  height: 100rpx;
+  background-color: wheat;
+}
+.choose{
+  margin-top: 20rpx;
+}
+
+button{
+  border-radius: 80rpx;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color:#FFFFFF;
+  background-color: #D43030;
+  box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
+}
+
+.title{
+  margin-top: 10px;
+    border: 5rpx solid #2c2421;
+   border-radius: 10rpx;
+     padding: 10rpx;
+     display: flex;    /*设置显示样式**/
+     vertical-align: center; /**垂直居中*/
+     justify-content: center; /**内容居中*/
+ }
+ radio-group{
+  margin-top: 10px;
+  justify-content: center; /**内容居中*/
+ }
+
+ .btn1 {
+  color: white;
+  background-color: thistle;
+}
+.btn1:active{
+  background-color: rgb(224, 115, 64);
+}
+.lines{
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: row;
+}
+.in{
+  box-sizing: border-box;
+  width: 240rpx;
+  height: 100rpx;
+  background-color: wheat;
+}
+.choose{
+  margin-top: 20rpx;
+}
+button{
+  border-radius: 80rpx;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color:#FFFFFF;
+  background-color: #D43030;
+  box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
+
+}
+.title{
+  margin-top: 10px;
+    border: 5rpx solid #2c2421;
+   border-radius: 10rpx;
+     padding: 10rpx;
+     display: flex;    /*设置显示样式**/
+     vertical-align: center; /**垂直居中*/
+     justify-content: center; /**内容居中*/
+ }
+ radio-group{
+  margin-top: 10px;
+  justify-content: center; /**内容居中*/
+ }
+
+ .wuzi{
+       /* margin-top: 15px;
+       margin-left: 20px;
+       margin-right:20px;
+       margin-bottom: 15px;
+       padding-top: 3px;
+       padding-bottom: 3px;
+       padding-left: 15px;
+       padding-right:15px;
+       border-radius: 30px;
+       border: 1px solid #F2E6E6; */
+       float:left;width:60%;font-size:32rpx;font-weight:bold;color:black;text-align:center;
+}
+
+.abc{
+       font-size: smaller;
+       border: #D43030;
+}

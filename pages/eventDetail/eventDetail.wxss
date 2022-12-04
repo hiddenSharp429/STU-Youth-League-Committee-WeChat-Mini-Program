@@ -1,0 +1,27 @@
+/* pages/eventDetail/eventDetail.wxss */
+.xiangqing{
+       display: grid;
+       font-size: large;
+       font-weight: 900;
+       margin: 20rpx 10rpx 20rpx 10rpx;
+}
+.inputborder{
+       margin-top: 15px;
+       margin-left: 20px;
+       margin-right:20px;
+       margin-bottom: 15px;
+       padding-top: 3px;
+       padding-bottom: 3px;
+       padding-left: 15px;
+       padding-right:15px;
+       border-radius: 30px;
+       border: 1px solid #F2E6E6;
+}
+
+/* 小标题内容 */
+.subtitle_font{
+       font-size: large;
+       font-weight: 400;
+       color: #D43C33;
+       margin-left: 20px;
+}

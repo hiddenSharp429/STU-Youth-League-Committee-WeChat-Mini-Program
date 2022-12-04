@@ -1,0 +1,154 @@
+   .mine_application{
+     margin-left: 15px;
+     margin-right: 15px;
+   }
+   .mine_application_title{
+     border-bottom: 5rpx solid #A6A6A6;
+     font-size: 28px;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   }
+   .box{
+          margin-bottom: 50px;
+   }
+   .mine_application_content{
+          height: 150px;
+          width: 100%;
+          display: flex;
+          position: relative;
+          box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.1);
+          margin-top: 15px;
+          border-radius: 15px;
+   }
+   .event{
+          font-size: 20px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          position: relative;
+          margin:15px;
+          width: 90%;
+          flex: 1;
+   }
+   .eventTime{
+          margin-top: 5px;
+          font-size: 14px;
+          color: #A0A9BD;
+   }
+   .state_0{
+          float: right;
+          width: 80px;
+          height: 40px;
+          background-color:#FFC300;
+          border-radius: 0 15px 0 15px;
+   }
+   .state_1{
+       width: 80px;
+       height: 40px;
+       background-color:#43CF7C;
+       border-radius: 0 15px 0 15px;
+       z-index: 2;
+}
+   .state_content{
+          position: relative;
+          margin-top:10px ;
+          margin-left: 15px;
+          font-size: 12;
+          color: white;
+   }
+   .button_detail{
+     background-color: white;
+     color:#727885;
+   }
+  .organization{
+       font-size: 15px;
+       color:#FF5733;
+       margin-top: 5px;
+  }
+  .goApprovalButton{
+       position: absolute;
+       bottom:0px ;
+       left: 0px;
+       color:#FFFFFF;
+       background-color:#FFFFFF;
+       border-top: 2px solid grey;
+       width: 25%;
+       height: 70px;
+       text-align:center;
+       margin-top: 10px;
+}
+.goPassButton{
+       position: absolute;
+       bottom:0px ;
+       left: 25%;
+       color:#FFFFFF;
+       background-color:#FFFFFF;
+       border-top: 2px solid grey;
+       width: 25%;
+       height: 70px;
+       text-align:center;
+       margin-top: 10px;
+}
+
+.goRejectButton{
+       position: absolute;
+       bottom:0px ;
+       left: 50%;
+       color:#FFFFFF;
+       background-color:#FFFFFF;
+       border-top: 2px solid grey;
+       width: 25%;
+       height: 70px;
+       text-align:center;
+       margin-top: 10px;
+       
+}
+.goEndingButton{
+       position: absolute;
+       bottom: 0px;
+       left: 75%;
+       color:#FFFFFF;
+       background-color: white;
+       border-top: 2px solid grey;
+       width: 25%;
+       height: 70px;
+       text-align:center;
+       margin-top: 10px;
+}
+.button_content{
+       font-size: 15px;
+       color: black;
+}
+
+.container{
+       position: relative;
+}
+
+.container_content{
+       position: relative;
+       min-height: 100vh;
+       box-sizing: border-box;
+       padding-bottom: 60rpx;
+       padding-top: 0rpx;
+}
+
+.tabar{
+       width: 100%;
+       text-align: center;
+       letter-spacing: 4rpx;
+       position: absolute;
+       bottom: 0;
+
+}
+
+.name{
+       font-size: 17px;
+       font-weight: 200;
+       color: #174099;
+}
+
+.next_location{
+       width:150px;
+       height:40px;
+       position: absolute;
+       z-index: 1;
+       bottom: 0px;
+       right: 0px;
+}

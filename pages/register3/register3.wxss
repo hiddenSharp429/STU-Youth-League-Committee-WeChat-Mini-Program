@@ -1,0 +1,53 @@
+.content{
+            position: absolute;
+            color: #000;
+            background: #ffc;
+            width: 80%;
+            height: 500px;
+            box-shadow: 8px 10px 10px rgba(33, 33, 33, .7);
+            margin-top: 30%;
+            margin-left: 10%;
+       
+}
+
+.title{
+       border-bottom: 5px solid #A6A6A6; 
+       font-size: 28px;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       padding-top: 10px;
+       padding-left: 30%;
+}
+
+
+.main_content{
+       font-size: 30px;
+       font-family:Georgia, ‘Times New Roman’, Times, serif;
+       padding-left: 25px;
+       padding-right: 25px;
+       padding-top: 60px;
+}
+
+.postil{
+       position: relative;
+       font-size: 15px;
+       padding-left: 25px;
+       padding-right: 25px;
+       top: 30%;
+       color: red;
+}
+.box{
+       height: 100%;
+       background-color: rosybrown;
+}
+.background{
+       width: 112%;
+       height: 100%;
+       position: absolute;
+       z-index: -999;
+}
+.return{
+       z-index: 999;
+       position: absolute;
+       top: 5%;
+       left: 5%;
+}

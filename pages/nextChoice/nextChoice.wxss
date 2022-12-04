@@ -1,0 +1,16 @@
+.Teacherbutton_location{
+       margin-top: 10px;
+       border-radius: 80rpx;
+       color:black;
+       background-color: #FFFFFF;
+       box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.15);
+
+    }
+    .button_location{
+       border-radius: 80rpx;
+       margin-top: 55%;
+       color:#FFFFFF;
+       background-color: #D43030;
+       box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
+
+   }

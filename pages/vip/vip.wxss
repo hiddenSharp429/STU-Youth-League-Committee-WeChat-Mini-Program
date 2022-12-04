@@ -1,0 +1,190 @@
+/* 底部弹出timeModel按钮 */
+page{font-size: 11pt}
+.showBtn {
+    position: absolute;
+    bottom: 20rpx;
+    width: 100%;
+}
+
+/* 是否显示 */
+.modal_show {
+    display: block;
+}
+.modal_hide {
+    display: none;
+}
+
+/* 日期弹出框 */
+.modal {
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* 背景模板*/
+.modal_cancel {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+/* 弹出框主体 */
+.modal_container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background: #fff;
+}
+
+/* modal_header */
+.modal_header {
+    padding: 20rpx;
+    text-align: center;
+    font-size: 11pt;
+}
+/* header_tip */
+.header_tip {
+    position: relative;
+    font-size: 9pt;
+    color: #999;
+}
+
+/* time日期主体view */
+.time {
+    background: #f7f7f7;
+    text-align: center;
+    font-size: 11pt;
+}
+/* time日期主体滚动view */
+.time_scroll {
+    white-space: nowrap;
+    width: 100%;
+    height:100rpx;
+    line-height:50rpx;
+}
+
+.scroll-view-item {
+    height: 100rpx;
+}
+/* 日期 */
+.scroll_item {
+    display: inline-block;
+    padding: 0 40rpx;
+    height: 100rpx;
+    box-sizing: border-box;
+}
+
+/* time_active选择状态 */
+.time_active {
+    color: #159de3;
+    border-bottom: 4rpx solid #159de3;
+}
+
+/* 时间 */
+.hour {
+    padding: 20rpx 0 0 20rpx;
+}
+
+.hour_item {
+    width: 22%;
+    box-sizing: border-box;
+    height: 70rpx;
+    line-height: 70rpx;
+    border-radius: 10rpx;
+    text-align: center;
+    float: left;
+    border: 2rpx solid #eee;
+    font-size: 11pt;
+    margin-right: 3%;
+    margin-bottom: 20rpx;
+}
+
+/* hour_active*/
+
+.hour_active {
+    background: #159de3;
+    color: #fff;
+    border: 2rpx solid #159de3;
+}
+
+/* hour_unactive */
+
+.hour_unactive {
+    color: #999;
+}
+
+/* 小标题位置 */
+.subtitle{
+       margin-left: 15px;
+       
+}
+/* 小标题内容 */
+.subtitle_font{
+       font-size: large;
+       font-weight: 400;
+       color: #D43C33;
+}
+/* 输入框 */
+.inputborder{
+       margin-top: 15px;
+       margin-left: 20px;
+       margin-right:20px;
+       margin-bottom: 15px;
+       padding-top: 3px;
+       padding-bottom: 3px;
+       padding-left: 15px;
+       padding-right:15px;
+       border-radius: 30px;
+       border: 1px solid #F2E6E6;
+}
+.inputborder1{
+       margin-top: 15px;
+       margin-left: 20px;
+       margin-right:20px;
+       margin-bottom: 15px;
+       padding-top: 3px;
+       padding-bottom: 3px;
+       padding-left: 15px;
+       padding-right:15px;
+       border-radius: 30px;
+       border: 1px solid #F2E6E6;
+       height: 40px;
+}
+.xuanzheyuyue{
+       display: flex;
+       font-weight: 900;
+       font-size: large;
+       margin: 40rpx 0 40rpx 0;
+       justify-content: center;
+       align-items: center;
+     }
+.xuanzheyuyue1{
+       display: flex;
+       font-weight: 900;
+       font-size: large;
+       margin-top: 10px;
+       justify-content: center;
+       align-items: center;
+     }
+/* 批注的css */
+.comment{
+       font-size: medium;
+       font-weight: 400;
+       color: black;
+}
+/* 批注的css */
+.comment_subtitle{
+       margin-left: 15px;
+       margin-right:15px ;
+       margin-bottom: 15px;
+}
+button{
+       border-radius: 80rpx;
+       color:#FFFFFF;
+       background-color: #D43030;
+       box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
+     }

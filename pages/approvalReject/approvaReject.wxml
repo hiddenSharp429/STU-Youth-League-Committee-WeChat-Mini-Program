@@ -1,0 +1,67 @@
+<!-- 采用的是flexbos布局 -->
+<view class="container">
+       <view class="container_content">
+              <view class="box">
+                     <view class="mine_application">
+                     <!-- 活动标题 -->
+                            <view class="mine_application_title">
+                            已审批的活动
+                     </view>
+                     <block wx:for="{{list}}"></block>
+                     <!-- 活动内容 点击可跳转至详情页面 -->
+                     <view class="mine_application_content" wx:for="{{list}}" >
+                                   <view class="event" bindtap="goDetail" data-id="{{item._id}}">
+                                          <view class="">{{item.a1_huodongName}}</view>
+                                          <view class="eventTime">{{item.a2_startTime}}</view>
+                                          <view class='organization'>{{item.g1_orderInstitute}}</view>
+                                          <view class="name">{{item.b1_fzrName}}</view>
+                                   </view>
+                                   <!-- 右上角的状态栏 -->
+                                   <!-- 用条件渲染来展示多种样式的活动内容 -->
+                                   <!-- 状态为3代表已结束，2为已驳回，1为已通过，0为审核中 -->
+                                   <block wx:if="{{item.state==1}}">
+                                   <!-- 已通过 -->
+                                   <view class="state_1">
+                                   <view class="state_content">已通过</view>
+                                   </view>
+                                   <!-- 活动下方的小点 -->
+                                   <image src="../../icon/green.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
+                                   </block>
+                                   
+                                   <block wx:if="{{item.state==2}}">
+                                   <!-- 已驳回 -->
+                                   <view class="state_2">
+                                   <view class="state_content">已驳回</view>
+                                   </view>
+                                   <!-- 活动下方的小点 -->
+                                   <image src="../../icon/red.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
+                                   <view class="reject_location">
+                                   <button class="button_detail" size="mini" bindtap="goDetail" data-id="{{item._id}}">驳回详情 >
+                                   </button>
+                                   </view>
+                                   </block>
+                     </view>
+
+                     </view>
+                     <!-- 简易导航栏 -->
+                     <view class="tabar">
+                                   <view class='goApprovalButton' bindtap="goApprovalPage">
+                                                 <image src="../../icon/approval(1).png" style="width: 40px; height: 40px; margin-top: 5px;"></image>
+                                                 <view class="button_content">待审批</view>
+                                          </view>
+                                          <view class="goPassButton" bindtap="goPassPage">
+                                                 <image src="../../icon/pass(1).png" style="width: 40px; height: 40px; margin-top: 5px;"></image>
+                                                 <view class="button_content">已通过</view>
+                                          </view>
+                                          <view class="goRejectButton" bindtap="goRejectPage">
+                                                 <image src="../../icon/reject.png" style="width: 40px; height: 40px; margin-top: 5px;"></image>
+                                                 <view class="button_content">已驳回</view>
+                                          </view>
+                                          <view class="goEndingButton" bindtap="goEndingPage">
+                                                 <image src="../../icon/end(1).png" style="width: 40px; height: 40px; margin-top: 5px;"></image>
+                                                 <view class="button_content">已结束</view>
+                                          </view>
+                     </view>
+              </view>
+       </view>
+</view>
