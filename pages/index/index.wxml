@@ -3,55 +3,91 @@
   <view class="userinfo">
     <!-- 活动 -->
     <view class="mine_application">
-    <!-- 活动标题 -->
-       <view class="mine_application_title">
-       我发起的活动<image src="../../icon/backaround.png" style="width: 40px; height: 40px;position: relative; left: 140px; top: 7px;" bindtap="back"></image>
+      <!-- 活动标题 -->
+      <view class="mine_application_title">
+        我发起的活动<image src="../../icon/backaround.png" style="width: 80rpx; height: 80rpx;float: right;" bindtap="back"></image>
+        <view class="comment"> 共{{totalRecord}}条记录</view>
       </view>
-      <block wx:for="{{infor}}"></block>
-      <!-- 活动内容 点击可跳转至详情页面 -->
-      <view class="mine_application_content" wx:for="{{imfor}}" >
-              <view class="event" bindtap="goDetail" data-id="{{item._id}}">
-                     <view class="">{{item.a1_huodongName}}</view>
-                     <view class="eventTime">{{item.a2_startTime}}</view>
-              </view>
-              <!-- 右上角的状态栏 -->
-              <!-- 用条件渲染来展示多种样式的活动内容 -->
-              <!-- 状态为3代表已结束，2为已驳回，1为已通过，0为审核中 -->
-              <block wx:if="{{item.state==0}}">
-              <!-- 审核中 -->
-              <view class="state_0">
+      <view style="min-height: 1000rpx;">
+        <view wx:if="{{ item == 0}}">
+          <image src="https://s2.loli.net/2023/02/13/sm2ftjSYgD5QTr7.png" class="noData"></image>
+          <view class="tip">很抱歉，暂无活动记录哦</view>
+        </view>
+        <!-- 活动内容 点击可跳转至详情页面 -->
+        <view class="mine_application_content" wx:for="{{imfor}}">
+          <view class="event" bindtap="goDetail" data-id="{{item._id}}" data-user="stu" data-type="1">
+            <view>活动名称：{{item.a1_huodongName}}</view>
+            <view class="eventTime">活动开始时间：{{item.a2_startTime}}</view>
+          </view>
+          <!-- 右上角的状态栏 -->
+          <!-- 用条件渲染来展示多种样式的活动内容 -->
+          <!-- 状态为3代表已结束，2为已驳回，1为已通过，0为审核中 -->
+          <block wx:if="{{item.state==0}}">
+            <!-- 审核中 -->
+            <view class="state_0">
               <view class="state_content">审核中</view>
-              </view>
-              <!-- 活动下方的小点 -->
-              <image src="../../icon/yellow.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
-              </block>
+            </view>
+            <!-- 活动下方的小点 -->
+            <image src="../../icon/yellow.png" style="width: 22rpx;height: 22rpx;position: absolute;left: 30rpx;bottom: 30rpx;"></image>
+          </block>
 
-              <block wx:if="{{item.state==1}}">
-              <!-- 已通过 -->
-              <view class="state_1">
+          <block wx:if="{{item.state==1}}">
+            <!-- 已通过 -->
+            <view class="state_1">
               <view class="state_content">已通过</view>
-              </view>
-              <!-- 活动下方的小点 -->
-              <image src="../../icon/green.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
-              <view class="next_location" >
-              <button class="button_detail" size="mini" bindtap="goending" data-id="{{item._id}}">活动总结 >
+            </view>
+            <!-- 活动下方的小点 -->
+            <image src="../../icon/green.png" style="width: 22rpx;height: 22rpx;position: absolute;left: 30rpx;bottom: 30rpx;"></image>
+            <view class="next_location">
+              <button class="button_detail" size="mini" bindtap="goending" data-id="{{item._id}}">
+                <view class="button_content">
+                  活动总结 >
+                </view>
               </button>
-              </view>
-              </block>
-              
-              <block wx:if="{{item.state==2}}">
-              <!-- 已驳回 -->
-              <view class="state_2">
+            </view>
+          </block>
+
+          <block wx:if="{{item.state==2}}">
+            <!-- 已驳回 -->
+            <view class="state_2">
               <view class="state_content">已驳回</view>
+            </view>
+            <!-- 活动下方的小点以及驳回理由 -->
+            <view style="height: 60rpx; position: absolute; bottom: 0px; width: 100%;">
+              <image src="../../icon/red.png" style="width: 22rpx; height: 22rpx; margin-left: 30rpx;"></image>
+              <view style="text-align: center; font-size: 30rpx; float: right; margin-right: 40rpx; height: 60rpx; color: brown;">
+                驳回理由：{{item.rejectReason}}
               </view>
-              <!-- 活动下方的小点 -->
-              <image src="../../icon/red.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
-              <view class="reject_location">
-              <button class="button_detail" size="mini" bindtap="goDetail" data-id="{{item._id}}">驳回详情 >
-              </button>
-              </view>
-              </block>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view wx:if="{{ item != 0}}" class="paging" style="width: 100%; height: 60rpx; position: relative; bottom: 0; text-align: center; margin-top: 30rpx;">
+        <view style="width: 280rpx; margin-left: 190rpx; height: 60rpx;">
+          <view style="height: 60rpx; background-color: #ececea;; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="lastPage">
+            <van-icon name="arrow-left" />
+          </view>
+          <view style="height: 60rpx; background-color:	#666666; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx; color: cornsilk;">
+            {{currentPage}}
+          </view>
+          <view style="height: 60rpx; background-color:#ececea; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="nextPage">
+            <van-icon name="arrow" />
+          </view>
+        </view>
       </view>
     </view>
   </view>
 </view>
+
+
+<van-popup show="{{ popShow }}" position="top" custom-style="height: 200rpx;" round>
+  <view class="loadingBox" style="margin-top: 100rpx;">
+    <view class="loader-dots">
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+</van-popup>

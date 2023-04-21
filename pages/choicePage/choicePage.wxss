@@ -1,16 +1,96 @@
-.Teacherbutton_location{
-       margin-top: 10px;
-       border-radius: 80rpx;
-       color:black;
+text{
+       padding-right: 10px;
+}
+.loginHead{
+       width: 100%;
+       height: 160rpx;
+}
+.cross{
+       float: right;
+       width: 160rpx;
+       height: 120rpx;
+       padding-top: 40rpx;
+       padding-right: 40rpx;
+}
+/* 团团图片样式 */
+.tuantuan{
+       width: 160rpx;
+       height: 120rpx;
+       padding-top: 40rpx;
+       padding-left: 40rpx;
+}
+.loginBody{
+       width: 100%;
+       height: 700rpx;
+}
+.loginFeet{
+       width: 100%;
+       height: 300rpx;
+}
+   /* 遮罩层内嵌盒子包装层 */
+.wrapper {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       height: 100%;
+     }
+/* 遮罩层内嵌盒子内容层 */
+.login{
        background-color: #FFFFFF;
+       width: 600rpx;
+       height: 1200rpx;
+       border-radius: 40rpx;
+}
+/* 输入账号的input */
+.inputborder1{
+       margin-left: 40rpx;
+       margin-right:40rpx;
+       margin-bottom: 30rpx;
+       padding-top: 30rpx;
+       padding-bottom: 30rpx;
+       padding-left: 30rpx;
+       padding-right:30rpx;
+       border-radius: 20rpx;
+       border: 2rpx solid #F2E6E6;
        box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.15);
+}
+/* 输入密码的input */
+.inputborder2{
+       margin-left: 40rpx;
+       margin-right:40rpx;
+       margin-bottom: 30rpx;
+       padding-top: 30rpx;
+       padding-bottom: 30rpx;
+       padding-left: 30rpx;
+       padding-right:30rpx;
+       border-radius: 20rpx;
+       border: 2rpx solid #F2E6E6;
+       box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.15);
+}
+/* button在wxss里面修改不了宽度和高度，故在wmxl里面添加style属性来实现 */
+.loginButton{
+       position: relative;
+       padding-top: 100rpx;
+     }
 
-    }
-    .button_location{
-       border-radius: 80rpx;
-       margin-top: 55%;
-       color:#FFFFFF;
-       background-color: #D43030;
-       box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
-
-   }
+.goRegister{
+       position: relative;
+       top: 5rpx;
+       float: right; 
+       right: 40rpx; 
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.goRetrieve{
+       position: relative;
+       top: 5rpx; 
+       left: 40rpx;
+       float: left; 
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.client-side{
+       width: 120rpx;
+       height: 80rpx;
+       float: right;
+       margin-top:10rpx ;
+       margin-right:20rpx;
+}

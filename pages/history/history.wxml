@@ -1,41 +1,72 @@
 <view class="container">
   <view class="userinfo">
-              <view class="mine_application">
-                     <view class="mine_application_title">
-       已经结束的活动
-                     </view>
-                            
-                     <view class="mine_application_content" wx:for="{{list}}">
-                            <view class="event" bindtap="goDetail" data-id="{{item._id}}"> 
-                                   <view>{{item.a1_huodongName}}</view>
-                                   <view class="eventTime"> {{item.a2_startTime}}</view>
-                            </view>
-             <!-- 状态为4为活动总结报告已审批，3为已提交活动总结报告 -->
-             <block wx:if="{{item.state==3}}">
-              <!-- 已通过 -->
-              <view class="state_1">
+    <view class="mine_application">
+      <view class="mine_application_title">
+        已经结束的活动<image src="../../icon/backaround.png" style="width: 80rpx; height: 80rpx;float: right;" bindtap="back"></image>
+        <view class="comment"> 共{{totalRecord}}条记录</view>
+      </view>
+      <view style="min-height: 1000rpx;">
+        <view wx:if="{{ item == 0}}">
+          <image src="https://s2.loli.net/2023/02/13/sm2ftjSYgD5QTr7.png" class="noData"></image>
+          <view class="tip">很抱歉，暂无活动记录哦</view>
+        </view>
+        <view class="mine_application_content" wx:for="{{list}}">
+          <view class="event" bindtap="goDetail" data-id="{{item._id}}" data-user="stu" data-type="1">
+            <view>活动名称：{{item.a1_huodongName}}</view>
+            <view class="eventTime"> 活动起始时间：{{item.a2_startTime}}</view>
+          </view>
+          <!-- 状态为4为活动总结报告已审批，3为已提交活动总结报告 -->
+          <block wx:if="{{item.state==3}}">
+            <!-- 已通过 -->
+            <view class="state_1">
               <view class="state_content">已通过</view>
-              </view>
-              <!-- 活动下方的小点 -->
-              <image src="../../icon/green.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
-              <view class="next_location">
-                     <button class="button_detail" size="mini">
-                     <view>
-                     活动总结审核中..
-                     </view>
-                     </button>
-               </view>
-              </block>
-              
-              <block wx:if="{{item.state==4}}">
-              <!-- 活动报告已审批通过 -->
-              <view class="state_4">
+            </view>
+            <!-- 活动下方的小点 -->
+            <image src="../../icon/green.png" style="width: 22rpx;height: 22rpx;position: absolute;left: 30rpx;bottom: 30rpx;"></image>
+            <view class="next_location">
+              <button class="button_detail" size="mini">
+                <view class="button_content">
+                  活动总结审核中..
+                </view>
+              </button>
+            </view>
+          </block>
+
+          <block wx:if="{{item.state==4}}">
+            <!-- 活动报告已审批通过 -->
+            <view class="state_4">
               <view class="state_content">已结束</view>
-              </view>
-              <!-- 活动下方的小点 -->
-              <image src="../../icon/grey.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
-              </block>
-                     </view>
-              </view>
+            </view>
+            <!-- 活动下方的小点 -->
+            <image src="../../icon/grey.png" style="width: 22rpx;height: 22rpx;position: absolute;left: 30rpx;bottom: 30rpx;"></image>
+          </block>
+        </view>
+      </view>
+      <view wx:if="{{ item != 0}}" class="paging" style="width: 100%; height: 60rpx; position: relative; bottom: 0; text-align: center; margin-top: 30rpx;">
+        <view style="width: 280rpx; margin-left: 190rpx; height: 60rpx;">
+          <view style="height: 60rpx; background-color: #ececea;; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="lastPage">
+            <van-icon name="arrow-left" />
+          </view>
+          <view style="height: 60rpx; background-color:	#666666; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx; color: cornsilk;">
+            {{currentPage}}
+          </view>
+          <view style="height: 60rpx; background-color:#ececea; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="nextPage">
+            <van-icon name="arrow" />
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
+
+<van-popup show="{{ popShow }}" position="top" custom-style="height: 200rpx;" round>
+  <view class="loadingBox" style="margin-top: 100rpx;">
+    <view class="loader-dots">
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+</van-popup>

@@ -9,6 +9,7 @@ let url =""
 var id = ''
 Page({
        data: {
+       type:"",
        lists:[{
               link:''
        }],
@@ -28,7 +29,7 @@ Page({
        },
        onLoad(option){
               console.log("列表所携带的信息",option)
-            id = option.id
+              id = option.id
               wx.cloud.database().collection("summaries")
              
               },
@@ -95,37 +96,42 @@ Page({
               }) 
        },
        
-       sever(e){
-             
+       sever(e){  
+       let that = this 
        //判断提交的活动总结是否合理
-       
               //启用数据库中的活动集合（为了到时候提交把新的数据更新到huoDong里）
-              db.collection("huoDong")
-              .doc(id)
-              .update({
-                     data:{
-                      practicalMember:atvmember, 
-                      practicalTotalMoney:atvmoney1,
-                      practicalSponsorship:atvmoney2,
-                      practicalApMoney:atvmoney3,
-                      publicityLink:this.data.lists,
-                      oaLink:this.data.lists1,
-                      state: 3
-                     }
-              })
-              .then(res => {
-                     if(atvmember ==''||atvmoney1 ==''){
-                            wx.showToast({
-                                   title:"漏填信息",
-                                   icon:'none',
-                                   duration:1500
-                            })
+              wx.requestSubscribeMessage({
+                     tmplIds: ['KSfQkKmnbmBt6KhiRrKKQMXf5yK6nuQTVt8JbdxmLHk'],
+                     success (res) { 
                             
-                     }
+                     },
+                     complete(){
+                            db.collection("huoDong")
+                     .doc(id)
+                     .update({
+                            data:{
+                            practicalMember:atvmember, 
+                            practicalTotalMoney:atvmoney1,
+                            practicalSponsorship:atvmoney2,
+                            practicalApMoney:atvmoney3,
+                            publicityLink:that.data.lists,
+                            oaLink:that.data.lists1,
+                            state: 3
+                            }
+                     })
+                     .then(res => {
+                            if(atvmember ==''||atvmoney1 ==''){
+                                   wx.showToast({
+                                          title:"漏填信息",
+                                          icon:'none',
+                                          duration:1500
+                                   })
+                                   
+                            }
                             else{
                             wx.showModal({
                                    title:'提交成功！',
-                                   content:'。。。',
+                                   content:'',
                                    showCancel:false,
                                    confirmText:'确定',
                                    cancelText:'取消',
@@ -134,28 +140,30 @@ Page({
                             //上传数据成功后跳转到“我的”界面
                             wx.switchTab({
                                    url: '../index/index',
-                                 })
+                            })
                             .then(()=>{
                                    wx.startPullDownRefresh()
-                                })
-                     }
-              })
-              .catch(err=>{
-                     console.log("添加失败",err);
-                     wx.showToast({
-                            title:"提交失败",
-                            icon:'none',
-                            duration:1500
+                            })
+                            }
                      })
-                   })
-              
-
-              
-       
+                     .catch(err=>{
+                            console.log("添加失败",err);
+                            wx.showToast({
+                                   title:"提交失败",
+                                   icon:'none',
+                                   duration:1500
+                            })
+                     })
+              }
+              })
        },
 
       //第一步：选择文件
-       chooseFile(){
+       chooseFile(e){
+       console.log("需要上传的文件类型是",e.currentTarget.dataset.type)
+       this.setData({
+              type:e.currentTarget.dataset.type
+       })
        let that = this
        wx.chooseMessageFile({
          count: 1,
@@ -170,21 +178,60 @@ Page({
      },
      //第二步：通过uploadFile上传选中的文件
        uploadFile(fileName,tempFile){
-       wx.cloud.uploadFile({
-         cloudPath:fileName,
-         filePath:tempFile,
-       })
-     .then(res=>{
-       console.log("上传成功啦",res);
-       wx.showToast({
-         title: '文件上传成功',
-         icon:"success",
-         duration:2000
-       })
-     })
-     .catch(err=>{
-       console.log("上传失败啦",err);
-     })
+       if(this.data.type == "sati"){
+              console.log("将要执行sati代码")
+              wx.cloud.uploadFile({
+                     cloudPath:"satifactionSurvey/"+fileName,
+                     filePath:tempFile,
+                   })
+              .then(res=>{
+              console.log("上传成功啦",res);
+              wx.showToast({
+                     title: '文件上传成功',
+                     icon:"success",
+                     duration:2000
+              })
+              })
+              .catch(err=>{
+              console.log("上传失败啦",err);
+              })
+       }
+       if(this.data.type == "fund"){
+              console.log("将要执行fund代码")
+              wx.cloud.uploadFile({
+                     cloudPath:"fund/"+fileName,
+                     filePath:tempFile,
+                   })
+              .then(res=>{
+              console.log("上传成功啦",res);
+              wx.showToast({
+                     title: '文件上传成功',
+                     icon:"success",
+                     duration:2000
+              })
+              })
+              .catch(err=>{
+              console.log("上传失败啦",err);
+              })
+       }
+       if(this.data.type == "acti"){
+              console.log("将要执行acti代码")
+              wx.cloud.uploadFile({
+                     cloudPath:"activity's file/"+fileName,
+                     filePath:tempFile,
+                   })
+              .then(res=>{
+              console.log("上传成功啦",res);
+              wx.showToast({
+                     title: '文件上传成功',
+                     icon:"success",
+                     duration:2000
+              })
+              })
+              .catch(err=>{
+              console.log("上传失败啦",err);
+              })
+       }
      },
 
      uploadImage(fileURL){

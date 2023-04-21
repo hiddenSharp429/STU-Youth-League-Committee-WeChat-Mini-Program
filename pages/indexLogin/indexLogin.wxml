@@ -1,8 +1,0 @@
-<view class="title">
-       <view class="title_font">用户端登录界面</view>
-</view>
-<view class="headline"><text decode="true">登&nbsp;&nbsp;录</text></view>
-<input bindinput="getAccount" class="inputborder1" placeholder="输入账号"></input>
-<input bindinput="getPassword" class="inputborder2" placeholder="输入密码"> </input>
-<view bindtap="goRegister" class="goRegister">还没有注册账号?</view>
-<button bindtap="enterApproval" style="width: 88%;">登录</button>

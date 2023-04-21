@@ -1,81 +1,99 @@
-<!-- 归属组织 -->
-<view class="subtitle">
-       <text class="subtitle_font">所归属的组织:</text>
-</view>
-       <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" class="inputborder">
-              <view class="xuanzheyuyue">
-              当前选择：{{multiArray[0][multiIndex[0]]}}
+<block wx:if="{{canIUseGetUserProfile}}">
+       <view class="container">
+              <van-notice-bar mode="closeable" text="用户所填全部信息都将用于确认是否为校内人员，以及方便联系有关负责人跟进活动进度" left-icon="volume-o" color="grey">
+              </van-notice-bar>
+              <!-- 归属组织 -->
+              <view class="subtitle">
+                     <text class="subtitle_font">所归属的组织:</text><image src="../../icon/refresh.png" style="width: 40px; height: 40px;position: relative; left: 160px; top: 15px;"  bindtap="refresh"></image>
               </view>
-       </picker>
-<!-- 预约的老师 -->
-<view class="subtitle">
-       <text class="subtitle_font">预约的老师</text>  
-</view>
-<!-- bindMultiPickerChange1类似上面的bindMultiPickerChange，只不过复制了一遍，修改里面的值，如学生会..等 -->
-       <picker mode="multiSelector" bindchange="bindMultiPickerChange1" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray1}}" class="inputborder">
-              <view class="xuanzheyuyue">
-              当前选择：{{multiArray1[0][multiIndex1[0]]}}
+                     <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" class="inputborder">
+                            <view class="xuanzheyuyue">
+                            当前选择：{{multiArray[0][multiIndex[0]]}}
+                            </view>
+                     </picker>
+              <!-- 预约的老师 -->
+              <view class="subtitle">
+                     <text class="subtitle_font">预约的老师</text>
               </view>
-       </picker>
-<!-- 预约的事项 -->
-<view class="subtitle">
-       <text class="subtitle_font">预约事项</text>
-</view>
-<view class="inputborder">
-  <input type="text" placeholder="预约事项" class="PnameInput" bindinput="content"/>
-</view>
-<!-- 预约的时间 -->
-<view class="subtitle">
-       <text class="subtitle_font">预约时间:</text>
-</view>
-<!-- inputborder1是预约时间专门的wxss格式，因为如果用原先的inputborder会变形 -->
-<view class="inputborder1" bindtap='showTimeModel'>
-<!-- xuanzheyuyue1同理 -->
-       <view class="xuanzheyuyue1">{{yyTime}}</view>
-</view>
-<!-- 预约人 -->
-<view class="subtitle">
-       <text class="subtitle_font">预约人</text>
-</view>
-<view class="inputborder">
-  <input type="text" placeholder="预约人姓名" class="PnameInput" bindinput="subscriber"/>
-</view>
-<!-- 预约人手机号 -->
-<view class="inputborder">
-  <input type="text" placeholder="预约人手机号" class="PnameInput" bindinput="subscriberPhone"/>
-</view>
-<view class="comment_subtitle"><text class="comment">*注：若预约人为部长，主席团成员须一同前往</text></view>
+
+              <picker mode="multiSelector" bindchange="bindMultiPickerChange1" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray1}}" class="inputborder">
+                     <view class="xuanzheyuyue">
+                     当前选择：{{multiArray1[0][multiIndex1[0]]}}
+                     </view>
+              </picker>
+
+              <!-- 预约的事项 -->
+              <view class="subtitle">
+                     <text class="subtitle_font">预约事项</text>
+              </view>
+              <view class="inputborder2">
+              <textarea bindinput="content" style="height: 5em" maxlength="-1" />
+              </view>
+              <!-- 预约的时间 -->
+              <van-notice-bar mode="closeable" text="提醒：请在选择时间段的时候切勿点击同一个时段两次,尽量选择时段的时候小于六个,若不慎点错请按右上刷新按钮" left-icon="volume-o" color="grey">
+              </van-notice-bar> 
+              <view class="subtitle">
+                     <text class="subtitle_font">预约时间:</text>
+              </view>
+              <!-- inputborder1是预约时间专门的wxss格式，因为如果用原先的inputborder会变形 -->
+              <view class="inputborder1" bindtap='showTimeModel'>
+              <!-- xuanzheyuyue1同理 -->
+                     <view class="xuanzheyuyue1">{{yytimes}}</view>
+              </view>
+              <!-- 预约人 -->
+              <view class="subtitle">
+                     <text class="subtitle_font">预约人</text>
+              </view>
+              <view class="inputborder">
+              <input type="text" placeholder="预约人姓名" class="PnameInput" bindinput="subscriber"/>
+              </view>
+              <!-- 预约人手机号 -->
+              <view class="inputborder">
+              <input type="text" placeholder="预约人手机号" class="PnameInput" bindinput="subscriberPhone"/>
+              </view>
+              <view class="comment_subtitle"><text class="comment">*注：若预约人为部长，主席团成员须一同前往</text></view>
 
 
-<!-- 最后一步提交 -->
-<button bindtap="submit" style="width: 60%;">提交</button> 
+              <!-- 最后一步提交 -->
+              <button bindtap="submit" style="width: 60%;">提交</button> 
 
 
 
-<!--日期弹出框-->
-<view class="modal {{timeShow?'modal_show':'modal_hide'}}">
-    <!-- 点击弹出框外部关闭弹出框 -->
-    <view class='modal_cancel' bindtap='modelCancel'></view>
+              <!--日期弹出框-->
+                     <view class="modal {{timeShow?'modal_show':'modal_hide'}}">
+                     <!-- 点击弹出框外部关闭弹出框 -->
+                     <view class='modal_cancel' bindtap='modelCancel'></view>
 
-    <!-- 弹出框主体 -->
-    <view class='modal_container'>
-        <!-- 头部显示 -->
-        <view class='modal_header'>
-            <view>预定时间</view>
-            <view class='header_tip'>{{yyDay}}天内的预订</view>
-        </view>
-        <!-- 日期 -->
-        <view class="time">
-            <scroll-view class="time_scroll" scroll-x="true" >
-                <view data-index="{{index}}" bindtap="timeClick" class="scroll_item {{currentTab==index?'time_active':''}}" wx:for="{{timeList}}" wx:key="{{index}}">
-                    <view>{{item.name}}</view>
-                    <view>{{item.date}}</view>
-                </view>
-            </scroll-view>
-        </view>
-        <!-- 时间段 -->
-        <view class='hour'>
-            <view bindtap="hourClick" class="hour_item {{item.isShow?'':'hour_unactive'}} {{hourIndex==index?'hour_active':''}} " wx:for="{{hourList}}" wx:key="{{index}}" data-index="{{index}}" data-isshow="{{item.isShow}}">{{item.hour}}</view>
-        </view>
-    </view>
-</view>
+                     <!-- 弹出框主体 -->
+                     <view class='modal_container'>
+                            <!-- 头部显示 -->
+                            <view class='modal_header'>
+                            <view>预定时间</view>
+                            <view class='header_tip'>{{yyDay}}天内的预订</view>
+                            </view>
+                            <!-- 日期 -->
+                            <view class="time">
+                            <scroll-view class="time_scroll" scroll-x="true" >
+                                   <view data-index="{{index}}" bindtap="timeClick" class="scroll_item {{currentTab==index?'time_active':''}}" wx:for="{{timeList}}" wx:key="{{index}}">
+                                   <view>{{item.name}}</view>
+                                   <view>{{item.date}}</view>
+                                   </view>
+                            </scroll-view>
+                            </view>
+                            <!-- 时间段 -->
+                            <view class='hour'>
+                            <view bindtap="hourClick" class="hour_item {{item.isShow?'':'hour_unactive'}} {{hourIndex==index?'hour_active':''}} " wx:for="{{hourList}}" wx:key="{{index}}" data-index="{{index}}" data-isshow="{{item.isShow}}">{{item.hour}}</view>
+                            </view>
+                     </view>
+              </view>
+       </view>
+</block>
+<block wx:if="{{!canIUseGetUserProfile}}">
+       <view>
+              <image src="https://s2.loli.net/2023/02/13/1MIrS7pJz24isKk.png" class="fail"></image>
+              <view class="tip">获取用户请求失败，请重新申请</view>
+              
+       </view>
+       <button style="position: absolute; bottom: 5px; left: 20px; right: 20px; width: 60%;" bindtap="canIUseGetUserProfile">重新申请</button>
+</block>
+

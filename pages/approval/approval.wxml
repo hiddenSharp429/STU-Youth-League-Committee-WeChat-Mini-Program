@@ -1,70 +1,273 @@
 <!-- 采用的是flexbos布局 -->
 <view class="container">
-       <view class="container_content">
-              <view class="box">
-                     <view class="mine_application">
-                     <!-- 活动标题 -->
-                            <view class="mine_application_title">
-                            待审批的活动
-                     </view>
-                     <block wx:for="{{list}}"></block>
-                     <!-- 活动内容 点击可跳转至详情页面 -->
-                     <view class="mine_application_content" wx:for="{{list}}" >
-                                   <view class="event" bindtap="goDetail" data-id="{{item._id}}">
-                                          <view class="">{{item.a1_huodongName}}</view>
-                                          <view class="eventTime">{{item.a2_startTime}}</view>
-                                          <view class='organization'>{{item.g1_orderInstitute}}</view>
-                                          <view class="name">{{item.b1_fzrName}}</view>
-                                   </view>
-                                   <!-- 右上角的状态栏 -->
-                                   <!-- 用条件渲染来展示多种样式的活动内容 -->
-                                   <!-- 状态为3代表已结束，2为已驳回，1为已通过，0为审核中 -->
-                                   <block wx:if="{{item.state==0}}">
-                                   <!-- 审核中 -->
-                                   <view class="state_0">
-                                   <view class="state_content">审核中</view>
-                                   </view>
-                                   <!-- 活动下方的小点 -->
-                                   <image src="../../icon/yellow.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
-                                   </block>
-
-                                   <block wx:if="{{item.state==3}}">
-                                   <!-- 已通过 -->
-                                   <view class="state_1">
-                                   <view class="state_content">已通过</view>
-                                   </view>
-                                   <!-- 活动下方的小点 -->
-                                   <image src="../../icon/green.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
-                                   <view class="next_location">
-                                          <button class="button_detail" size="mini">
-                                          <view>
-                                          活动总结审核中..
-                                          </view>
-                                          </button>
-                                   </view>
-                                   </block>
-                     </view>
-
-                     </view>
+  <view class="container_content">
+    <!-- 选择需要导出的哪个类型excel表格 -->
+    <van-action-sheet show="{{ show }}" actions="{{ actions }}" bind:select="onSelect" bind:click-overlay="closeDownload" custom-class="actionSheet" />
+    <view class="box">
+      <view class="mine_application">
+        <!-- 活动标题 -->
+        <!-- 待审批的标题头 -->
+        <view wx:if="{{ active == 0 }}">
+          <view class="mine_application_title">
+            待审批的活动
+            <view style=" height: 90rpx; float: right; width: 160rpx;" bindtap="Download">
+              <image src="../../icon/cloud-download.png" style="width: 100rpx;height: 90rpx; margin-right: 40rpx; float: right;"></image>
+            </view>
+          </view>
+        </view>
+        <!-- 已通过的标题头 -->
+        <view wx:if="{{ active == 1}}">
+          <view class="mine_application_title">
+            已审批的活动
+            <view style=" height: 90rpx; float: right; width: 160rpx;" bindtap="Download">
+              <image src="../../icon/cloud-download.png" style="width: 100rpx;height: 90rpx; margin-right: 40rpx; float: right;"></image>
+            </view>
+          </view>
+        </view>
+        <!-- 已驳回的标题头 -->
+        <view wx:if="{{ active == 2}}">
+          <view class="mine_application_title">
+            已驳回的活动
+            <view style=" height: 90rpx; float: right; width: 160rpx;" bindtap="Download">
+              <image src="../../icon/cloud-download.png" style="width: 100rpx;height: 90rpx; margin-right: 40rpx; float: right;"></image>
+            </view>
+          </view>
+        </view>
+        <!-- 已结束的标题头 -->
+        <view wx:if="{{ active == 3}}">
+          <view class="mine_application_title">
+            已结束的活动
+            <view style=" height: 90rpx; float: right; width: 160rpx;" bindtap="Download">
+              <image src="../../icon/cloud-download.png" style="width: 100rpx;height: 90rpx; margin-right: 40rpx; float: right;"></image>
+            </view>
+          </view>
+        </view>
+        <!-- 活动内容 点击可跳转至详情页面 -->
+        <!-- 待审批活动内容 -->
+        <view wx:if="{{ active == 0}}">
+          <text style="font-size: 40rpx; color: brown;">共{{totalRecord}}条记录</text>
+          <view style="min-height: 1000rpx;">
+            <view class="mine_application_content" wx:for="{{list}}" wx:key="_id">
+              <view class="event" bindtap="goDetail" data-id="{{item._id}}" data-user="Tea" data-type="1">
+                <view class="eventName">活动名称：{{item.a1_huodongName}}</view>
+                <view class="eventTime">活动起始时间：{{item.a2_startTime}}</view>
+                <view class='organization'>归属组织：{{item.g1_orderInstitute}}</view>
+                <view class="name">负责人姓名：{{item.b1_fzrName}}</view>
               </view>
-              <!-- 简易导航栏 -->
-              <view class="tabar">
-                     <view class='goApprovalButton' bindtap="goApprovalPage">
-                            <image src="../../icon/approval.png" style="width: 40px; height: 40px; margin-top: 5px;"></image>
-                            <view class="button_content">待审批</view>
-                     </view>
-                     <view class="goPassButton" bindtap="goPassPage">
-                            <image src="../../icon/pass(1).png" style="width: 40px; height: 40px; margin-top: 5px;"></image>
-                            <view class="button_content">已通过</view>
-                     </view>
-                     <view class="goRejectButton" bindtap="goRejectPage">
-                            <image src="../../icon/reject(1).png" style="width: 40px; height: 40px; margin-top: 5px;"></image>
-                            <view class="button_content">已驳回</view>
-                     </view>
-                     <view class="goEndingButton" bindtap="goEndingPage">
-                            <image src="../../icon/end(1).png" style="width: 40px; height: 40px; margin-top: 5px;"></image>
-                            <view class="button_content">已结束</view>
-                     </view>
+              <!-- 右上角的状态栏 -->
+
+              <!-- 状态为3代表活动总结审核中，0为初次审核中 -->
+              <block wx:if="{{item.state==0}}">
+                <!-- 审核中 -->
+                <view class="state_0">
+                  <view class="state_content">审核中</view>
+                </view>
+                <!-- 活动下方的小点 -->
+                <image src="../../icon/yellow.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
+              </block>
+
+              <block wx:if="{{item.state==3}}">
+                <!-- 已通过 -->
+                <view class="state_1">
+                  <view class="state_content">已通过</view>
+                </view>
+                <!-- 活动下方的小点 -->
+                <image src="../../icon/green.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
+                <view class="next_location">
+                  <button class="button_detail" size="mini">
+                    <view>
+                      活动总结审核中..
+                    </view>
+                  </button>
+                </view>
+              </block>
+            </view>
+            <!-- 当右上角数字为0的时候显示 -->
+            <view wx:if="{{ totalRecord == 0}}">
+              <image src="https://s2.loli.net/2023/02/13/sm2ftjSYgD5QTr7.png" class="noData"></image>
+              <view class="tip">很抱歉，暂无活动记录哦</view>
+            </view>
+          </view>
+          <view wx:if="{{ totalRecord != 0}}" class="paging" style="width: 100%; height: 60rpx; position: relative; bottom: 0; text-align: center; margin-top: 30rpx;">
+            <view style="width: 280rpx; margin-left: 190rpx; height: 60rpx;">
+              <view style="height: 60rpx; background-color: #ececea;; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="lastPage" data-last="0">
+                <van-icon name="arrow-left" />
               </view>
-       </view>
+              <view style="height: 60rpx; background-color:	#666666; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx; color: cornsilk;">
+                {{currentPage}}
+              </view>
+              <view style="height: 60rpx; background-color:#ececea; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="nextPage" data-next="0">
+                <van-icon name="arrow" />
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <!-- 已通过活动内容 -->
+        <view wx:if="{{ active == 1}}">
+          <text style="font-size: 40rpx; color: brown;">共{{totalRecord}}条记录</text>
+          <view style="min-height: 1000rpx;">
+            <view class="mine_application_content" wx:for="{{list}}" wx:key="_id">
+              <view class="event" bindtap="goDetail" data-id="{{item._id}}" data-user="Tea" data-type="1">
+                <view class="eventName">活动名称：{{item.a1_huodongName}}</view>
+                <view class="eventTime">活动起始时间：{{item.a2_startTime}}</view>
+                <view class='organization'>归属组织：{{item.g1_orderInstitute}}</view>
+                <view class="name">负责人姓名：{{item.b1_fzrName}}</view>
+              </view>
+              <block wx:if="{{item.state==1}}">
+                <!-- 已通过 -->
+                <view class="state_1">
+                  <view class="state_content">已通过</view>
+                </view>
+                <!-- 活动下方的小点 -->
+                <image src="../../icon/green.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
+              </block>
+            </view>
+            <!-- 当右上角数字为0的时候显示 -->
+            <view wx:if="{{ totalRecord == 0}}">
+              <image src="https://s2.loli.net/2023/02/13/sm2ftjSYgD5QTr7.png" class="noData"></image>
+              <view class="tip">很抱歉，暂无活动记录哦</view>
+            </view>
+          </view>
+          <view wx:if="{{ totalRecord != 0}}" class="paging" style="width: 100%; height: 60rpx; position: relative; bottom: 0; text-align: center; margin-top: 30rpx;">
+            <view style="width: 280rpx; margin-left: 190rpx; height: 60rpx;">
+              <view style="height: 60rpx; background-color: #ececea;; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="lastPage" data-last="1">
+                <van-icon name="arrow-left" />
+              </view>
+              <view style="height: 60rpx; background-color:	#666666; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx; color: cornsilk;">
+                {{currentPage}}
+              </view>
+              <view style="height: 60rpx; background-color:#ececea; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="nextPage" data-next="1">
+                <van-icon name="arrow" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 已驳回活动内容 -->
+        <view wx:if="{{ active == 2}}">
+          <text style="font-size: 40rpx; color: brown;">共{{totalRecord}}条记录</text>
+          <view style="min-height: 1000rpx;">
+            <view class="mine_application_content" wx:for="{{list}}" wx:key="_id">
+              <view class="event" bindtap="goDetail" data-id="{{item._id}}" data-user="Tea" data-type="1">
+                <view class="eventName">活动名称：{{item.a1_huodongName}}</view>
+                <view class="eventTime">活动起始时间：{{item.a2_startTime}}</view>
+                <view class='organization'>归属组织：{{item.g1_orderInstitute}}</view>
+                <view class="name">负责人姓名：{{item.b1_fzrName}}</view>
+              </view>
+              <block wx:if="{{item.state==2}}">
+                <!-- 已驳回 -->
+                <view class="state_2">
+                  <view class="state_content">已驳回</view>
+                </view>
+                <!-- 活动下方的小点以及驳回理由 -->
+                <view style="height: 60rpx; position: absolute; bottom: 0px; width: 100%;">
+                  <image src="../../icon/red.png" style="width: 22rpx; height: 22rpx; margin-left: 30rpx;"></image>
+                  <view style="text-align: center; font-size: 30rpx; float: right; margin-right: 40rpx; height: 60rpx; color: brown;">
+                    驳回理由：{{item.rejectReason}}
+                  </view>
+                </view>
+              </block>
+            </view>
+            <!-- 当右上角数字为0的时候显示 -->
+            <view wx:if="{{ totalRecord == 0}}">
+              <image src="https://s2.loli.net/2023/02/13/sm2ftjSYgD5QTr7.png" class="noData"></image>
+              <view class="tip">很抱歉，暂无活动记录哦</view>
+            </view>
+          </view>
+          <view wx:if="{{ totalRecord != 0}}" class="paging" style="width: 100%; height: 60rpx; position: relative; bottom: 0; text-align: center; margin-top: 30rpx;">
+            <view style="width: 280rpx; margin-left: 190rpx; height: 60rpx;">
+              <view style="height: 60rpx; background-color: #ececea;; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="lastPage" data-last="2">
+                <van-icon name="arrow-left" />
+              </view>
+              <view style="height: 60rpx; background-color:	#666666; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx; color: cornsilk;">
+                {{currentPage}}
+              </view>
+              <view style="height: 60rpx; background-color:#ececea; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="nextPage" data-next="2">
+                <van-icon name="arrow" />
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 已结束活动内容 -->
+        <view wx:if="{{ active == 3}}">
+          <text style="font-size: 40rpx; color: brown;">共{{totalRecord}}条记录</text>
+          <view style="min-height: 1000rpx;">
+            <view class="mine_application_content" wx:for="{{list}}" wx:key="_id">
+              <view class="event" bindtap="goDetail" data-id="{{item._id}}" data-user="Tea" data-type="1">
+                <view class="eventName">活动名称：{{item.a1_huodongName}}</view>
+                <view class="eventTime">活动起始时间：{{item.a2_startTime}}</view>
+                <view class='organization'>归属组织：{{item.g1_orderInstitute}}</view>
+                <view class="name">负责人姓名：{{item.b1_fzrName}}</view>
+              </view>
+              <!-- 状态为4为活动总结报告已审批，3为已提交活动总结报告 -->
+              <block wx:if="{{item.state==4}}">
+                <!-- 活动报告已审批通过 -->
+                <view class="state_4">
+                  <view class="state_content">已结束</view>
+                </view>
+                <!-- 活动下方的小点 -->
+                <image src="../../icon/grey.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
+              </block>
+
+            </view>
+            <!-- 当右上角数字为0的时候显示 -->
+            <view wx:if="{{ totalRecord == 0}}">
+              <image src="https://s2.loli.net/2023/02/13/sm2ftjSYgD5QTr7.png" class="noData"></image>
+              <view class="tip">很抱歉，暂无活动记录哦</view>
+            </view>
+          </view>
+          <view wx:if="{{ totalRecord != 0}}" class="paging" style="width: 100%; height: 60rpx; position: relative; bottom: 0; text-align: center; margin-top: 30rpx;">
+            <view style="width: 280rpx; margin-left: 190rpx; height: 60rpx;">
+              <view style="height: 60rpx; background-color: #ececea;; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="lastPage" data-last="3">
+                <van-icon name="arrow-left" />
+              </view>
+              <view style="height: 60rpx; background-color:	#666666; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx; color: cornsilk;">
+                {{currentPage}}
+              </view>
+              <view style="height: 60rpx; background-color:#ececea; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="nextPage" data-next="3">
+                <van-icon name="arrow" />
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+
+    <!-- 导航栏 -->
+    <van-tabbar active="{{ active }}" bind:change="onChange" active-color="red" inactive-color="#000" border:false>
+      <van-tabbar-item info="{{item0}}">
+        <image slot="icon" src="{{ approval.normal }}" mode="aspectFit" style="width: 80rpx; height: 40rpx;" />
+        <image slot="icon-active" src="{{ approval.active }}" mode="aspectFit" style="width: 70rpx; height: 38rpx;" />
+        待审批
+      </van-tabbar-item>
+      <van-tabbar-item info="{{item1}}">
+        <image slot="icon" src="{{ pass.normal }}" mode="aspectFit" style="width: 80rpx; height: 40rpx;" />
+        <image slot="icon-active" src="{{ pass.active }}" mode="aspectFit" style="width: 70rpx; height: 38rpx;" />
+        已通过
+      </van-tabbar-item>
+      <van-tabbar-item info="{{item2}}">
+        <image slot="icon" src="{{ reject.normal }}" mode="aspectFit" style="width: 80rpx; height: 40rpx;" />
+        <image slot="icon-active" src="{{ reject.active }}" mode="aspectFit" style="width: 70rpx; height: 38rpx;" />
+        已驳回
+      </van-tabbar-item>
+      <van-tabbar-item info="{{item3}}">
+        <image slot="icon" src="{{ end.normal }}" mode="aspectFit" style="width: 80rpx; height: 40rpx;" />
+        <image slot="icon-active" src="{{ end.active }}" mode="aspectFit" style="width: 70rpx; height: 38rpx;" />
+        已结束
+      </van-tabbar-item>
+    </van-tabbar>
+  </view>
+  <!-- loading盒子 -->
+  <van-popup show="{{ popShow }}" position="top" custom-style="height: 200rpx;" round>
+    <view class="loadingBox">
+      <view class="loader-dots">
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+      </view>
+    </view>
+  </van-popup>
 </view>

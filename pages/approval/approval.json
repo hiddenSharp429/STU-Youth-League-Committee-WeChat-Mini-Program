@@ -1,5 +1,12 @@
 {
-       "usingComponents": {},
+       "usingComponents": {
+              "van-tabbar": "@vant/weapp/tabbar/index",
+              "van-icon": "@vant/weapp/icon/index",
+              "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+              "van-popup": "@vant/weapp/popup/index",
+              "van-action-sheet": "@vant/weapp/action-sheet/index"
+                   
+       },  
        "navigationBarTitleText": "审批端"
 
 }

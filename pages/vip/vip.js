@@ -1,4 +1,6 @@
 const DB = wx.cloud.database().collection("appointment")
+var yyTime = []
+var yyHour = []
 // 在一开始加了个时间段数集
 var hourLists = ["9:00", "9:30", "10:00", "10:30","11:00", "11:30", "14:30", "15:00","15:30", "16:00", "16:30", "17:00"];
 //引用util里的时间工具获取当前时间
@@ -7,6 +9,7 @@ var util = require('../../utils/util.js')
 var presentDayTime = util.formatTime(new Date())
 Page({
        data: {
+           canIUseGetUserProfile: false,
               // 组织
            multiArray: [['校团委', '学生会','校青年志愿者','汕大青年','踹网']],
               //老师
@@ -19,7 +22,6 @@ Page({
            content:'',
            subscriber:'',
            subscriberPhone:'',
-
            //日期
            timeList: [],
            //可预约天数
@@ -48,8 +50,43 @@ Page({
            chooseTime: "",
            hourIndex: -1,
            //预约时间
-           yyTime:'',
+           yyTimes:[],
+           yyHours:[],
+           yytimes:yyTime,
            day:''
+       },
+       onLoad(){
+              let that = this
+              wx.showModal({
+                     title: '温馨提示',
+                     content: '为了确保活动能顺利进行，该页面将获取您相关的个人信息，点击确认同意方可填写相关信息',
+                     success (res) {
+                     if (res.confirm) {
+                     that.setData({
+                            canIUseGetUserProfile: true
+                     })
+                     } else if (res.cancel) {
+                     console.log('用户点击取消')
+                     }
+                     }
+              })
+         },
+       //获取用户同意
+       canIUseGetUserProfile(){
+              let that = this
+              wx.showModal({
+                     title: '温馨提示',
+                     content: '为了确保活动能顺利进行，该页面将获取您相关的个人信息，点击确认同意方可填写相关信息',
+                     success (res) {
+                       if (res.confirm) {
+                         that.setData({
+                            canIUseGetUserProfile: true
+                         })
+                       } else if (res.cancel) {
+                         console.log('用户点击取消')
+                       }
+                     }
+              })
        },
        //弹出按钮
        showTimeModel: function () {
@@ -58,12 +95,12 @@ Page({
                timeShow: !this.data.timeShow,
               //  chooseTime: this.data.timeList[0].date,
            });
+       
        },
        //点击外部取消
        modelCancel: function () {
            this.setData({
                timeShow: !this.data.timeShow,
-              //  chooseTime: this.data.timeList[0].date,
            });
        },
        //日期选择
@@ -113,24 +150,26 @@ Page({
                             console.log('查询数据库成功',res.data)
                             console.log(res.data.length,'长度')
                             let lengths =res.data.length
-                            console.log(hourLists)
                             // 每条数据单独处理，将其提取出的hour与开头建立的hourlists的各条时间段比对，配对成功的将该条isshow改掉
                             // 这里的hour之前报错的原因是在for里面，a<=lengths,这里错了不需要用=，比如，这里面有三条数据，如果你用了=，就会循环到第四条数据停下来，从而报“未定义”的错
                             let that =this;
                             for(let a =0;a<lengths;a++){
                                    console.log(lengths,'lengths')
                                    var Chour =res.data[a].hour
-                                   console.log(res.data[a].hour)
-                                   for(let b =0; b<=11;b++){
-                                          if(Chour == hourLists[b]){
-                                                 console.log(b+1)
-                                                 console.log(this.data.hourList,"这是")
-                                                 list[b].isShow =false
-                                                 this.setData({
-                                                        hourList: list
-                                                    })
+                                   console.log(res.data[a].hour,"它的时间是")
+                                   for(let c =0; c<=res.data[a].hour.length;c++){
+                                          for(let b =0; b<=11;b++){
+                                                 if(Chour[c] == hourLists[b]){
+                                                        console.log(b+1)
+                                                        console.log(this.data.hourList,"这是")
+                                                        list[b].isShow =false
+                                                        this.setData({
+                                                               hourList: list
+                                                           })
+                                                 }
                                           }
                                    }
+                                   
                             }
                             var arr =res.data       
                             for(var x=0 ; x<=arr.length-1;x++){
@@ -141,16 +180,17 @@ Page({
 
        },
        // 时间选择
-       hourClick: function (e) {
+       hourClick (e) {
            var that = this;
            // 时间不可选择
            if (!e.currentTarget.dataset.isshow) {
                return false;
            }
+           yyHour.push(this.data.hourList[e.currentTarget.dataset.index].hour)
+           console.log('yyHour是',yyHour)
            this.setData({
                hourIndex: e.currentTarget.dataset.index,
                chooseHour: this.data.hourList[e.currentTarget.dataset.index].hour,
-              
            });
            var choiceDay = this.data.chooseTime
            this.setData({
@@ -158,10 +198,13 @@ Page({
           })
           console.log('这个是选择的日期',choiceDay)
            var chooseTime = new Date().getFullYear() + "-" + this.data.chooseTime + " " + this.data.chooseHour
+       //     var yyTime = this.data.yyTime
+       //    console.log(Array.isArray(yyTime))
+           yyTime.push(chooseTime)
+           console.log('yytime是',yyTime)
            this.setData({
-               yyTime: chooseTime
+                  yytimes:yyTime
            })
-           console.log('这是选择的时间',chooseTime)
        },
        onLoad: function (options) {
            Date.prototype.Format = function (format) {
@@ -386,13 +429,22 @@ Page({
        //提交预约
        submit: function (e) {
        let that = this;
-       if (!this.data.yyTime) {
+
+       if (!this.data.yyTimes) {
               wx.showToast({
                      title: "请选择预约时间",
                      icon: "none",
               });
               return false;
               }
+       this.setData({
+              yyTimes: yyTime
+       })
+       this.setData({
+              yyHours: yyHour
+       })
+       console.log("在data里面的yytimes",this.data.yyTimes)
+       console.log("在data里面的yytimes",this.data.yyHours)
        this.final()
        DB.add({ // add指 插入数据库中的appointment表；
               //将我们获取到的新值代入
@@ -404,25 +456,32 @@ Page({
               g2_organizationId: this.data.multiIndex[0],
               g1_orderTeacher: this.data.newtea,
               g2_organTeacherId: this.data.multiIndex1[0],
-              appointment:"预约的时间"+this.data.yyTime,
+              appointment:"预约的时间"+this.data.yyTimes,
               time:"提交预约时间"+presentDayTime,
               subscriber:this.data.subscriber,
               subscriberPhone:this.data.subscriberPhone,
               state:0,
               //上传了选择的日期和选择的小时
               day:this.data.day,
-              hour:this.data.chooseHour,
+              hour:this.data.yyHours,
               content:this.data.content
               },
               
               }).then(res => {
               console.log("上传成功", res)
-              wx.showToast({
-              title: '成功',
-              })
-              wx.switchTab({
-              url: '../index/index',
-              })
+              wx.showModal({
+                     title:'您已提交成功',
+                     content:"",
+                     showCancel:false,
+                     confirmText:'确定',
+                     confirmColor:"#D43C33",
+                            success(res){
+                                   //卸载所有页面，加载进历史预约界面
+                                   wx.reLaunch({
+                                          url: '/pages/vip/vip',
+                                        })
+                            } 
+                     })    
               })
               .catch(err => {
               console.log("上传失败", err)
@@ -431,5 +490,11 @@ Page({
               icon:"none"
               })
               })
+       },
+       //刷新
+       refresh(){
+              wx.reLaunch({
+                     url: '/pages/vip/vip',
+                   })
        }
    })

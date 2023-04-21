@@ -1,87 +1,52 @@
-      .button_location{
-         border-radius: 80rpx;
-         margin-top: 55%;
-         color:#FFFFFF;
-         background-color: #D43030;
-         box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
+      .button_location {
+        border-radius: 80rpx;
+        margin-top: 55%;
+        color: #FFFFFF;
+        background-color: #D43030;
+        box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.35);
 
-     }
-     
-     .mine_application{
-       margin-left: 15px;
-       margin-right: 15px;
-     }
+      }
 
-       .mine_application_title{
-       border-bottom: 5rpx solid #A6A6A6;
-       font-size: 28px;
-       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     }
+      .event {
+        font-size: 40rpx;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        position: relative;
+        margin: 30rpx;
+        width: 90%;
+        flex: 1;
+      }
 
-       .mine_application_content{
-            height: 150px;
-            width: 100%;
-            display: flex;
-            position: relative;
-            box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.1);
-            margin-top: 15px;
-            border-radius: 15px;
-     }
-       .event{
-              font-size: 20px;
-              font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              position: relative;
-              margin:15px;
-              width: 90%;
-              flex:1;
-       }
-       .eventTime{
-              margin-top: 5px;
-              font-size: 14px;
-              color:#A0A9BD;
-       }
-       .state_content{
-              position:relative;
-              margin-top: 10px;
-              margin-left: 10px;
-              font-size:12;
-              color:white;
-       }
-       .button_detail{
-            background-color: white;
-            color:#727885;
-     }
-       .next_location{
-              width:150px;
-              height:40px;
-              position: absolute;
-              z-index: 1;
-              bottom: 0px;
-              right: 0px;
-     }
-       .state_1{
-       width: 80px;
-       height: 40px;
-       background-color:#43CF7C;
-       border-radius: 0 15px 0 15px;
-       z-index: 2;
- }
-       .state_content{
-              position: relative;
-              margin-top:10px ;
-              margin-left: 15px;
-              font-size: 12;
-              color: white;
-       }
-       .state_4{
-              float: right;
-              width:80px;
-              height:40px;
-              background-color:#CCCCCC;
-              border-radius:0 15px 0 15px;
-              z-index: 2;
-              flex-direction: row;
-              position: relative;
-              margin-left: 20px;
-       }
-     
+      .eventTime {
+        margin-top: 10rpx;
+        font-size: 28rpx;
+        color: #A0A9BD;
+      }
+
+      .button_detail {
+        background-color: white;
+        color: #727885;
+        border: 2rpx solid #43CF7C;
+      }
+
+      /* 因为button的类名不支持改组件内文字的字体大小故创建了子类名来修改 */
+      .button_content {
+        font-size: 24rpx;
+      }
+
+      .next_location {
+        width: 300rpx;
+        height: 80rpx;
+        position: absolute;
+        z-index: 1;
+        bottom: 0px;
+        right: 0px;
+      }
+
+      .comment {
+        font-size: 26rpx;
+        padding-top: 40rpx;
+        font-weight: 500;
+        padding-right: 40rpx;
+        color: #666666;
+        float: right;
+      }

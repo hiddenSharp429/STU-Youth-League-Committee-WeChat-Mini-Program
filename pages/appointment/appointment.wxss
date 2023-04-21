@@ -118,7 +118,14 @@ page{font-size: 11pt}
        margin-left: 15px;
        margin-top: 0px;
 }
-
+.container_title{
+       margin-left: 30rpx;
+       margin-right: 30rpx;
+       height: 90rpx;
+       border-bottom: 5rpx solid #A6A6A6;
+       font-size: 56rpx;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 /* 小标题位置 */
 .subtitle{
        margin-left: 15px;
@@ -174,9 +181,10 @@ page{font-size: 11pt}
      }
 /* 批注的css */
 .comment{
-       font-size: medium;
-       font-weight: 400;
-       color: black;
+              font-size: 12px;
+              color:gray;
+              margin-left: 15px;
+              margin-right: 15px;
 }
 /* 批注的css */
 .comment_subtitle{
@@ -186,7 +194,95 @@ page{font-size: 11pt}
 }
 button{
        border-radius: 80rpx;
+       margin-top: 5%;
+       margin-bottom: 5%;
        color:#FFFFFF;
        background-color: #D43030;
        box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
      }
+.loginHead{
+       width: 100%;
+       height: 160rpx;
+}
+.cross{
+       float: right;
+       width: 160rpx;
+       height: 120rpx;
+       padding-top: 40rpx;
+       padding-right: 40rpx;
+}
+/* 团团图片样式 */
+.tuantuan{
+       width: 160rpx;
+       height: 120rpx;
+       padding-top: 40rpx;
+       padding-left: 40rpx;
+}
+.loginBody{
+       width: 100%;
+       height: 700rpx;
+}
+.loginFeet{
+       width: 100%;
+       height: 300rpx;
+}
+  /* 遮罩层内嵌盒子包装层 */
+  .wrapper {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       height: 100%;
+     }
+/* 遮罩层内嵌盒子内容层 */
+.login{
+       background-color: #FFFFFF;
+       width: 600rpx;
+       height: 1200rpx;
+       border-radius: 40rpx;
+}
+/* 输入账号的input */
+.accountInputborder{
+       margin-left: 40rpx;
+       margin-right:40rpx;
+       margin-bottom: 30rpx;
+       padding-top: 30rpx;
+       padding-bottom: 30rpx;
+       padding-left: 30rpx;
+       padding-right:30rpx;
+       border-radius: 20rpx;
+       border: 2rpx solid #F2E6E6;
+       box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.15);
+}
+/* 输入密码的input */
+.passwordInputborder{
+       margin-left: 40rpx;
+       margin-right:40rpx;
+       margin-bottom: 30rpx;
+       padding-top: 30rpx;
+       padding-bottom: 30rpx;
+       padding-left: 30rpx;
+       padding-right:30rpx;
+       border-radius: 20rpx;
+       border: 2rpx solid #F2E6E6;
+       box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.15);
+}
+/* button在wxss里面修改不了宽度和高度，故在wmxl里面添加style属性来实现 */
+.loginButton{
+       position: relative;
+       padding-top: 100rpx;
+     }
+
+.goRegister{
+       position: relative;
+       top: 5rpx;
+       float: right; 
+       right: 40rpx; 
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.goRetrieve{
+       position: relative;
+       top: 5rpx; 
+       left: 40rpx;
+       float: left; 
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

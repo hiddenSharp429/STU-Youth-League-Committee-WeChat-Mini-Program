@@ -1,51 +1,82 @@
 <view class="container">
   <view class="userinfo">
-              <view class="mine_application">
-                     <view class="mine_application_title">
-                            历史预约
-                     </view>
-                            
-                     <view class="mine_application_content" wx:for="{{list}}">
-                            <view class="event" bindtap="goDetail" data-id="{{item._id}}"> 
-                                   <view class="appointmentTime">{{item.appointment}}</view>
-                                   <view class="appointmentInstitute">预约组织：{{item.g1_orderInstitute}}</view>
-                                   <view class='appointmentTeacher'>预约老师：{{item.g1_orderTeacher}}</view>
-                                   <view class="time">{{item.time}}</view>
-                                   <!-- 只有已驳回才显示 -->
-                                   <block wx:if="{{item.state==2}}">
-                                          <view class="rejectReason">驳回理由：{{item.rejectReason}}</view>
-                                   </block>
-                                   
-                            </view>       
-                <!-- 状态为1为预约已通过，2为预约已驳回 -->
-                <block wx:if="{{item.state==0}}">
-                            <!-- 审核中 -->
-                            <view class="state_0">
-                            <view class="state_content">审核中</view>
-                            </view>
-                            <!-- 活动下方的小点 -->
-                            <image src="../../icon/yellow.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
-                            <text style="width: 140px; height: 17px;position: absolute;left: 55px;bottom: 15px;">小组手正在审核中..</text>
-                     </block>
-                     <block wx:if="{{item.state==1}}">
-                            <!-- 已通过 -->
-                            <view class="state_1">
-                            <view class="state_content">已通过</view>
-                            </view>
-                            <!-- 活动下方的小点 -->
-                            <image src="../../icon/green.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
-                     </block>
-                     
+    <view class="mine_application">
+      <view class="mine_appointment_title">
+        历史预约<image src="../../icon/backaround.png" style="width: 80rpx; height: 80rpx;float: right;" bindtap="back"></image>
+        <view class="comment"> 共{{totalRecord}}条记录</view>
+      </view>
+      <view style="min-height: 1000rpx;">
+        <view wx:if="{{ item == 0}}">
+          <image src="https://s2.loli.net/2023/02/13/sm2ftjSYgD5QTr7.png" class="noData"></image>
+          <view class="tip">很抱歉，暂无活动记录哦</view>
+        </view>
+        <view class="mine_appointment_content" wx:for="{{list}}">
+          <view class="event" bindtap="goDetail" data-id="{{item._id}}" data-user="stu" data-type="2">
+            <view class="appointmentTime">{{item.appointment}}</view>
+            <view class="appointmentInstitute">预约组织：{{item.g1_orderInstitute}}</view>
+            <view class='appointmentTeacher'>预约老师：{{item.g1_orderTeacher}}</view>
+            <view class="time">{{item.time}}</view>
+            <!-- 只有已驳回才显示 -->
+            <block wx:if="{{item.state==2}}">
+              <view class="rejectReason">驳回理由：{{item.rejectReason}}</view>
+            </block>
+
+          </view>
+          <!-- 状态为1为预约已通过，2为预约已驳回 -->
+          <block wx:if="{{item.state==0}}">
+            <!-- 审核中 -->
+            <view class="state_0">
+              <view class="state_content">审核中</view>
+            </view>
+            <!-- 活动下方的小点 -->
+            <image src="../../icon/yellow.png" style="width: 22rpx;height:22rpx;position: absolute;left: 30rpx;bottom: 30rpx;"></image>
+            <text style="width: 280rpx; height: 34rpx;position: absolute;left: 90rpx;bottom: 25rpx; font-size: 28rpx;">小组手正在审核中..</text>
+          </block>
+          <block wx:if="{{item.state==1}}">
+            <!-- 已通过 -->
+            <view class="state_1">
+              <view class="state_content">已通过</view>
+            </view>
+            <!-- 活动下方的小点 -->
+            <image src="../../icon/green.png" style="width: 22rpx;height:22rpx;position: absolute;left: 30rpx;bottom: 30rpx;"></image>
+          </block>
 
 
-                     <block wx:if="{{item.state==2}}">
-                            <view class="state_2">
-                            <view class="state_content">已驳回</view>
-                            </view>
-                     <!-- 活动下方的小点 -->
-                     <image src="../../icon/red.png" style="width: 11px;height: 11px;position: absolute;left: 15px;bottom: 15px;"></image>
-                     </block>
-                     </view>
-              </view>
+
+          <block wx:if="{{item.state==2}}">
+            <view class="state_2">
+              <view class="state_content">已驳回</view>
+            </view>
+            <!-- 活动下方的小点 -->
+            <image src="../../icon/red.png" style="width: 22rpx;height:22rpx;position: absolute;left: 30rpx;bottom: 30rpx;"></image>
+          </block>
+        </view>
+      </view>
+      <view wx:if="{{ item != 0}}" class="paging" style="width: 100%; height: 60rpx; position: relative; bottom: 0; text-align: center; margin-top: 30rpx;">
+        <view style="width: 280rpx; margin-left: 190rpx; height: 60rpx;">
+          <view style="height: 60rpx; background-color: #ececea;; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="lastPage">
+            <van-icon name="arrow-left" />
+          </view>
+          <view style="height: 60rpx; background-color:	#666666; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx; color: cornsilk;">
+            {{currentPage}}
+          </view>
+          <view style="height: 60rpx; background-color:#ececea; width: 70rpx; border-radius: 10rpx; float: left; margin-left: 20rpx; padding-top: 10rpx;" bindtap="nextPage">
+            <van-icon name="arrow" />
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
+
+<van-popup show="{{ popShow }}" position="top" custom-style="height: 200rpx;" round>
+  <view class="loadingBox" style="margin-top: 100rpx;">
+    <view class="loader-dots">
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+</van-popup>

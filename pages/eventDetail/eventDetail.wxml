@@ -1,108 +1,179 @@
 <view>
-       <!-- 活动基本信息 -->
-       <view>
-              <view class="subtitle_font">活动基本信息</view> 
-              <view class="inputborder">
-                     <view>{{list.a1_huodongName}}</view>
-                     <view>{{list.a2_startTime}}</view>
-                     <view>{{list.a3_endTime}}</view>
-                     <view>{{list.a4_huodongPlace}}</view>
-                     <view>{{list.a5_area}}</view>
+       <!-- 活动详情 -->
+       <view wx:if="{{type == 1}}">
+                     <!-- 活动基本信息 -->
+                     <view>
+                            <view class="subtitle_font">活动基本信息</view> 
+                            <view class="message">
+                                   <view>活动名称：{{list.a1_huodongName}}</view>
+                                   <view>活动开始时间：{{list.a2_startTime}}</view>
+                                   <view>活动结束时间：{{list.a3_endTime}}</view>
+                                   <view>活动地点：{{list.a4_huodongPlace}}</view>
+                                   <view>活动校区：{{list.a5_area}}</view>
 
-              </view>
-       </view>
-       <!-- 负责人信息 -->
-       <view>
-              <view class="subtitle_font">负责人信息</view>
-              <view class="inputborder">
-                     <view>{{list.b1_fzrName}}</view>
-                     <view>{{list.b2_fzrGrade}}</view>
-                     <view>{{list.b3_fzrTelephone}}</view>
-                     <view>{{list.b4_fzrMail}}</view>
-              </view>
-       </view>
-       <!-- 活动经费预算 -->
-       <view>
-              <view class="subtitle_font">活动经费预算</view>
-              <view class="inputborder">
-                     <view>{{list.c1_jingfeiTotal}}</view>
-                     <view>{{list.c2_jingfeiSelf}}</view>
-                     <view>{{list.c3_jingfeiApply}}</view>
-              </view>
-       </view>
-       <!-- 赞助信息 -->
-       <view>
-              <view class="subtitle_font">赞助信息</view>
-              <view class="inputborder">
-                     <view>{{list.d1_sponsor}}</view>
-                     <view>{{list.d2_sponsorCompany}}</view>
-                     <view>{{list.d3_sponsorForm}}</view>
-                     <view>{{list.d4_sponsorMoney}}</view>
-                     <view>{{list.d5_sponsorContract}}</view>
-              </view>
-       </view>
-       <!-- 借款信息 -->
-       <view>
-              <view class="subtitle_font">借款信息</view>
-              <view class="inputborder">
-                     <view>{{list.e1_borrow}}</view>
-                     <view>{{list.e2_jkrName}}</view>
-                     <view>{{list.e3_jkrGrade}}</view>
-                     <view>{{list.e4_jkrAge}}</view>
-                     <view>{{list.e5_jkrTelephone}}</view>
-                     <view>{{list.e6_jkrMoney}}</view>
-              </view>
-       </view>
-       <!-- 劳务信息 -->
-       <view>
-              <view class="subtitle_font">劳务信息</view>
-              <view class="inputborder">
-                     <view>{{list.f1_serviceFee}}</view>
-                     <view>{{list.f2_serviceObject}}</view>
-                     <view>{{list.f3_serviceMoney}}</view>
-              </view>
-       </view>
-       <!-- 预约信息 -->
-       <view>
-              <view class="subtitle_font">预约信息</view>
-              <view class="inputborder">
-                     <view>归属的组织：{{list.g1_orderInstitute}}</view>
-                     <!-- <view>{{list.g2_orderTeacher}}</view>
-                     <view>{{list.g3_orderStartTime}}</view>
-                     <view>{{list.g4_orderEndTime}}</view> -->
-              </view>
-       </view>
-       <!-- 备注信息 -->
-       <view>
-              <view class="subtitle_font">备注信息</view>
-              <view class="inputborder">
-                     <view>{{list.h1_remark}}</view>
-                     <view>{{list.h2_participant}}</view>
-                     <view>{{list.h3_uploadOA}}</view>
-                     <view>{{list.h4_briefContent}}</view>
-              </view>
-       </view>
-       <!-- 如果是已驳回的活动将展示 -->
-       <!-- 驳回的信息 -->
-       <block wx:if="{{list.state==2}}">
-       <view>
-              <view class="subtitle_font">驳回信息</view>
-              <view class="inputborder">
-                     <view>{{list.rejectReason}}</view>
-              </view>
-       </view>
-       </block>
-       <!-- 如果是已经提交活动总结的活动将展示 -->
-       <block wx:if="{{list.state==3}}">
-       <view>
-              <view class="subtitle_font">活动结束信息</view>
-              <view class="inputborder">
-                     <view>{{list.practicalMember}}</view>
-                     <view>{{list.practicalMoney}}</view>
-              </view>
-       </view>
-       </block>
+                            </view>
+                     </view>
+                     <!-- 负责人信息 -->
+                     <view>
+                            <view class="subtitle_font">负责人信息</view>
+                            <view class="message">
+                                   <view>负责人姓名：{{list.b1_fzrName}}</view>
+                                   <view>负责人专业：{{list.b2_fzrGrade}}</view>
+                                   <view>负责人手机号：{{list.b3_fzrTelephone}}</view>
+                                   <view>负责人邮箱：{{list.b4_fzrMail}}</view>
+                            </view>
+                     </view>
+                     <!-- 活动经费预算 -->
+                     <view>
+                            <view class="subtitle_font">活动经费预算</view>
+                            <view class="message">
+                                   <view>活动经费预算总计：{{list.c1_jingfeiTotal}}</view>
+                                   <view>活动经费自筹数：{{list.c2_jingfeiSelf}}</view>
+                                   <view>活动申请拨款数：{{list.c3_jingfeiApply}}</view>
+                            </view>
+                     </view>
+                     <!-- 赞助信息 -->
+                     <view>
+                            <view class="subtitle_font">赞助信息</view>
+                            <view class="message">
+                                   <view>是否有赞助：{{list.d1_sponsor}}</view>
+                                   <view>赞助公司：{{list.d2_sponsorCompany}}</view>
+                                   <view>赞助形式：{{list.d3_sponsorForm}}</view>
+                                   <view>赞助金额：{{list.d4_sponsorMoney}}</view>
+                                   <view>是否提交赞助合同：{{list.d5_sponsorContract}}</view>
+                            </view>
+                     </view>
+                     <!-- 借款信息 -->
+                     <view>
+                            <view class="subtitle_font">借款信息</view>
+                            <view class="message">
+                                   <view>是否需要借款：{{list.e1_borrow}}</view>
+                                   <view>借款人姓名：{{list.e2_jkrName}}</view>
+                                   <view>借款人专业：{{list.e3_jkrGrade}}</view>
+                                   <view>借款人年龄：{{list.e4_jkrAge}}</view>
+                                   <view>借款人电话：{{list.e5_jkrTelephone}}</view>
+                                   <view>借款金额：{{list.e6_jkrMoney}}</view>
+                            </view>
+                     </view>
+                     <!-- 劳务信息 -->
+                     <view>
+                            <view class="subtitle_font">劳务信息</view>
+                            <view class="message">
+                                   <view>是否需要发放劳务费：{{list.f1_serviceFee}}</view>
+                                   <view>劳务费对象：{{list.f2_serviceObject}}</view>
+                                   <view>申请劳务费金额：{{list.f3_serviceMoney}}</view>
+                            </view>
+                     </view>
+                     <!-- 预约信息 -->
+                     <view>
+                            <view class="subtitle_font">预约信息</view>
+                            <view class="message">
+                                   <view>归属的组织：{{list.g1_orderInstitute}}</view>
+                                   <view>{{list.g2_orderTeacher}}</view>
+                                   <view>{{list.g3_orderStartTime}}</view>
+                                   <view>{{list.g4_orderEndTime}}</view>
+                            </view>
+                     </view>
+                     <!-- 备注信息 -->
+                     <view>
+                            <view class="subtitle_font">备注信息</view>
+                            <view class="message">
+                                   <view>{{list.h1_remark}}</view>
+                                   <view>预计参与人数：{{list.h2_participant}}</view>
+                                   <view>是否需要上传至OA：{{list.h3_uploadOA}}</view>
+                                   <view>项目内容阐述：{{list.h4_briefContent}}</view>
+                            </view>
+                     </view>
 
+                     <!-- 如果是已驳回的活动将展示 -->
+                     <!-- 驳回的信息 -->
+                     <block wx:if="{{list.state==2}}">
+                     <view>
+                            <view class="subtitle_font">驳回信息</view>
+                            <view class="message">
+                                   <view>{{list.rejectReason}}</view>
+                            </view>
+                     </view>
+                     </block>
+                     <!-- 只有已提交过活动申请报告的才可见 -->
+                     <block wx:if="{{list.state==3 || list.state==4}}">
+                            <view>
+                                   <view class="subtitle_font">活动结束信息</view>
+                                   <view class="message">
+                                          <view>活动实际参与人数：{{list.practicalMember}}</view>
+                                          <view>项目实际支出：{{list.practicalTotalMoney}}</view>
+                                          <view>实际赞助金额：{{list.practicalSponsorship}}</view>
+                                          <view>实际申请拨款金额：{{list.practicalApMoney}}</view>
+                                          <view wx:for="{{list.publicityLink}}">
+                                          <view>
+                                                 宣传报道链接：{{item.link}}
+                                          </view>
+                                          </view>
+                                          <view wx:for="{{list.oaLink}}">
+                                          <text>oa报道链接：{{item.link}}</text>
+                                          </view>
+                                   </view>
+                            </view>
+                     </block>
+                     <!-- 条件渲染，只有待审批且身份为老师的才能显示 -->
+                     <view wx:if="{{huoDongTeac}}">
+                            <block wx:if="{{list.state==0}}">
+                                   <view class="subtitle_font">如果驳回，请备注驳回理由</view>
+                                   <input bindinput="huoDongRejectReason" class="rejectReason" placeholder="驳回的理由" style=" padding: 30rpx; margin-left:40rpx; margin-right:40rpx; border: 2rpx solid brown ; border-radius: 40rpx;"> </input>
+                                   <!-- 两个按钮 -->
+                                   <view style="margin-top: 40rpx;">
+                                          <button bindtap="huoDongPass" style="width: 300rpx; float: left; margin-left: 40rpx; color:black; background-color: #FFFFFF; box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.15); border: 2rpx solid brown; border-radius: 20rpx;">
+                                          审批通过</button>
+                                          <button bindtap="huoDongReject" style="width: 300rpx; float: right;margin-right: 40rpx; color:#FFFFFF; background-color: #D43030; box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.15); order: 2rpx solid #FFFFFF; border-radius: 20rpx;">
+                                          审批驳回</button>
+                                   </view>
+                            </block>
+                            <!-- 条件渲染，只有提交活动总结报告的活动才能显示 -->
+                            <block wx:if="{{list.state==3}}">
+                                   <!-- pass2是指第二次通过审批 -->
+                                   <view>
+                                          <button bindtap="huoDongPass2" style="margin-left:40rpx; width: 670rpx; color:#FFFFFF; background-color: #D43030; box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.15); border: 2rpx solid brown; border-radius: 20rpx;">
+                                          审批通过</button>
+                                   </view>
+                            </block>
+                     </view>
+                     
+                     
+       </view>
+
+       <!-- 预约详情 -->
+       <view wx:if="{{type == 2}}">
+              <!-- 预约老师信息 -->
+              <view>
+                     <view class="subtitle_font">预约基本信息</view>
+                     <view class="message">
+                            <view >申请预约的组织：{{list.g1_orderInstitute}}</view>
+                            <view >预约的老师：{{list.g1_orderTeacher}}</view>
+                            <view >预约的时间：{{list.appointment}}</view>
+                            <view >发出预约的时间：{{list.time}}</view>
+                            <view >预约事项：{{list.content}}</view>
+                            <view >预约人：{{list.subscriber}}</view>
+                            <view >手机号：{{list.subscriberPhone}}</view>
+                            <block wx:if="{{list.state==2}}">
+                                   <view>驳回理由：{{list.rejectReason}}</view>
+                            </block>
+                     </view>
+              </view>
+              <!-- 条件渲染，只有待审批且身份为老师的预约才能显示 -->
+              <view wx:if="{{appointmentTeac}}">
+                     <block wx:if="{{list.state==0}}">
+                            <view class="subtitle_font">如果驳回，请备注驳回理由</view>
+                                   <input bindinput="yuYueRejectReason" class="rejectReason" placeholder="驳回的理由" style=" padding: 30rpx; margin-left:40rpx; margin-right:40rpx; border: 2rpx solid brown ; border-radius: 40rpx;"> </input>
+                                   <!-- 两个按钮 -->
+                                   <view style="position: absolute; bottom: 40rpx; width: 100%;">
+                                          <button bindtap="yuYuePass" style="width: 300rpx; float: left; margin-left: 40rpx; color:black; background-color: #FFFFFF; box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.15); border: 2rpx solid brown; border-radius: 20rpx;">
+                                          审批通过</button>
+                                          <button bindtap="yuYueReject" style="width: 300rpx; float: right;margin-right: 40rpx; color:#FFFFFF; background-color: #D43030; box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.15); order: 2rpx solid #FFFFFF; border-radius: 20rpx;">
+                                          审批驳回</button>
+                            </view>
+                     </block>
+              </view>
+       </view>
 </view>
 
 

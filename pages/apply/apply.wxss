@@ -2,9 +2,19 @@ input{
        border: 1px solid gray;
        
 }
+.apply{
+       margin-left: 30rpx;
+       margin-right: 30rpx;
+}
+.apply_title{
+       height: 90rpx;
+       border-bottom: 5rpx solid #A6A6A6;
+       font-size: 56rpx;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 /* 小标题位置 */
 .subtitle{
-       margin-left: 15px;
+       margin-left: 5rpx;
        
 }
 /* 小标题内容 */
@@ -15,16 +25,16 @@ input{
 }
 /* 输入框 */
 .inputborder{
-       margin-top: 15px;
-       margin-left: 20px;
-       margin-right:20px;
-       margin-bottom: 15px;
-       padding-top: 3px;
-       padding-bottom: 3px;
-       padding-left: 15px;
-       padding-right:15px;
-       border-radius: 30px;
-       border: 1px solid #F2E6E6;
+       margin-top: 30rpx;
+       margin-left: 30rpx;
+       margin-right:30rpx;
+       margin-bottom: 30rpx;
+       padding-top: 3rpx;
+       padding-bottom: 3rpx;
+       padding-left: 30rpx;
+       padding-right:15rpx;
+       border-radius: 30rpx;
+       border: 2rpx solid #F2E6E6;
 }
 .Pname{
   margin: 28rpx 0 12rpx 0;
@@ -163,19 +173,6 @@ button{
   margin-top: 10px;
   justify-content: center; /**内容居中*/
  }
-
- .btn1 {
-  color: white;
-  background-color: thistle;
-}
-.btn1:active{
-  background-color: rgb(224, 115, 64);
-}
-.lines{
-  margin-top: 40rpx;
-  display: flex;
-  flex-direction: row;
-}
 .in{
   box-sizing: border-box;
   width: 240rpx;
@@ -184,15 +181,6 @@ button{
 }
 .choose{
   margin-top: 20rpx;
-}
-button{
-  border-radius: 80rpx;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  color:#FFFFFF;
-  background-color: #D43030;
-  box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
-
 }
 .title{
   margin-top: 10px;
@@ -208,21 +196,15 @@ button{
   justify-content: center; /**内容居中*/
  }
 
- .wuzi{
-       /* margin-top: 15px;
-       margin-left: 20px;
-       margin-right:20px;
-       margin-bottom: 15px;
-       padding-top: 3px;
-       padding-bottom: 3px;
-       padding-left: 15px;
-       padding-right:15px;
-       border-radius: 30px;
-       border: 1px solid #F2E6E6; */
-       float:left;width:60%;font-size:32rpx;font-weight:bold;color:black;text-align:center;
+.comment{
+       font-size: 12px;
+       color:gray;
+       margin-left: 15px;
+       margin-right: 15px;
 }
 
-.abc{
-       font-size: smaller;
-       border: #D43030;
+.van-circle{
+       position: absolute;
+       top: 0;
 }
+

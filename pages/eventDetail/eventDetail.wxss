@@ -1,27 +1,26 @@
 /* pages/eventDetail/eventDetail.wxss */
-.xiangqing{
-       display: grid;
-       font-size: large;
-       font-weight: 900;
-       margin: 20rpx 10rpx 20rpx 10rpx;
-}
-.inputborder{
-       margin-top: 15px;
-       margin-left: 20px;
-       margin-right:20px;
-       margin-bottom: 15px;
-       padding-top: 3px;
-       padding-bottom: 3px;
-       padding-left: 15px;
-       padding-right:15px;
-       border-radius: 30px;
-       border: 1px solid #F2E6E6;
-}
-
 /* 小标题内容 */
 .subtitle_font{
        font-size: large;
        font-weight: 400;
        color: #D43C33;
-       margin-left: 20px;
+       margin-left: 40rpx;
 }
+.message{
+       margin-top: 30rpx;
+       margin-left: 40rpx;
+       margin-right:40rpx;
+       margin-bottom: 30rpx;
+       padding-top: 6rpx;
+       padding-bottom: 6rpx;
+       padding-left: 30rpx;
+       padding-right:30rpx;
+       border-radius: 40rpx;
+       border: 2rpx solid brown;
+       box-shadow: 16rpx 8rpx 24rpx rgba(11, 14, 11, 0.2);
+       min-height: 300rpx;
+       margin-top: 10rpx;
+       font-size: 40rpx;
+       font-weight: 200;
+}
+

@@ -1,40 +1,24 @@
 {
   "pages": [
     "pages/choicePage/choicePage",
-    "pages/register/register",
-    "pages/register1/register1",
-    "pages/register2/register2",
-    "pages/register3/register3",
-    "pages/register4/register4",
+    "pages/closeRegister/closeRegister",
     "pages/nextChoice/nextChoice",
-    "pages/indexLogin/indexLogin",
     "pages/index/index",
     "pages/eventDetail/eventDetail",
     "pages/apply/apply",
-    "pages/yuyue/yuyue",
     "pages/history/history",
     "pages/history2/history2",
-    "pages/data/data",
     "pages/summarize/summarize",
     "pages/approval/approval",
-    "pages/approvalPass/approvaPass",
-    "pages/approvalReject/approvaReject",
-    "pages/approvalEnd/approvalEnd",
-    "pages/approvalLogin/approvalLogin",
-    "pages/TeventDetail/TeventDetail",
     "pages/appointment/appointment",
     "pages/appointmentApproval/appointmentApproval",
-    "pages/appointmentApproval2/appointmentApproval2",
-    "pages/appointmentApproval3/appointmentApproval3",
-    "pages/appointmentApprovalLogin/appointmentApprovalLogin",
-    "pages/appointmentDetail/appointmentDetail",
-    "pages/vipLogin/vipLogin",
-    "pages/vip/vip"
+    "pages/vip/vip",
+    "pages/retrieve/retrieve"
   ],
   "window": {
        "backgroundTextStyle": "light",
        "navigationBarBackgroundColor": "#fff",
-       "navigationBarTitleText": "测试版",
+       "navigationBarTitleText": "团委小程序",
        "navigationBarTextStyle": "black",
        "enablePullDownRefresh": true
   },
@@ -62,7 +46,7 @@
        {
        "pagePath": "pages/appointment/appointment",
        "text": "预约老师",
-       "iconPath": "/icon/预约(1).png",
+       "iconPath": "/icon/yuyue.png",
        "selectedIconPath": "/icon/预约.png"
        },
        {
@@ -73,7 +57,6 @@
        }
      ]
 },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "networkTimeout": {
        "request": 6000000

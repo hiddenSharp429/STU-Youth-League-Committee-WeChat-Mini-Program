@@ -1,4 +1,9 @@
 {
-       "usingComponents": {},
-       "navigationBarTitleText": "预约老师"
+       "navigationBarTitleText": "预约老师",
+       "usingComponents": {
+              "van-notice-bar": "@vant/weapp/notice-bar/index",
+              "van-icon": "@vant/weapp/icon/index",
+              "van-overlay": "@vant/weapp/overlay/index",
+              "van-divider": "@vant/weapp/divider/index"
+       }     
 }

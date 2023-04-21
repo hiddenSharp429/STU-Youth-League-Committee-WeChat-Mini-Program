@@ -150,10 +150,21 @@ page{font-size: 11pt}
        padding-bottom: 3px;
        padding-left: 15px;
        padding-right:15px;
-       border-radius: 30px;
        border: 1px solid #F2E6E6;
-       height: 40px;
+       height: 60px;
 }
+.inputborder2{
+       margin-top: 15px;
+       margin-left: 20px;
+       margin-right:20px;
+       margin-bottom: 15px;
+       padding-top: 3px;
+       padding-bottom: 3px;
+       padding-left: 15px;
+       padding-right:15px;
+       border: 1px solid #F2E6E6;
+}
+
 .xuanzheyuyue{
        display: flex;
        font-weight: 900;
@@ -164,8 +175,8 @@ page{font-size: 11pt}
      }
 .xuanzheyuyue1{
        display: flex;
-       font-weight: 900;
-       font-size: large;
+       font-weight: 400;
+       font-size: 13px;
        margin-top: 10px;
        justify-content: center;
        align-items: center;
@@ -175,6 +186,10 @@ page{font-size: 11pt}
        font-size: medium;
        font-weight: 400;
        color: black;
+}
+.comment1{
+       font-size: 11px;
+       color:gray;
 }
 /* 批注的css */
 .comment_subtitle{
@@ -187,4 +202,63 @@ button{
        color:#FFFFFF;
        background-color: #D43030;
        box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
+}
+/* 多选老师栏目的样式 */
+       .choiceTeacher{
+              margin-left: 15px;
+              margin-right: 25px;
+              height: 60px;
+              padding-top: 10px;
+              border-radius: 30px;
+              border: 1px solid #F2E6E6;
+       }
+       .weui-cell__bd{
+              font-size: 15px;
+       }
+       label{
+              float: left;
+              margin-left: 20px;
+       }
+     /* 未选中的背景样式 */
+     checkbox .wx-checkbox-input{
+       width: 40rpx; 
+       height: 40rpx; 
+       border-radius: 50%;
+       background: white;
      }
+     
+     /* 选中后的背景样式 */
+     checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+       border: none;
+       background: #D43C33;
+     }
+     
+     /* 选中后的勾子样式 */
+     checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+       width: 40rpx;
+       height: 40rpx;
+       line-height: 40rpx;
+       border-radius: 50%;
+       text-align: center;
+       font-size:32rpx; 
+       font-weight: 1600;
+       color:#FFF; 
+       background: transparent;
+       transform:translate(-50%, -50%) scale(1);
+       -webkit-transform:translate(-50%, -50%) scale(1);
+     }
+
+.fail{
+       height: 50vh;
+       width: 100%;
+       position: absolute;
+       top: 10vh;
+       margin-top: 50rpx;
+}
+.tip{
+       position: relative;
+       margin-top: 60vh;
+       font-size: 18px;
+       color:gray;
+       text-align: center;
+}

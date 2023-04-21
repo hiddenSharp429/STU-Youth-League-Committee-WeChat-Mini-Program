@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@vant/weapp": "^1.10.12",
+    "silly-datetime": "^0.1.2"
+  }
+}

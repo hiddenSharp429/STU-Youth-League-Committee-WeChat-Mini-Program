@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+       "van-notice-bar": "@vant/weapp/notice-bar/index"
+},
   "navigationBarTitleText": "新申请"
 }

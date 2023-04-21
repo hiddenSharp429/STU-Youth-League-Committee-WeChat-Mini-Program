@@ -1,6 +1,6 @@
 <view class="sever"placeholder-class="placeholder-style">
 <!-- bindinput 为文本框绑定输入事件 -->  
-       <view> 
+       <view class="View"> 
               <text class="subtitle_font">
                      1.活动实际参与人数:
               </text>
@@ -10,17 +10,21 @@
               placeholder-class="placeholder-style">
               </input>
        </view>
-       <view class="content">
+       <view class="View">
               <text class="subtitle_font">
-                     2.满意度调查情况：
+                     2.满意度调查情况（上传附件调查表）：
               </text>
-              <button bindtap="chooseFile" class='shangchuan' >上传附件调查表
-              </button>
-       
+              <view style="width:100%;" class="shangchuan" bindtap="chooseFile" data-type="sati">
+                     <view style="text-align: center; margin-top: 35rpx; width: 300rpx;float: right; margin-right: 200rpx; font-size: 40rpx;">Uploading+<text>*</text></view>
+                     <view  style="width: 100rpx; float: right; margin-top: 10rpx;">
+                            <image src="../../icon/uploading.png" style="height: 100rpx; width: 100rpx;" mode=""/>
+                     </view>
+              </view>
+              
        </view>
-        <view class="content">
+        <view class="View">
               <text class="subtitle_font">
-                     3.项目资金实际情况
+                     3.项目资金实际情况（上传附件细项）
               </text>
               <!-- 总价（必填*） -->
             <input placeholder="总价（必填*）" type="number" bindinput='atvmoneyInput1' class="atvmoney"
@@ -37,37 +41,47 @@
               placeholder-class="placeholder-style" >
             总额输入
             </input>
-            <button bindtap="chooseFile" class="shangchuan">附件细项<text>*</text>
-            </button>
+              <view style="width:100%;" class="shangchuan" bindtap="chooseFile" data-type="fund">
+                            <view style="text-align: center; margin-top: 35rpx; width: 300rpx;float: right; margin-right: 200rpx; font-size: 40rpx;">Uploading+<text>*</text></view>
+                            <view  style="width: 100rpx; float: right; margin-top: 10rpx;">
+                                   <image src="../../icon/uploading3.png" style="height: 100rpx; width: 100rpx;" mode=""/>
+                            </view>
+              </view>
         </view>
 <!-- //活动文件 -->
-        <view class="content">
+        <view class="View">
               <text class="subtitle_font">
               4.活动文件（申报书，总结表，备忘录）：
               </text>
-              <button bindtap="chooseFile" class='shangchuan' >上传活动文件表
-              </button>
-       
+              <view style="width:100%;" class="shangchuan" bindtap="chooseFile" data-type="acti">
+                            <view style="text-align: center; margin-top: 35rpx; width: 300rpx;float: right; margin-right: 200rpx; font-size: 40rpx;">Uploading+<text>*</text></view>
+                            <view  style="width: 100rpx; float: right; margin-top: 10rpx;">
+                                   <image src="../../icon/uploading2.png" style="height: 100rpx; width: 100rpx;" mode=""/>
+                            </view>
+              </view>
        </view>
 <!-- 宣传报道链接 -->
 <!-- 这里的content1修改了content的距离bottom的值 -->
-       <view class="content1">
+       <view class="View">
               <text class="subtitle_font">
               5.宣传报道链接
               </text>
               <block wx:for="{{lists}}" wx:key="{{index}}">
                      <input class='atvmoney' data-id="{{index}}" placeholder="报道链接"  placeholder-class="placeholder-style" bindinput='bindlinkInput' data-name="link"></input>
               </block> 
-                     <button class='add' bindtap='addList' style="width:40%">添加输入框</button>
-                     <button class='del' bindtap='delList' style="width:40%">删除输入框</button>
-              <text class="tips">
-              注：包括该活动有关的所有宣传报道
-              </text>
-       
+              <view style="width: 100%; height: 200rpx;">
+                     <view style="width: 100%; height: 100rpx;">
+                            <button class='add' bindtap='addList' style="width:300rpx">添加输入框</button>
+                            <button class='del' bindtap='delList' style="width:300rpx">删除输入框</button>
+                     </view>
+                     <text class="tips" style="font-size: 30rpx; color: brown;float: right;">
+                     注：包括该活动有关的所有宣传报道
+                     </text>      
+              </view> 
        </view>
 
 <!-- 办公自动化链接 -->
-       <view class="content1">
+       <view class="View">
               <text class="subtitle_font">
               6.办公自动化链接
               </text>
@@ -79,7 +93,7 @@
        
        </view>
 </view>
-<view>
-<button bindtap="sever" class="submit" style="width:80% "><text class="sub" >提交</text></button>
+<view style="margin-top: 210rpx;">
+<button bindtap="sever" class="submit" style="width:90% "><text class="sub" >提交</text></button>
 </view>
 

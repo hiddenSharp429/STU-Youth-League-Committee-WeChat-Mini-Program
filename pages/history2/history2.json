@@ -1,4 +1,8 @@
 {
-       "usingComponents": {},
+       "usingComponents": {
+        "van-icon": "@vant/weapp/icon/index",
+        "van-popup": "@vant/weapp/popup/index"
+
+       },
        "navigationBarTitleText": "预约老师的历史记录"
 }

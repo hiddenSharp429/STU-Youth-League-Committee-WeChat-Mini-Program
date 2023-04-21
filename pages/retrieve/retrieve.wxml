@@ -1,0 +1,37 @@
+<view>
+       <view class="imageBackground"><image class="background" src="/icon/background.jpg"></image></view>
+       <van-notice-bar
+       color="#1989fa"
+       background="#ecf9ff"
+       left-icon="info-o"
+       text="请在下方先选择端口再输入你的注册时的账号。若有修改账号密码的需求可联系相关负责人。"
+       />
+       <van-divider contentPosition="center" 
+              customStyle="color: black; border-color: black; font-size: 18px; width: 90% ; margin-left:20px ; margin-right:20px ; margin-top:5%"
+              >
+              找回密码
+       </van-divider>
+       <view class="checkBox">
+              <text>选择账号所属的端口:</text>
+              <view class="checkBox_content">
+                     <van-radio-group
+                     value="{{ radio }}"
+                     bind:change="onChange"
+                     direction="horizontal"
+                     >
+                            <van-radio name="1" shape="square" >用户端</van-radio>
+                            <van-radio name="2" shape="square" >审批活动端</van-radio>
+                            <van-radio name="3" shape="square" >审批预约端</van-radio>
+                     </van-radio-group>
+              </view>
+              
+       </view>
+       <van-divider
+       contentPosition="left"
+       customStyle="color: black; border-color: black; font-size: 18px; width: 90% ; margin-left:20px ; margin-right:20px ; margin-top:20%"
+       >
+              Account
+       </van-divider>
+       <input bindinput="getAccount" class="inputborder1" placeholder="输入需要找回密码的账号"></input>
+       <button bindtap="retrieve" style="width: 88%;">查询密码</button>
+</view>
