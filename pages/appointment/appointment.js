@@ -108,7 +108,8 @@ Page({
     hourIndex: -1,
     //预约时间
     yyTime: '',
-    day: ''
+    day: '',
+    sumbit_button: false,
   },
   //返回首页并退出登录
   back() {
@@ -557,12 +558,6 @@ Page({
       hourIndex: -1,
     })
   },
-  //sumit里面的前置函数
-  final() {
-    let newins = this.data.multiArray[0]
-    let newtea = this.data.multiArray[1]
-
-  },
 
   // 预约事项
   content(res) {
@@ -708,6 +703,9 @@ Page({
   },
   //提交预约
   submit: function (e) {
+    this.setData({
+      sumbit_button: true
+    })
     let that = this;
     //这个在showTimeModel/submit里面有用到，为了提交预约的时候把提交的时间给一起提交到数据库
     var TimeOfSubmission = util.SubmitTime(new Date())
@@ -716,9 +714,11 @@ Page({
         title: "请选择预约时间",
         icon: "none",
       });
+      this.setData({
+        sumbit_button: false
+      })
       return false;
     }
-    this.final()
     wx.requestSubscribeMessage({
       tmplIds: ['ITKk6SuK7iPtD5iCqMLVFkm0B4sVq_3iFNyXq9cKwRM'],
       success(res) {
