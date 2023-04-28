@@ -50,7 +50,6 @@ Page({
           .get()
           .then(res => {
             console.log('查询数据库成功', res.data)
-            wx.stopPullDownRefresh()
             //将返回的res.data里面的值赋值给list
             this.setData({
               list: res.data,
@@ -65,7 +64,6 @@ Page({
   },
   onLoad() {
     let that = this
-    wx.startPullDownRefresh()
     wx.cloud.callFunction({
         name: 'getData'
       })

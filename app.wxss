@@ -30,7 +30,7 @@
 .fail {
   height: 700rpx;
   width: 100%;
-  position: absolute;
+  position: relative;
   top: 100rpx;
   margin-top: 50rpx;
 }

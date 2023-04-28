@@ -41,7 +41,6 @@ Page({
               item: res.data.length,
               popShow: false
             })
-            wx.stopPullDownRefresh()
             console.log("结束刷新")
           })
       })
@@ -51,8 +50,6 @@ Page({
   },
   onLoad() {
     let that = this
-    // 启动的时候自动刷新页面
-    wx.startPullDownRefresh()
     wx.cloud.callFunction({
         name: 'getData'
       })

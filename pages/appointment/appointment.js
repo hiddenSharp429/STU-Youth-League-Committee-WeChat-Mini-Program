@@ -10,6 +10,7 @@ Page({
   data: {
     openid: "",
     show: false,
+    popShow:false,
     password: '',
     account: '',
     canIUseGetUserProfile: false,
@@ -135,8 +136,6 @@ Page({
     });
   },
   onLoad(options) {
-    // 启动的时候自动刷新页面
-    wx.startPullDownRefresh()
     let that = this
     wx.showModal({
       title: '温馨提示',
@@ -348,7 +347,8 @@ Page({
         list[i].isShow = false;
       }
       this.setData({
-        hourList: list
+        hourList: list,
+        popShow:false
       })
     }
     console.log("选择日期.形式", this.data.timeList[e.currentTarget.dataset.index].rank)
@@ -358,7 +358,8 @@ Page({
       yyTime: '',
       chooseHour: "",
       hourIndex: -1,
-      rankDay: this.data.timeList[e.currentTarget.dataset.index].rank * 10000
+      rankDay: this.data.timeList[e.currentTarget.dataset.index].rank * 10000,
+      popShow:true
     });
     console.log("这个是choosetime", this.data.chooseTime)
     console.log("这个是rankDay整数形式", this.data.rankDay)
@@ -399,18 +400,16 @@ Page({
                 console.log(this.data.hourList, "这是")
                 list[b].isShow = false
                 this.setData({
-                  hourList: list
+                  hourList: list,
                 })
               }
             }
           }
 
         }
-        var arr = res.data
-        for (var x = 0; x <= arr.length - 1; x++) {
-          let b = x
-          console.log(arr[x].hour, 666)
-        }
+        this.setData({
+          popShow:false
+        })
       })
 
   },

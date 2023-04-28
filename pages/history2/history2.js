@@ -61,7 +61,6 @@ Page({
   },
   onLoad() {
     let that = this
-    wx.startPullDownRefresh()
     wx.cloud.callFunction({
         name: 'getData'
       })
