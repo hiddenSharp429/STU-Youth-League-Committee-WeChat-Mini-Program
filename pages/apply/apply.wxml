@@ -249,5 +249,5 @@
     <image src="https://s2.loli.net/2023/02/13/1MIrS7pJz24isKk.png" class="fail"></image>
     <view class="tip">获取用户请求失败，请重新申请</view>
   </view>
-  <button style="position: absolute; bottom: 5px; left: 20px; right: 20px; width: 60%;" bindtap="canIUseGetUserProfile">重新申请</button>
+  <button style="position: absolute; bottom: 5px; left: 20px; right: 20px; width: 240rpx;" bindtap="canIUseGetUserProfile">重新申请</button>
 </block>

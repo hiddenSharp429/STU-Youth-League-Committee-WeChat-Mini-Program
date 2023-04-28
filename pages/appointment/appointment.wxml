@@ -99,3 +99,15 @@
   </view>
   <button style="position: absolute; bottom: 5px; left: 20px; right: 20px; width: 60%;" bindtap="canIUseGetUserProfile">重新申请</button>
 </block>
+
+<van-popup show="{{ popShow }}" position="top" custom-style="height: 200rpx;" round>
+  <view class="loadingBox" style="margin-top: 100rpx;">
+    <view class="loader-dots">
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+</van-popup>
