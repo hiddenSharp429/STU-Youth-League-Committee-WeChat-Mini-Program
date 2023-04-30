@@ -97,15 +97,4 @@
        </view>
 </van-overlay>
 
-<!-- 由于不显示导航栏故loading盒子需要修改margin-top值 -->
-<van-popup show="{{ popShow }}" position="top" custom-style="height: 300rpx;" round>
-       <view class="loadingBox"  style="margin-top: 200rpx;">
-              <view class="loader-dots">
-              <view></view>
-              <view></view>
-              <view></view>
-              <view></view>
-              <view></view>
-              </view>
-       </view> 
-</van-popup>
+<loading id="my-loading"></loading>

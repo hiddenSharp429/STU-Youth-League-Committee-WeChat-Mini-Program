@@ -189,16 +189,5 @@
       </van-tabbar-item>
     </van-tabbar>
   </view>
-  <!-- loading盒子 -->
-  <van-popup show="{{ popShow }}" position="top" custom-style="height: 200rpx;" round>
-    <view class="loadingBox">
-      <view class="loader-dots">
-        <view></view>
-        <view></view>
-        <view></view>
-        <view></view>
-        <view></view>
-      </view>
-    </view>
-  </van-popup>
+  <loading id="my-loading"></loading>
 </view>

@@ -29,7 +29,6 @@ Page({
         loading: false
       },
     ],
-    popShow: true,
     list: [],
     approval: {
       normal: 'https://s2.loli.net/2023/02/13/Am8Y9LFgj5T4CNS.png',
@@ -92,14 +91,15 @@ Page({
     this.onLoad()
   },
   nextPage(e) {
+    const Loading = this.selectComponent('#my-loading')
     let that = this
     //因为data-传入的是字符串类型，故修改为int类型
     let type = parseInt(e.currentTarget.dataset.next)
     if (this.data.currentPage < this.data.totalPage) {
       that.setData({
         currentPage: this.data.currentPage + 1,
-        popShow: true
       })
+      Loading.OnStart();
       this.getList(type)
     } else {
       wx.showToast({
@@ -110,14 +110,15 @@ Page({
     }
   },
   lastPage(e) {
+    const Loading = this.selectComponent('#my-loading')
     let that = this
     //因为data-传入的是字符串类型，故修改为int类型
     let type = parseInt(e.currentTarget.dataset.last)
     if (this.data.currentPage != 1) {
       that.setData({
         currentPage: this.data.currentPage - 1,
-        popShow: true
       })
+      Loading.OnStart();
       this.getList(type)
     } else {
       wx.showToast({
@@ -128,6 +129,7 @@ Page({
     }
   },
   getList(e) {
+    const Loading = this.selectComponent('#my-loading')
     db.collection("huoDong")
       .orderBy('rank', 'desc')
       .limit(4)
@@ -140,16 +142,15 @@ Page({
         console.log('查询数据库成功', res.data)
         this.setData({
           list: res.data,
-          popShow: false
         })
+        Loading.OnClose();
         console.log("这是list", this.data.list)
       })
   },
   onLoad(options) {
+    const Loading = this.selectComponent('#my-loading')
     let that = this
-    this.setData({
-      popShow: true
-    })
+    Loading.OnStart();
     //当选中的是“待审批”执行代码
     if (this.data.active == 0) {
       db.collection("huoDong")

@@ -8,7 +8,6 @@ Page({
     currentPage: 1,
     totalPage: 0,
     totalRecord: 0,
-    popShow: false,
   },
   //返回首页并退出登录
   back() {
@@ -29,10 +28,9 @@ Page({
   },
   //获取活动列表
   getList() {
+    const Loading = this.selectComponent('#my-loading')
     let that = this
-    this.setData({
-      popShow: true
-    })
+    Loading.OnStart();
     //调用云函数来获取用户openid
     wx.cloud.callFunction({
         name: 'getData'
@@ -54,8 +52,8 @@ Page({
             this.setData({
               list: res.data,
               item: res.data.length,
-              popShow: false,
             })
+            Loading.OnClose();
           })
       })
       .catch(err => {
