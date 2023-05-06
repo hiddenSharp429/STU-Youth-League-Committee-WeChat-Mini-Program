@@ -388,12 +388,7 @@ Page({
     this.setData({
       timeList: dateList
     });
-    //初始化判断，当天所有的时间段均为不可选
-    for (let index = 0; index < 12; index++) {
-      this.setData({
-        ['hourList[' + index + '].isShow']: false
-      })
-    }
+
 
   },
 
@@ -434,6 +429,7 @@ Page({
         newins: newins4
       })
     }
+    this.refresh();
   },
 
   //选择预约的老师
@@ -442,7 +438,7 @@ Page({
     console.log('picker发送选择改变，携带老师的名字为', e.detail.value)
     this.setData({
       multiIndex1: e.detail.value,
-      currentTab:0
+      currentTab: 0
     })
     var newtea0 = "姚溱"
     if (this.data.multiIndex1[0] == 0) {
@@ -480,6 +476,7 @@ Page({
         newtea: newtea5
       })
     }
+    this.refresh();
   },
 
   // 预约事项
@@ -569,15 +566,25 @@ Page({
     this.setData({
       multiIndex: [0],
       multiIndex1: [0],
+      currentTab: 0,
       content: "",
+      hourIndex: [],
       yyHours: [],
-      yyTimes: []
+      yyTimes: [],
+      subscriber:'',
+      subscriberPhone:''
     })
     yyHour = []
     yyTime = []
     for (let index = 0; index < 12; index++) {
       this.setData({
         ['hourList[' + index + '].isSelect']: false
+      })
+    }
+    //初始化判断，当天所有的时间段均为不可选
+    for (let index = 0; index < 12; index++) {
+      this.setData({
+        ['hourList[' + index + '].isShow']: false
       })
     }
   }
