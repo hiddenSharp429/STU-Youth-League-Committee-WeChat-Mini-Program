@@ -37,9 +37,9 @@
         <view wx:if="{{ active == 0}}">
           <text style="font-size: 40rpx; color: brown;">共{{totalRecord}}条记录</text>
           <view style="min-height: 1000rpx;">
-            <view class="mine_appointment_content" wx:for="{{list}}" wx:key="_id">
-              <view class="event" bindtap="goDetail" data-id="{{item._id}}" data-user="Tea" data-type="2">
-                <view class="appointmentTime">{{item.appointment}}</view>
+            <view class="mine_appointment_content" wx:for="{{list}}" wx:key="_id" bindtap="goDetail" data-id="{{item._id}}" data-user="Tea" data-type="2">
+              <view class="event">
+                <view class="appointmentTime">预约的时间：{{item.appointment}}</view>
                 <view class="appointmentInstitute">预约组织：{{item.g1_orderInstitute}}</view>
                 <view class='appointmentTeacher'>预约老师：{{item.g1_orderTeacher}}</view>
                 <view class="time">{{item.time}}</view>
@@ -88,8 +88,8 @@
             
           </view>
           <view style="min-height: 1000rpx;">
-            <view class="mine_appointment_content" wx:for="{{list}}" wx:key="_id">
-              <view class="event" bindtap="goDetail" data-id="{{item._id}}" data-user="Tea" data-type="2">
+            <view class="mine_appointment_content" wx:for="{{list}}" wx:key="_id" bindtap="goDetail" data-id="{{item._id}}" data-user="Tea" data-type="2">
+              <view class="event">
                 <view class="appointmentTime">{{item.appointment}}</view>
                 <view class="appointmentInstitute">预约组织：{{item.g1_orderInstitute}}</view>
                 <view class='appointmentTeacher'>预约老师：{{item.g1_orderTeacher}}</view>
@@ -128,8 +128,8 @@
         <view wx:if="{{ active == 2}}">
           <text style="font-size: 40rpx; color: brown;">共{{totalRecord}}条记录</text>
           <view style="min-height: 1000rpx;">
-            <view class="mine_appointment_content" wx:for="{{list}}" wx:key="_id">
-              <view class="event" bindtap="goDetail" data-id="{{item._id}}" data-user="Tea" data-type="2">
+            <view class="mine_appointment_content" wx:for="{{list}}" wx:key="_id" bindtap="goDetail" data-id="{{item._id}}" data-user="Tea" data-type="2">
+              <view class="event">
                 <view class="appointmentTime">{{item.appointment}}</view>
                 <view class="appointmentInstitute">预约组织：{{item.g1_orderInstitute}}</view>
                 <view class='appointmentTeacher'>预约老师：{{item.g1_orderTeacher}}</view>

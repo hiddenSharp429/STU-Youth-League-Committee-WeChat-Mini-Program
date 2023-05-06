@@ -1,264 +1,287 @@
 /* 底部弹出timeModel按钮 */
-page{font-size: 11pt}
+page {
+  font-size: 11pt
+}
+
 .showBtn {
-    position: absolute;
-    bottom: 20rpx;
-    width: 100%;
+  position: absolute;
+  bottom: 20rpx;
+  width: 100%;
 }
 
 /* 是否显示 */
 .modal_show {
-    display: block;
+  display: block;
 }
+
 .modal_hide {
-    display: none;
+  display: none;
 }
 
 /* 日期弹出框 */
 .modal {
-    position: fixed;
-    z-index: 999;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 /* 背景模板*/
 .modal_cancel {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
+
 /* 弹出框主体 */
 .modal_container {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    background: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background: #fff;
 }
 
 /* modal_header */
 .modal_header {
-    padding: 20rpx;
-    text-align: center;
-    font-size: 11pt;
+  padding: 20rpx;
+  text-align: center;
+  font-size: 11pt;
 }
+
 /* header_tip */
 .header_tip {
-    position: relative;
-    font-size: 9pt;
-    color: #999;
+  position: relative;
+  font-size: 9pt;
+  color: #999;
 }
 
 /* time日期主体view */
 .time {
-    background: #f7f7f7;
-    text-align: center;
-    font-size: 11pt;
+  background: #f7f7f7;
+  text-align: center;
+  font-size: 11pt;
 }
+
 /* time日期主体滚动view */
 .time_scroll {
-    white-space: nowrap;
-    width: 100%;
-    height:100rpx;
-    line-height:50rpx;
+  white-space: nowrap;
+  width: 100%;
+  height: 100rpx;
+  line-height: 50rpx;
+  background-color: #ffffffb9;
+  box-shadow: 16rpx 8rpx 24rpx rgba(24, 10, 10, 0.25);
+  border: 1rpx solid whitesmoke;
 }
 
 .scroll-view-item {
-    height: 100rpx;
+  height: 100rpx;
 }
+
 /* 日期 */
 .scroll_item {
-    display: inline-block;
-    padding: 0 40rpx;
-    height: 100rpx;
-    box-sizing: border-box;
+  display: inline-block;
+  padding: 0 40rpx;
+  height: 100rpx;
+  box-sizing: border-box;
 }
 
 /* time_active选择状态 */
 .time_active {
-    color: #159de3;
-    border-bottom: 4rpx solid #159de3;
+  color: #b11033;
+  border-bottom: 4rpx solid #b11033;
 }
 
 /* 时间 */
 .hour {
-    padding: 20rpx 0 0 20rpx;
+  padding: 20rpx 0 0 20rpx;
 }
 
 .hour_item {
-    width: 22%;
-    box-sizing: border-box;
-    height: 70rpx;
-    line-height: 70rpx;
-    border-radius: 10rpx;
-    text-align: center;
-    float: left;
-    border: 2rpx solid #eee;
-    font-size: 11pt;
-    margin-right: 3%;
-    margin-bottom: 20rpx;
+  width: 22%;
+  box-sizing: border-box;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  float: left;
+  border: 2rpx solid #eee;
+  font-size: 11pt;
+  margin-right: 3%;
+  margin-bottom: 20rpx;
 }
 
 /* hour_active*/
 
 .hour_active {
-    background: #159de3;
-    color: #fff;
-    border: 2rpx solid #159de3;
+  background: #ca1010;
+  color: #fff;
+  border: 2rpx solid #ca1010;
 }
 
 /* hour_unactive */
 
 .hour_unactive {
-    color: #999;
+  color: #999;
 }
 
 /* 小标题位置 */
-.subtitle{
-       margin-left: 15px;
-       
+.subtitle {
+  margin-left: 15px;
+
 }
+
 /* 小标题内容 */
-.subtitle_font{
-       font-size: large;
-       font-weight: 400;
-       color: #D43C33;
+.subtitle_font {
+  font-size: large;
+  font-weight: 400;
+  color: #D43C33;
 }
+
 /* 输入框 */
-.inputborder{
-       margin-top: 15px;
-       margin-left: 20px;
-       margin-right:20px;
-       margin-bottom: 15px;
-       padding-top: 3px;
-       padding-bottom: 3px;
-       padding-left: 15px;
-       padding-right:15px;
-       border-radius: 30px;
-       border: 1px solid #F2E6E6;
-}
-.inputborder1{
-       margin-top: 15px;
-       margin-left: 20px;
-       margin-right:20px;
-       margin-bottom: 15px;
-       padding-top: 3px;
-       padding-bottom: 3px;
-       padding-left: 15px;
-       padding-right:15px;
-       border: 1px solid #F2E6E6;
-       height: 60px;
-}
-.inputborder2{
-       margin-top: 15px;
-       margin-left: 20px;
-       margin-right:20px;
-       margin-bottom: 15px;
-       padding-top: 3px;
-       padding-bottom: 3px;
-       padding-left: 15px;
-       padding-right:15px;
-       border: 1px solid #F2E6E6;
+.inputborder {
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 30px;
+  border: 1px solid #F2E6E6;
 }
 
-.xuanzheyuyue{
-       display: flex;
-       font-weight: 900;
-       font-size: large;
-       margin: 40rpx 0 40rpx 0;
-       justify-content: center;
-       align-items: center;
-     }
-.xuanzheyuyue1{
-       display: flex;
-       font-weight: 400;
-       font-size: 13px;
-       margin-top: 10px;
-       justify-content: center;
-       align-items: center;
-     }
+.inputborder1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-bottom: 30rpx;
+  border: 1px solid #F2E6E6;
+  min-height: 120rpx;
+}
+
+.inputborder2 {
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #F2E6E6;
+}
+
+.xuanzheyuyue {
+  display: flex;
+  font-weight: 900;
+  font-size: large;
+  margin: 40rpx 0 40rpx 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.xuanzheyuyueItem {
+  width: 47%;
+  font-weight: 400;
+  font-size: 26rpx;
+  margin-bottom:10rpx;
+  margin-left: 20rpx;
+}
+
 /* 批注的css */
-.comment{
-       font-size: medium;
-       font-weight: 400;
-       color: black;
+.comment {
+  font-size: medium;
+  font-weight: 400;
+  color: black;
 }
-.comment1{
-       font-size: 11px;
-       color:gray;
+
+.comment1 {
+  font-size: 11px;
+  color: gray;
 }
+
 /* 批注的css */
-.comment_subtitle{
-       margin-left: 15px;
-       margin-right:15px ;
-       margin-bottom: 15px;
+.comment_subtitle {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
 }
-button{
-       border-radius: 80rpx;
-       color:#FFFFFF;
-       background-color: #D43030;
-       box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
+
+button {
+  border-radius: 80rpx;
+  color: #FFFFFF;
+  background-color: #D43030;
+  box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.35);
 }
+
 /* 多选老师栏目的样式 */
-       .choiceTeacher{
-              margin-left: 15px;
-              margin-right: 25px;
-              height: 60px;
-              padding-top: 10px;
-              border-radius: 30px;
-              border: 1px solid #F2E6E6;
-       }
-       .weui-cell__bd{
-              font-size: 15px;
-       }
-       label{
-              float: left;
-              margin-left: 20px;
-       }
-     /* 未选中的背景样式 */
-     checkbox .wx-checkbox-input{
-       width: 40rpx; 
-       height: 40rpx; 
-       border-radius: 50%;
-       background: white;
-     }
-     
-     /* 选中后的背景样式 */
-     checkbox .wx-checkbox-input.wx-checkbox-input-checked{
-       border: none;
-       background: #D43C33;
-     }
-     
-     /* 选中后的勾子样式 */
-     checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
-       width: 40rpx;
-       height: 40rpx;
-       line-height: 40rpx;
-       border-radius: 50%;
-       text-align: center;
-       font-size:32rpx; 
-       font-weight: 1600;
-       color:#FFF; 
-       background: transparent;
-       transform:translate(-50%, -50%) scale(1);
-       -webkit-transform:translate(-50%, -50%) scale(1);
-     }
-
-.fail{
-       height: 50vh;
-       width: 100%;
-       position: absolute;
-       top: 10vh;
-       margin-top: 50rpx;
+.choiceTeacher {
+  margin-left: 15px;
+  margin-right: 25px;
+  height: 60px;
+  padding-top: 10px;
+  border-radius: 30px;
+  border: 1px solid #F2E6E6;
 }
-.tip{
-       position: relative;
-       margin-top: 60vh;
-       font-size: 18px;
-       color:gray;
-       text-align: center;
+
+.weui-cell__bd {
+  font-size: 15px;
+}
+
+label {
+  float: left;
+  margin-left: 20px;
+}
+
+/* 未选中的背景样式 */
+checkbox .wx-checkbox-input {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: white;
+}
+
+/* 选中后的背景样式 */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  border: none;
+  background: #D43C33;
+}
+
+/* 选中后的勾子样式 */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 1600;
+  color: #FFF;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.fail {
+  height: 50vh;
+  width: 100%;
+  position: absolute;
+  top: 10vh;
+  margin-top: 50rpx;
+}
+
+.tip {
+  position: relative;
+  margin-top: 60vh;
+  font-size: 18px;
+  color: gray;
+  text-align: center;
 }

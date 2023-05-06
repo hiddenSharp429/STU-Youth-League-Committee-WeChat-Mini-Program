@@ -468,7 +468,7 @@ Page({
   goDetail(e) {
     console.log("点击了详情页面,将展示活动的id ", e)
     wx.navigateTo({
-      // 跳转到活动详情页面并携带活动id
+      // 跳转到活动详情页面并携带活动id  
       url: '/pages/eventDetail/eventDetail?id=' + e.currentTarget.dataset.id + e.currentTarget.dataset.user + e.currentTarget.dataset.type
     })
   },
