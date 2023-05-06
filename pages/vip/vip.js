@@ -200,6 +200,8 @@ Page({
       yyTimes: [],
       yyHours: []
     });
+    yyTime = []
+    yyHour = []
     //所有选中状态置为false
     for (let index = 0; index < 12; index++) {
       this.setData({
@@ -571,6 +573,8 @@ Page({
       yyHours: [],
       yyTimes: []
     })
+    yyHour = []
+    yyTime = []
     for (let index = 0; index < 12; index++) {
       this.setData({
         ['hourList[' + index + '].isSelect']: false
