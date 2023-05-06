@@ -362,7 +362,6 @@ Page({
     console.log("这个是rankDay整数形式", this.data.rankDay)
     //同一个老师同一个时段占用不可选
     // 前提是选择完老师然后点击预约时间后会在数据里面搜索该老师当天已经预约的时间段
-    let that = this;
     DB.where({
         g2_organTeacherId: this.data.multiIndex1[0],
         state: _.or(0, 1),
@@ -376,7 +375,6 @@ Page({
         console.log(res.data.length, '长度')
         let lengths = res.data.length
         console.log(hourLists)
-        let that = this;
         for (let a = 0; a < lengths; a++) {
           console.log(lengths, 'lengths')
           var Chour = res.data[a].hour
@@ -606,10 +604,6 @@ Page({
               //若数据库请求到的数据长度不为0则证明数据库中有该openid对应的账号，实现自动登录
               if (res.data.length != 0) {
                 Loading.OnStart();
-                wx.showLoading({
-                  title: '正在自动登录中',
-                  mask: true
-                })
                 setTimeout(() => {
                   wx.navigateTo({
                     url: '../vip/vip',
@@ -618,6 +612,13 @@ Page({
                     }
                   })
                 }, 2000);
+              }
+              else{
+                wx.showToast({
+                  icon:"error",
+                  title: '您的账号无权限',
+                })
+                return
               }
             })
             .catch(res => {
@@ -726,8 +727,8 @@ Page({
               g2_organizationId: that.data.multiIndex[0],
               g1_orderTeacher: that.data.newtea,
               g2_organTeacherId: that.data.multiIndex1[0],
-              appointment: "预约的时间" + that.data.yyTime,
-              time: "提交预约时间" + presentDayTime,
+              appointment: that.data.yyTime,
+              time: presentDayTime,
               TimeOfSubmission: TimeOfSubmission,
               subscriber: that.data.subscriber,
               subscriberPhone: that.data.subscriberPhone,

@@ -99,13 +99,6 @@
           "query": "",
           "launchMode": "default",
           "scene": null
-        },
-        {
-          "name": "不受限登录",
-          "pathName": "pages/vipLogin/vipLogin",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
         }
       ]
     }

@@ -1,6 +1,7 @@
 {
-       "navigationBarTitleText": "不受限预约端",
-       "usingComponents": {
-              "van-notice-bar": "@vant/weapp/notice-bar/index"
-       }     
+  "navigationBarTitleText": "不受限预约端",
+  "usingComponents": {
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "loading": "/components/loading/loading"
+  }
 }

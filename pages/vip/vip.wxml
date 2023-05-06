@@ -28,19 +28,19 @@
       <text class="subtitle_font">预约事项</text>
     </view>
     <view class="inputborder2">
-      <textarea bindinput="content" style="height: 5em" maxlength="-1" />
+      <textarea bindinput="content" style="height: 5em" maxlength="-1" value="{{content}}" />
     </view>
     <!-- 预约的时间 -->
-    <van-notice-bar mode="closeable" text="提醒：请在选择时间段的时候切勿点击同一个时段两次,尽量选择时段的时候小于六个,若不慎点错请按右上刷新按钮" left-icon="volume-o" color="grey">
-    </van-notice-bar>
     <view class="subtitle">
       <text class="subtitle_font">预约时间:</text>
     </view>
     <!-- inputborder1是预约时间专门的wxss格式，因为如果用原先的inputborder会变形 -->
     <view class="inputborder1" bindtap='showTimeModel'>
-      <!-- xuanzheyuyue1同理 -->
-      <view class="xuanzheyuyue1">{{yytimes}}</view>
+      <block class="xuanzheyuyueBox" wx:for="{{yyTimes}}">
+        <text class="xuanzheyuyueItem">{{item}}</text>
+      </block>
     </view>
+
     <!-- 预约人 -->
     <view class="subtitle">
       <text class="subtitle_font">预约人</text>
@@ -69,8 +69,8 @@
       <view class='modal_container'>
         <!-- 头部显示 -->
         <view class='modal_header'>
-          <view>预定时间</view>
-          <view class='header_tip'>{{yyDay}}天内的预订</view>
+          <view>预约时间</view>
+          <view class='header_tip'>可预约{{yyDay}}天内的多个时间段</view>
         </view>
         <!-- 日期 -->
         <view class="time">
@@ -83,7 +83,7 @@
         </view>
         <!-- 时间段 -->
         <view class='hour'>
-          <view bindtap="hourClick" class="hour_item {{item.isShow?'':'hour_unactive'}} {{hourIndex==index?'hour_active':''}} " wx:for="{{hourList}}" wx:key="{{index}}" data-index="{{index}}" data-isshow="{{item.isShow}}">{{item.hour}}</view>
+          <view bindtap="hourClick" class="hour_item {{item.isShow?'':'hour_unactive'}} {{item.isSelect ?'hour_active':''}} " wx:for="{{hourList}}" wx:key="{{index}}" data-index="{{index}}" data-isshow="{{item.isShow}}">{{item.hour}}</view>
         </view>
       </view>
     </view>
@@ -97,3 +97,5 @@
   </view>
   <button style="position: absolute; bottom: 5px; left: 20px; right: 20px; width: 60%;" bindtap="canIUseGetUserProfile">重新申请</button>
 </block>
+
+<loading id="my-loading"></loading>
