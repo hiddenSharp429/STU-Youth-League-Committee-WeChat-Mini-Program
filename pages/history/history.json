@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index",
-    "van-popup": "@vant/weapp/popup/index"
+    "loading":"/components/loading/loading"
   },
   "navigationBarTitleText": "活动预约的历史记录"
 }

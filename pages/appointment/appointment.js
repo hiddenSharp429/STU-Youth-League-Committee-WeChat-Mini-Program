@@ -10,7 +10,6 @@ Page({
   data: {
     openid: "",
     show: false,
-    popShow:false,
     password: '',
     account: '',
     canIUseGetUserProfile: false,
@@ -315,6 +314,7 @@ Page({
   },
   //日期选择
   timeClick: function (e) {
+    const Loading = this.selectComponent('#my-loading');
     console.log('当前日期的标识，0为当日，1为明日', e.currentTarget.dataset.index)
     //如果选择的日期是明天则执行以下命令
     if (e.currentTarget.dataset.index != 0) {
@@ -346,10 +346,7 @@ Page({
       for (var i = 0; i < list.length; i++) {
         list[i].isShow = false;
       }
-      this.setData({
-        hourList: list,
-        popShow:false
-      })
+      Loading.OnClose();
     }
     console.log("选择日期.形式", this.data.timeList[e.currentTarget.dataset.index].rank)
     this.setData({
@@ -359,8 +356,8 @@ Page({
       chooseHour: "",
       hourIndex: -1,
       rankDay: this.data.timeList[e.currentTarget.dataset.index].rank * 10000,
-      popShow:true
     });
+    Loading.OnStart();
     console.log("这个是choosetime", this.data.chooseTime)
     console.log("这个是rankDay整数形式", this.data.rankDay)
     //同一个老师同一个时段占用不可选
@@ -407,9 +404,7 @@ Page({
           }
 
         }
-        this.setData({
-          popShow:false
-        })
+        Loading.OnClose();
       })
 
   },
@@ -589,6 +584,7 @@ Page({
   },
   //超级用户登录
   goVip() {
+    const Loading = this.selectComponent('#my-loading')
     let that = this
     console.log("点击了不受限预约登录")
     wx.showModal({
@@ -609,9 +605,7 @@ Page({
               console.log("请求数据库成功", res.data)
               //若数据库请求到的数据长度不为0则证明数据库中有该openid对应的账号，实现自动登录
               if (res.data.length != 0) {
-                that.setData({
-                  popShow: true,
-                })
+                Loading.OnStart();
                 wx.showLoading({
                   title: '正在自动登录中',
                   mask: true
@@ -620,9 +614,7 @@ Page({
                   wx.navigateTo({
                     url: '../vip/vip',
                     success() {
-                      that.setData({
-                        popShow: false
-                      })
+                      Loading.OnClose();
                     }
                   })
                 }, 2000);

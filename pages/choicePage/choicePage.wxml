@@ -1,75 +1,55 @@
 <!-- wxml -->
 <!-- 原始内容层 -->
 <view class="box">
-       <van-divider contentPosition="center" 
-       customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 90% ; margin-left:40rpx ; margin-right:40rpx ; margin-top:150rpx"
-       >
-       团团活动管理
-       </van-divider>
-       <button bindtap="goIndex" class="button_location" style="width: 450rpx; height: 100rpx"> 
-              <text style="font-size: 36rpx; float: left; margin-left: 80rpx;">用户端登录</text>
-              <van-icon name="friends-o" size="60rpx" custom-style="height:60rpx; margin-top:15rpx;"/>
-       </button>
-       <button bindtap="goNext" class="Teacherbutton_location" style="width: 450rpx; height: 100rpx"> 
-              <text style="font-size: 36rpx; float: left; margin-left: 80rpx;">审批端登录</text>
-              <van-icon name="manager-o" size="60rpx" custom-style="height:60rpx; margin-top:15rpx;"/> 
-       </button>
-       <!-- 右下角的图书和提示字 -->
-       <view style="width: 140rpx;height: 180rpx;position: absolute; right: 40rpx; bottom: 70rpx;" bindtap="lookGuide">
-              <view style="width: 140rpx;height: 40rpx; font-size: 28rpx; text-align: center; font-weight: 700; color: brown;">手册及日志</view>
-              <image src="../../icon/guide.png" style="width: 140rpx;height: 140rpx;"></image>
-       </view>
-       <van-divider contentPosition="center" 
-       customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 90% ; position: absolute;margin-left:40rpx ; margin-right:40rpx ; bottom:0px"
-       >
-       Copyright© STU引力弹簧工作室
-       </van-divider>
+  <van-divider contentPosition="center" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 90% ; margin-left:40rpx ; margin-right:40rpx ; margin-top:150rpx">
+    团团活动管理
+  </van-divider>
+  <button bindtap="goIndex" class="button_location" style="width: 450rpx; height: 100rpx">
+    <text style="font-size: 36rpx; float: left; margin-left: 80rpx;">用户端登录</text>
+    <van-icon name="friends-o" size="60rpx" custom-style="height:60rpx; margin-top:15rpx;" />
+  </button>
+  <button bindtap="goNext" class="Teacherbutton_location" style="width: 450rpx; height: 100rpx">
+    <text style="font-size: 36rpx; float: left; margin-left: 80rpx;">审批端登录</text>
+    <van-icon name="manager-o" size="60rpx" custom-style="height:60rpx; margin-top:15rpx;" />
+  </button>
+  <!-- 右下角的图书和提示字 -->
+  <view style="width: 140rpx;height: 180rpx;position: absolute; right: 40rpx; bottom: 70rpx;" bindtap="lookGuide">
+    <view style="width: 140rpx;height: 40rpx; font-size: 28rpx; text-align: center; font-weight: 700; color: brown;">手册及日志</view>
+    <image src="../../icon/guide.png" style="width: 140rpx;height: 140rpx;"></image>
+  </view>
+  <van-divider contentPosition="center" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 90% ; position: absolute;margin-left:40rpx ; margin-right:40rpx ; bottom:0px">
+    Copyright© STU引力弹簧工作室
+  </van-divider>
 </view>
 <!-- 遮罩层 -->
 <van-overlay show="{{ show }}" z-index="2">
-       <view class="wrapper">
-              <view class="login">
-                     <view class="loginHead">
-                            <image src="../../icon/tuantuan.png" class="tuantuan"></image>
-                            <view class="cross">
-                                   <van-icon name="cross" size="40px" custom-style="position:relative; margin-top:20rpx; margin-left:80rpx" bindtap="onClickHide"/>
-                            </view>
-                     </view>
-                     <view class="loginBody">
-                            <van-divider
-                            contentPosition="left"
-                            customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-top:80rpx; padding-left:40rpx; ">
-                                   Account
-                            </van-divider>
-                            <input bindinput="getAccount" class="inputborder1" placeholder="输入账号"></input>
-                            <van-divider
-                            contentPosition="left"
-                            customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-left:40rpx;"
-                            >
-                                   Password
-                            </van-divider>
-                            <input class="inputborder2" type="password"  placeholder="输入密码" value='{{password}}' bindinput='getPassWord'></input> 
-                            <view bindtap="goRegister" class="goRegister">注册账号</view>
-                            <view bindtap="goRetrieve" class="goRetrieve">忘记密码</view>
-                     </view>
-                     <view class="loginFeet">
-                            <view class="loginButton">
-                                   <button bindtap="enterIndex" style="width: 88%;border-radius: 40rpx;background-color: #D43030; color:#FFFFFF;box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);">登录</button>
-                            </view>
-                            <image src="../../icon/client-side.png" class="client-side"></image>
-                     </view>
-              </view>
-       </view>
-       <!-- 由于不显示导航栏故loading盒子需要修改margin-top值 -->
-       <van-popup show="{{ popShow }}" position="top" custom-style="height: 300rpx;" round>
-              <view class="loadingBox"  style="margin-top: 200rpx;">
-                     <view class="loader-dots">
-                     <view></view>
-                     <view></view>
-                     <view></view>
-                     <view></view>
-                     <view></view>
-                     </view>
-              </view> 
-       </van-popup>
-</van-overlay>       
+  <view class="wrapper">
+    <view class="login">
+      <view class="loginHead">
+        <image src="../../icon/tuantuan.png" class="tuantuan"></image>
+        <view class="cross">
+          <van-icon name="cross" size="40px" custom-style="position:relative; margin-top:20rpx; margin-left:80rpx" bindtap="onClickHide" />
+        </view>
+      </view>
+      <view class="loginBody">
+        <van-divider contentPosition="left" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-top:80rpx; padding-left:40rpx; ">
+          Account
+        </van-divider>
+        <input bindinput="getAccount" class="inputborder1" placeholder="输入账号"></input>
+        <van-divider contentPosition="left" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-left:40rpx;">
+          Password
+        </van-divider>
+        <input class="inputborder2" type="password" placeholder="输入密码" value='{{password}}' bindinput='getPassWord'></input>
+        <view bindtap="goRegister" class="goRegister">注册账号</view>
+        <view bindtap="goRetrieve" class="goRetrieve">忘记密码</view>
+      </view>
+      <view class="loginFeet">
+        <view class="loginButton">
+          <button bindtap="enterIndex" style="width: 88%;border-radius: 40rpx;background-color: #D43030; color:#FFFFFF;box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);">登录</button>
+        </view>
+        <image src="../../icon/client-side.png" class="client-side"></image>
+      </view>
+    </view>
+  </view>
+  <loading id="my-loading"></loading>
+</van-overlay>
