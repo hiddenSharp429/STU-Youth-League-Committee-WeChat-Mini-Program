@@ -429,7 +429,7 @@ Page({
         newins: newins4
       })
     }
-    this.refresh();
+    this.refresh(1);
   },
 
   //选择预约的老师
@@ -476,7 +476,7 @@ Page({
         newtea: newtea5
       })
     }
-    this.refresh();
+    this.refresh(1); //给refresh函数传参，1仅为调用者标识
   },
 
   // 预约事项
@@ -562,10 +562,8 @@ Page({
       })
   },
   //刷新
-  refresh() {
+  refresh(e) {
     this.setData({
-      multiIndex: [0],
-      multiIndex1: [0],
       currentTab: 0,
       content: "",
       hourIndex: [],
@@ -574,6 +572,12 @@ Page({
       subscriber:'',
       subscriberPhone:''
     })
+    if(e != 1){
+      this.setData({
+        multiIndex: [0],
+        multiIndex1: [0],
+      })
+    }
     yyHour = []
     yyTime = []
     for (let index = 0; index < 12; index++) {
