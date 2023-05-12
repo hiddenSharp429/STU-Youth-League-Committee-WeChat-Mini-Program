@@ -15,7 +15,7 @@ Page({
     canIUseGetUserProfile: false,
     // 组织
     multiArray: [
-      ['校团委', '学生会', '校青协', '汕大青年', '踹网', '社团中心', '研会', '主持队']
+      ['校团委', '学生会', '校青协', '汕大青年', '踹网', '社团中心', '研会', '主持队', '礼仪队']
     ],
     //老师
     multiArray1: [
@@ -490,6 +490,12 @@ Page({
     if (this.data.multiIndex[0] == 7) {
       this.setData({
         newins: newins7
+      })
+    }
+    var newins8 = "礼仪队"
+    if (this.data.multiIndex[0] == 8) {
+      this.setData({
+        newins: newins8
       })
     }
   },
