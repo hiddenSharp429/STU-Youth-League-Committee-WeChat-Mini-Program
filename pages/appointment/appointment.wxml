@@ -52,7 +52,7 @@
     </view>
     <!-- 预约人手机号 -->
     <view class="inputborder">
-      <input type="text" placeholder="预约人手机号" class="PnameInput" bindinput="subscriberPhone" />
+      <input type="text" placeholder="预约人联系方式" class="PnameInput" bindinput="subscriberPhone" />
     </view>
     <view class="comment_subtitle"><text class="comment">*注：若预约人为部长，主席团成员须一同前往</text></view>
 
