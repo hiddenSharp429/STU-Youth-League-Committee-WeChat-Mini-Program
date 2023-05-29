@@ -87,28 +87,61 @@ Page({
     });
   },
   lookGuide() {
-    wx.showModal({
-      title: '团团活动管理操作手册',
-      content: "https://docs.qq.com/doc/DYlpRa096eEFXemVU",
-      showCancel: true,
-      confirmText: '复制地址',
-      success(res) {
-        if (res.confirm) {
-          wx.setClipboardData({
-            data: "https://docs.qq.com/doc/DYlpRa096eEFXemVU",
+    wx.showActionSheet({
+      itemList: ['团团活动管理操作手册', '团团活动管理更新日志'],
+      success (res) {
+        console.log(res.tapIndex)
+        if (res.tapIndex == 0) {
+          wx.showModal({
+            title: '团团活动管理操作手册',
+            content: "https://docs.qq.com/doc/DYlpRa096eEFXemVU",
+            showCancel: true,
+            confirmText: '复制地址',
             success(res) {
-              wx.getClipboardData({
-                success(res) {
-                  console.log(res.data) // data
-                }
-              })
+              if (res.confirm) {
+                wx.setClipboardData({
+                  data: "https://docs.qq.com/doc/DYlpRa096eEFXemVU",
+                  success(res) {
+                    wx.getClipboardData({
+                      success(res) {
+                        console.log(res.data) // data
+                      }
+                    })
+                  }
+                })
+              }
             }
+      
           })
         }
+        else{
+          wx.showModal({
+            title: '团团活动管理更新日志',
+            content: "https://docs.qq.com/pdf/DYk10VlRUV0lCbkRJ?",
+            showCancel: true,
+            confirmText: '复制地址',
+            success(res) {
+              if (res.confirm) {
+                wx.setClipboardData({
+                  data: "https://docs.qq.com/pdf/DYk10VlRUV0lCbkRJ?",
+                  success(res) {
+                    wx.getClipboardData({
+                      success(res) {
+                        console.log(res.data) // data
+                      }
+                    })
+                  }
+                })
+              }
+            }
+      
+          })
+        }
+      },
+      fail (res) {
+        console.log(res.errMsg)
       }
-
     })
-
   },
   //点击登录
   enterIndex() {
