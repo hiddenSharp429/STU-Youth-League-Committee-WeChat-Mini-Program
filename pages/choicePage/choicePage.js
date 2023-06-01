@@ -117,13 +117,13 @@ Page({
         else{
           wx.showModal({
             title: '团团活动管理更新日志',
-            content: "https://docs.qq.com/pdf/DYk10VlRUV0lCbkRJ?",
+            content: "https://docs.qq.com/pdf/DYkhBdU9IWkNZSGdX?",
             showCancel: true,
             confirmText: '复制地址',
             success(res) {
               if (res.confirm) {
                 wx.setClipboardData({
-                  data: "https://docs.qq.com/pdf/DYk10VlRUV0lCbkRJ?",
+                  data: "https://docs.qq.com/pdf/DYkhBdU9IWkNZSGdX?",
                   success(res) {
                     wx.getClipboardData({
                       success(res) {

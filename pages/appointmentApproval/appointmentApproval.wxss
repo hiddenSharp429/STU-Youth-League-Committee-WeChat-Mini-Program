@@ -28,6 +28,7 @@
 
     .time {
       margin-top: 10rpx;
+      margin-bottom: 30rpx;
       font-size: 26rpx;
       color: #A0A9BD;
     }
@@ -49,7 +50,7 @@
     }
 
     .subscriber {
-      margin-bottom: 20rpx;
+      margin-bottom: 30rpx;
       font-size: 26rpx;
       font-weight: 100;
       color: rgb(23, 6, 175);

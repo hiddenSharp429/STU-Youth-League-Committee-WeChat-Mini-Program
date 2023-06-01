@@ -1,59 +1,67 @@
-.event{
-       font-size: 40rpx;
-       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-       position: relative;
-       margin:30rpx;
-       width: 90%;
-       flex: 1;
-}
-.appointmentTime{
-       margin-top: 0px;
-       font-size: 32rpx;
-       color: black;
-}
-.button_detail{
-       background-color: white;
-       color:#727885;
-}
-.appointmentInstitute{
-
-       font-size: 30rpx;
-       color:#FF5733;
-       margin-top: 5rpx;
-}
-.appointmentTeacher{
-       font-size: 30rpx;
-       color:#611504;
-       margin-top: 5rpx;
-}
-.time{
-       margin-top: 5rpx;
-       font-size: 26rpx;
-       color: #A0A9BD;
-}
-.pass{
-       float: left;
-       border-radius: 80rpx;
-       margin-top: 2%;
-       color:#FFFFFF;
-       background-color: #D43030;
-       box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
-       
-}
-.reject{
-       border-radius: 40rpx;
-       margin-top: 2%;
-       color:#FFFFFF;
-       background-color: #D43030;
-       box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);
-       float: left;
+.event {
+  font-size: 40rpx;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  margin: 30rpx;
+  width: 90%;
+  flex: 1;
 }
 
-.comment{
-       font-size: 26rpx;
-       padding-top: 40rpx;
-       font-weight: 500;
-       padding-right: 40rpx;
-       color: #666666;
-       float: right;
+.appointmentTime {
+  margin-top: 0px;
+  font-size: 32rpx;
+  color: black;
+}
+
+.button_detail {
+  background-color: white;
+  color: #727885;
+}
+
+.appointmentInstitute {
+
+  font-size: 30rpx;
+  color: #FF5733;
+  margin-top: 5rpx;
+}
+
+.appointmentTeacher {
+  font-size: 30rpx;
+  color: #611504;
+  margin-top: 5rpx;
+}
+
+.time {
+  margin-top: 5rpx;
+  margin-bottom: 20rpx;
+  font-size: 26rpx;
+  color: #A0A9BD;
+}
+
+.pass {
+  float: left;
+  border-radius: 80rpx;
+  margin-top: 2%;
+  color: #FFFFFF;
+  background-color: #D43030;
+  box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.35);
+
+}
+
+.reject {
+  border-radius: 40rpx;
+  margin-top: 2%;
+  color: #FFFFFF;
+  background-color: #D43030;
+  box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.35);
+  float: left;
+}
+
+.comment {
+  font-size: 26rpx;
+  padding-top: 40rpx;
+  font-weight: 500;
+  padding-right: 40rpx;
+  color: #666666;
+  float: right;
 }
