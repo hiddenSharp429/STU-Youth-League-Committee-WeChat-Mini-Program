@@ -110,6 +110,7 @@ Page({
     currentTab: 0,
     //选择日期
     chooseTime: "",
+    rank: 20231212,
     hourIndex: [],
     //预约时间
     yyTimes: [],
@@ -516,6 +517,7 @@ Page({
       });
       return false;
     }
+    var TimeOfSubmission = util.SubmitTime(new Date())
     DB.add({ // add指 插入数据库中的appointment表；
         //将我们获取到的新值代入
         data: { // data 字段表示需新增的 JSON 数据       
@@ -526,15 +528,17 @@ Page({
           g2_organizationId: this.data.multiIndex[0],
           g1_orderTeacher: this.data.newtea,
           g2_organTeacherId: this.data.multiIndex1[0],
-          appointment: "预约的时间" + this.data.yyTimes,
-          time: "提交预约时间" + presentDayTime,
+          appointment: this.data.yyTimes,
+          time: presentDayTime,
+          TimeOfSubmission: TimeOfSubmission,
           subscriber: this.data.subscriber,
           subscriberPhone: this.data.subscriberPhone,
           state: 0,
           //上传了选择的日期和选择的小时
           day: this.data.day,
           hour: this.data.yyHours,
-          content: this.data.content
+          content: this.data.content,
+          rank: this.data.rank
         },
 
       }).then(res => {

@@ -57,11 +57,13 @@ Page({
     console.log("tap")
     if (this.data.allDate) {
       this.setData({
-        allDate: false
+        allDate: false,
+        currentPage:1
       })
     } else {
       this.setData({
-        allDate: true
+        allDate: true,
+        currentPage:1
       })
     }
     this.onLoad()
