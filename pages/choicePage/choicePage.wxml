@@ -21,6 +21,8 @@
   <view class="versionTip">
     v2.5.4
   </view>
+  <!-- 左下角的添加用户 -->
+  <image src="/icon/addUser.png" alt="" style="position: absolute; bottom: 50px; left:20px; width: 100rpx;height: 100rpx;" bindtap="enterAddUserPage"/>
   <van-divider contentPosition="center" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 90% ; position: absolute;margin-left:40rpx ; margin-right:40rpx ; bottom:0px">
     Copyright© STU引力弹簧工作室
   </van-divider>

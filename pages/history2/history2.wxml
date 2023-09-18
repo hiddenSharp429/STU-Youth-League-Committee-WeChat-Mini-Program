@@ -7,7 +7,7 @@
       </view>
       <view style="min-height: 1000rpx;">
         <view wx:if="{{ item == 0}}">
-          <image src="https://s2.loli.net/2023/02/13/sm2ftjSYgD5QTr7.png" class="noData"></image>
+          <image src="https://gitee.com/the-blade-is-in-the-scabbard/typora_photo_repo/raw/master/img/noData.png" class="noData"></image>
           <view class="tip">很抱歉，暂无活动记录哦</view>
         </view>
         <view class="mine_appointment_content" wx:for="{{list}}">

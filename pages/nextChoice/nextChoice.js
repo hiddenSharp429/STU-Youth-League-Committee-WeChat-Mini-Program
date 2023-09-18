@@ -245,10 +245,21 @@ Page({
       })
   },
   //进入注册界面
-  goRegister() {
-    wx.navigateTo({
-      url: '../closeRegister/closeRegister',
-    })
+  goRegister(options) {
+    const type = options.currentTarget.dataset.type
+    if (type == 1) {
+      wx.navigateTo({
+        url: '../register/register?type=1',
+      })
+    }
+    else{
+      if (type == 2) {
+        wx.navigateTo({
+          url: '../register/register?type=2',
+        })
+      }
+    }
+
   },
   //进入找回账号密码页面
   goRetrieve() {

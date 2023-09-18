@@ -99,6 +99,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/register/register",
+          "query": "type=0",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

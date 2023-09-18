@@ -1,100 +1,86 @@
 <!-- 原始内容层 -->
 <view class="box">
-       <image src="../../icon/backaround.png" style="width: 80rpx; height: 80rpx; position: absolute; top: 90rpx; left: 40rpx;" bindtap="back"></image>
-       <van-divider contentPosition="center" 
-       customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 90% ; margin-left:40rpx ; margin-right:40rpx ; margin-top:150rpx"
-       >
-       下一步
-       </van-divider>
-       <button bindtap="goApprovalLogin" class="button_location" style="width: 450rpx; height: 100rpx"> 
-              <text style="font-size: 36rpx; float: left; margin-left: 80rpx;">我要审批活动</text>
-              <van-icon name="description" size="60rpx" custom-style="height:60rpx; margin-top:15rpx;"/>   
-       </button>
-       <button bindtap="goAppointmentLogin" class="Teacherbutton_location" style="width: 450rpx; height: 100rpx"> 
-              <text style="font-size: 36rpx; float: left; margin-left: 80rpx;">我要审批预约 </text>
-              <van-icon name="edit" size="60rpx" custom-style="height:60rpx; margin-top:15rpx;"/>
-       </button>
-       <van-divider contentPosition="center" 
-       customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 90% ; position: absolute; margin-left:40rpx ; margin-right:40rpx ; bottom:0px"
-       >
-       Copyright© STU引力弹簧工作室
-       </van-divider>
+  <image src="../../icon/backaround.png" style="width: 80rpx; height: 80rpx; position: absolute; top: 90rpx; left: 40rpx;" bindtap="back"></image>
+  <van-divider contentPosition="center" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 90% ; margin-left:40rpx ; margin-right:40rpx ; margin-top:150rpx">
+    下一步
+  </van-divider>
+  <button bindtap="goApprovalLogin" class="button_location" style="width: 450rpx; height: 100rpx">
+    <text style="font-size: 36rpx; float: left; margin-left: 80rpx;">我要审批活动</text>
+    <van-icon name="description" size="60rpx" custom-style="height:60rpx; margin-top:15rpx;" />
+  </button>
+  <button bindtap="goAppointmentLogin" class="Teacherbutton_location" style="width: 450rpx; height: 100rpx">
+    <text style="font-size: 36rpx; float: left; margin-left: 80rpx;">我要审批预约 </text>
+    <van-icon name="edit" size="60rpx" custom-style="height:60rpx; margin-top:15rpx;" />
+  </button>
+  <van-divider contentPosition="center" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 90% ; position: absolute; margin-left:40rpx ; margin-right:40rpx ; bottom:0px">
+    Copyright© STU引力弹簧工作室
+  </van-divider>
 </view>
 
 <!-- 活动遮罩层 -->
 <van-overlay show="{{ activityLoginShow }}" z-index="2">
-       <view class="wrapper">
-              <view class="login">
-                     <view class="loginHead">
-                            <image src="../../icon/tuantuan.png" class="tuantuan"></image>
-                            <view class="cross">
-                                   <van-icon name="cross" size="40px" custom-style="position:relative; margin-top:20rpx; margin-left:80rpx" bindtap="onClickHideActivity"/>
-                            </view>
-                     </view>
-                     <view class="loginBody">
-                            <van-divider
-                            contentPosition="left"
-                            customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-top:80rpx; padding-left:40rpx; ">
-                                   Account
-                            </van-divider>
-                            <input bindinput="getActivityAccount" class="inputborder1" placeholder="输入账号"></input>
-                            <van-divider
-                            contentPosition="left"
-                            customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-left:40rpx;"
-                            >
-                                   Password
-                            </van-divider>
-                            <input class="inputborder2" type="password"  placeholder="输入密码" value='{{password}}' bindinput='getActivityPassWord'></input> 
-                            <view bindtap="goRegister" class="goRegister">注册账号</view>
-                            <view bindtap="goRetrieve" class="goRetrieve">忘记密码</view>
-                     </view>
-                     <view class="loginFeet">
-                            <view class="loginButton">
-                                   <button bindtap="enterApproval" style="width: 88%;border-radius: 40rpx;background-color: #D43030; color:#FFFFFF;box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);">登录</button>
-                            </view>
-                            <image src="../../icon/activity-siede.png" class="activity-side"></image>
-                     </view>
-              </view>
-       </view>
+  <view class="wrapper">
+    <view class="login">
+      <view class="loginHead">
+        <image src="../../icon/tuantuan.png" class="tuantuan"></image>
+        <view class="cross">
+          <van-icon name="cross" size="40px" custom-style="position:relative; margin-top:20rpx; margin-left:80rpx" bindtap="onClickHideActivity" />
+        </view>
+      </view>
+      <view class="loginBody">
+        <van-divider contentPosition="left" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-top:80rpx; padding-left:40rpx; ">
+          Account
+        </van-divider>
+        <input bindinput="getActivityAccount" class="inputborder1" placeholder="输入账号"></input>
+        <van-divider contentPosition="left" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-left:40rpx;">
+          Password
+        </van-divider>
+        <input class="inputborder2" type="password" placeholder="输入密码" value='{{password}}' bindinput='getActivityPassWord'></input>
+        <view bindtap="goRegister" class="goRegister" data-type="1">注册账号</view>
+        <view bindtap="goRetrieve" class="goRetrieve">忘记密码</view>
+      </view>
+      <view class="loginFeet">
+        <view class="loginButton">
+          <button bindtap="enterApproval" style="width: 88%;border-radius: 40rpx;background-color: #D43030; color:#FFFFFF;box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);">登录</button>
+        </view>
+        <image src="../../icon/activity-siede.png" class="activity-side"></image>
+      </view>
+    </view>
+  </view>
 </van-overlay>
 
 <!-- 预约遮罩层 -->
 <van-overlay show="{{ appointmentLoginShow }}" z-index="2">
-       <view class="wrapper">
-              <view class="login">
-                     <view class="login">
-                     <view class="loginHead">
-                            <image src="../../icon/tuantuan.png" class="tuantuan"></image>
-                            <view class="cross">
-                                   <van-icon name="cross" size="40px" custom-style="position:relative; margin-top:20rpx; margin-left:80rpx" bindtap="onClickHideAppointment"/>
-                            </view>
-                     </view>
-                     <view class="loginBody">
-                            <van-divider
-                            contentPosition="left"
-                            customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-top:80rpx; padding-left:40rpx; ">
-                                   Account
-                            </van-divider>
-                            <input bindinput="getAppointmentAccount" class="inputborder1" placeholder="输入账号"></input>
-                            <van-divider
-                            contentPosition="left"
-                            customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-left:40rpx;"
-                            >
-                                   Password
-                            </van-divider>
-                            <input class="inputborder2" type="password"  placeholder="输入密码" value='{{password}}' bindinput='getAppointmentPassWord'></input> 
-                            <view bindtap="goRegister" class="goRegister">注册账号</view>
-                            <view bindtap="goRetrieve" class="goRetrieve">忘记密码</view>
-                     </view>
-                     <view class="loginFeet">
-                            <view class="loginButton">
-                                   <button bindtap="enterAppointment" style="width: 88%;border-radius: 40rpx;background-color: #D43030; color:#FFFFFF;box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);">登录</button>
-                            </view>
-                            <image src="../../icon/appointment-side.png" class="appointment-side"></image>
-                     </view>
-                     </view>
-              </view>
-       </view>
+  <view class="wrapper">
+    <view class="login">
+      <view class="login">
+        <view class="loginHead">
+          <image src="../../icon/tuantuan.png" class="tuantuan"></image>
+          <view class="cross">
+            <van-icon name="cross" size="40px" custom-style="position:relative; margin-top:20rpx; margin-left:80rpx" bindtap="onClickHideAppointment" />
+          </view>
+        </view>
+        <view class="loginBody">
+          <van-divider contentPosition="left" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-top:80rpx; padding-left:40rpx; ">
+            Account
+          </van-divider>
+          <input bindinput="getAppointmentAccount" class="inputborder1" placeholder="输入账号"></input>
+          <van-divider contentPosition="left" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 520rpx ; position:relative; padding-left:40rpx;">
+            Password
+          </van-divider>
+          <input class="inputborder2" type="password" placeholder="输入密码" value='{{password}}' bindinput='getAppointmentPassWord'></input>
+          <view bindtap="goRegister" class="goRegister" data-type="2">注册账号</view>
+          <view bindtap="goRetrieve" class="goRetrieve">忘记密码</view>
+        </view>
+        <view class="loginFeet">
+          <view class="loginButton">
+            <button bindtap="enterAppointment" style="width: 88%;border-radius: 40rpx;background-color: #D43030; color:#FFFFFF;box-shadow: 16rpx 8rpx 24rpx rgba(212,48,48, 0.35);">登录</button>
+          </view>
+          <image src="../../icon/appointment-side.png" class="appointment-side"></image>
+        </view>
+      </view>
+    </view>
+  </view>
 </van-overlay>
 
 <loading id="my-loading"></loading>
