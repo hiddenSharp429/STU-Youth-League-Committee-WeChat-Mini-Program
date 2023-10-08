@@ -1,0 +1,21 @@
+<view class="title">
+    <view wx:if="{{type == 0}}" class="title_font">用户端注册界面</view>
+    <view wx:if="{{type == 1}}" class="title_font">审批活动端注册界面</view>
+    <view wx:if="{{type == 2}}" class="title_font">审批预约端注册界面</view>
+</view>
+<van-notice-bar mode="closeable" text="注：当前为注册页面，不收集您的个人信息，您只需要注册账号以及登录的密码（只作为登录该小程序的密匙），如弹出已注册成功，确认账号密码姓名无误后，则可进入相应端口进行登录。" left-icon="volume-o" color="grey">
+</van-notice-bar>
+<view class="headline"><text decode="true">注&nbsp;&nbsp;册</text></view>
+<van-cell-group custom-class="inputBox">
+    <van-field value="{{ account }}" label="账号" placeholder="请输入账号（推荐使用校园网账号）" required bind:input="getAccount" />
+    <van-field value="{{ password }}" label="密码" placeholder="请输入密码" required bind:input="getPassword" />
+    <van-field value="{{ name }}" label="姓名" placeholder="请输入姓名" required bind:input="getName" />
+    <van-field value="{{ wxId }}" center clearable label="邀请码" placeholder="请输入邀请码" required="true" use-button-slot bind:input="getWxID">
+        <van-button slot="button" size="small" type="primary" bind:click="checkWxId">
+            验证邀请码
+        </van-button>
+    </van-field>
+</van-cell-group>
+
+
+<button bindtap="enterApproval" style="width: 88%;" class="register-button">注册</button>
