@@ -93,7 +93,7 @@
 </block>
 <block wx:if="{{!canIUseGetUserProfile}}">
   <view>
-    <image src="https://s2.loli.net/2023/02/13/1MIrS7pJz24isKk.png" class="fail"></image>
+    <image src="https://gitee.com/the-blade-is-in-the-scabbard/typora_photo_repo/raw/master/img/fail.png" class="fail"></image>
     <view class="tip">获取用户请求失败，请重新申请</view>
 
   </view>

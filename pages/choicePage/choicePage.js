@@ -198,7 +198,7 @@ Page({
   //进入注册界面
   goRegister() {
     wx.navigateTo({
-      url: '../closeRegister/closeRegister',
+      url: '../register/register?type=0',
     })
   },
   //进入找回账号密码页面
@@ -206,5 +206,24 @@ Page({
     wx.navigateTo({
       url: '../retrieve/retrieve',
     })
+  },
+  enterAddUserPage() {
+    // 假设特定的 openid 为 某某老师的openid
+    const specialOpenid = 'oObnU4l7ujEeqcFPtm_zRfPUVgf8';   
+    if (this.data.openid === specialOpenid) {
+      // 如果当前用户的 openid 为特定 openid，则跳转到指定页面
+      wx.navigateTo({
+        url: '/pages/addUserPage/addUserPage'
+      });
+    } else {
+      // 如果当前用户的 openid 不是特定 openid，可以进行其他操作或提示
+      wx.showToast({
+        title: '您不是特定用户',
+        icon: 'none',
+        duration: 2000
+      });
+    }
   }
+  
+  
 })

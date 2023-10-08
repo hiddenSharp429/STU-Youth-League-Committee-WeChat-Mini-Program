@@ -13,7 +13,9 @@
     "pages/appointment/appointment",
     "pages/appointmentApproval/appointmentApproval",
     "pages/vip/vip",
-    "pages/retrieve/retrieve"
+    "pages/retrieve/retrieve",
+    "pages/register/register",
+    "pages/addUserPage/addUserPage"
   ],
   "window": {
        "backgroundTextStyle": "light",
@@ -22,7 +24,7 @@
        "navigationBarTextStyle": "black",
        "enablePullDownRefresh": true
   },
-  "tabBar": {
+  "tabBar": { 
        "color": "#C0C0C0",
        "selectedColor": "#000000",
        "list": [{

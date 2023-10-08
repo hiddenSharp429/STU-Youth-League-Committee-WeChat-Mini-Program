@@ -33,16 +33,16 @@ Page({
     ],
     list: [],
     approval: {
-      normal: 'https://s2.loli.net/2023/02/13/Am8Y9LFgj5T4CNS.png',
-      active: 'https://s2.loli.net/2023/02/13/fJgW8xVoIw56LjD.png',
+      normal: 'https://gitee.com/the-blade-is-in-the-scabbard/typora_photo_repo/raw/master/img/approval_normal.png',
+      active: 'https://gitee.com/the-blade-is-in-the-scabbard/typora_photo_repo/raw/master/img/approval_active.png',
     },
     pass: {
-      normal: 'https://s2.loli.net/2023/02/13/zaeYGD4Mg5W1T8q.png',
-      active: 'https://s2.loli.net/2023/02/13/OUgZo6qGWRNB8Ib.png',
+      normal: 'https://gitee.com/the-blade-is-in-the-scabbard/typora_photo_repo/raw/master/img/pass_normal.png',
+      active: 'https://gitee.com/the-blade-is-in-the-scabbard/typora_photo_repo/raw/master/img/pass_active.png',
     },
     reject: {
-      normal: 'https://s2.loli.net/2023/02/13/BhgYDtPEwlbRq45.png',
-      active: 'https://s2.loli.net/2023/02/13/RabTeAkgXUjGoPf.png',
+      normal: 'https://gitee.com/the-blade-is-in-the-scabbard/typora_photo_repo/raw/master/img/reject_normal.png',
+      active: 'https://gitee.com/the-blade-is-in-the-scabbard/typora_photo_repo/raw/master/img/reject_active.png',
     },
     //tabar的索引，0是待审批/1是已通过/2是已驳回
     active: 0,
