@@ -52,10 +52,10 @@
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "srcMiniprogramRoot": "01/app/",
   "condition": {},
-  "appid": "wx2ee9585543f03ff3",
   "libVersion": "2.25.1",
   "packOptions": {
     "ignore": [],
     "include": []
-  }
+  },
+  "appid": "wx2ee9585543f03ff3"
 }
