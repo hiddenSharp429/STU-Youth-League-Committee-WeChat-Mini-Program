@@ -1,254 +1,260 @@
 <block wx:if="{{canIUseGetUserProfile}}">
-  <view class="container">
-    <view class="apply">
-      <view class="apply_title">
-        申请活动<image src="../../icon/backaround.png" style="width: 80rpx; height: 80rpx;float: right;" bindtap="back"></image>
-      </view>
-      <view class="apply_content">
-        <van-notice-bar mode="closeable" text="用户所填全部信息都将用于确认是否为校内人员，以及方便联系有关负责人跟进活动进度" left-icon="volume-o" color="grey">
-        </van-notice-bar>
-        <!-- 收集表单 -->
-        <form bindsubmit="sumbitForm">
-          <!-- 活动内容 -->
-          <view class="subtitle">
-            <text class="subtitle_font">活动内容:</text>
-          </view>
-
-          <!-- 活动名称 -->
-          <view class="inputborder">
-            <input type="text" name="Hname" placeholder="活动名称（必填*）" class="PnameInput"/>
-          </view>
-
-          <!-- 选择所归属的组织 -->
-          <view class="subtitle">
-            <text class="subtitle_font">所归属的组织:</text>
-          </view>
-          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" class="inputborder">
-            <view class="xuanzheyuyue">
-              当前选择：{{multiArray[0][multiIndex[0]]}}
-              <!-- {{multiArray[1][multiIndex[1]]}} -->
+    <view class="container">
+        <view class="apply">
+            <view class="apply_title">
+                申请活动<image src="../../icon/backaround.png" style="width: 80rpx; height: 80rpx;float: right;" bindtap="back"></image>
             </view>
-          </picker>
-          <!-- 活动时间 -->
-          <view>
-            <!-- 起始时间 -->
-            <view class="subtitle">
-              <text class="subtitle_font">起始时间*</text>
+            <view class="apply_content">
+                <van-notice-bar mode="closeable" text="用户所填全部信息都将用于确认是否为校内人员，以及方便联系有关负责人跟进活动进度" left-icon="volume-o" color="grey">
+                </van-notice-bar>
+                <!-- 收集表单 -->
+                <form bindsubmit="sumbitForm">
+                    <!-- 活动内容 -->
+                    <view class="subtitle">
+                        <text class="subtitle_font">活动内容:</text>
+                    </view>
+
+                    <!-- 活动名称 -->
+                    <view class="inputborder">
+                        <input type="text" name="Hname" placeholder="活动名称（必填*）" class="PnameInput" />
+                    </view>
+
+                    <!-- 选择所归属的组织 -->
+                    <view class="subtitle">
+                        <text class="subtitle_font">所归属的组织:</text>
+                    </view>
+                    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" class="inputborder">
+                        <view class="xuanzheyuyue">
+                            当前选择：{{multiArray[0][multiIndex[0]]}}
+                            <!-- {{multiArray[1][multiIndex[1]]}} -->
+                        </view>
+                    </picker>
+                    <!-- 活动时间 -->
+                    <view>
+                        <!-- 起始时间 -->
+                        <view class="subtitle">
+                            <text class="subtitle_font">起始时间*</text>
+                        </view>
+                        <view class="inputborder">
+                            <view class="StartDate">
+                                <picker mode="date" start="2017-09-01" bindchange="bindDatechangeStart">
+                                    <view>{{liststart}}
+                                        <image src="../../icon/outline.png" class="_icon"></image>
+                                    </view>
+
+                                </picker>
+                            </view>
+                        </view>
+                    </view>
+
+                    <view>
+                        <!-- 截止时间 -->
+                        <view class="subtitle">
+                            <text class="subtitle_font">截止时间*</text>
+                        </view>
+                        <view class="inputborder">
+                            <view class="eTime">
+                                <picker mode="date" class="StartDate" start='{{liststart}}' bindchange="bindDatechangeEnd">
+                                    <view>{{listend}}
+                                        <image src="../../icon/outline.png" class="_icon"></image>
+                                    </view>
+                                </picker>
+                            </view>
+                        </view>
+                    </view>
+
+                    <!-- 活动地点 -->
+                    <view class="subtitle">
+                        <text class="subtitle_font">活动地点*</text>
+                    </view>
+                    <view class="inputborder">
+                        <view class="eTime">
+                            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                                <view class="xuanzheyuyue">
+                                    当前选择：{{array[index]}}
+                                </view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="inputborder">
+                        <input type="text" name="Hplace" placeholder="活动地点（必填*）" class="PnameInput" />
+                    </view>
+                    <!-- 负责人 -->
+                    <view class="subtitle">
+                        <text class="subtitle_font">负责人:</text>
+                    </view>
+                    <!-- 负责人名字 -->
+                    <view class="inputborder">
+                        <input type="text" name="Fname" placeholder="名字（必填*）" class="PnameInput" />
+                    </view>
+                    <!-- 负责人年级专业 -->
+                    <view class="inputborder">
+                        <input type="text" name="Fgrade" placeholder="年级专业（必填*）" class="PnameInput" />
+                    </view>
+                    <!-- 负责人联系方式 -->
+                    <view class="inputborder">
+                        <input type="number" name="Fphone" placeholder="联系方式（必填*）" class="PnameInput" />
+                    </view>
+                    <!-- 负责人电子邮箱 -->
+                    <view class="inputborder">
+                        <input type="text" name="Fmail" placeholder="电子邮箱（选填*）" class="PnameInput" />
+                    </view>
+
+                    <!-- 预计参与人数 -->
+                    <view class="subtitle">
+                        <text class="subtitle_font">预计参与人数</text>
+                    </view>
+                    <input type="text" name="Hamount" placeholder="数量（必填*）" class="inputborder" />
+
+                    <!-- 项目内容阐述 -->
+                    <view class="subtitle">
+                        <text class="subtitle_font">项目内容阐述</text>
+                    </view>
+                    <textarea type="text" name="Hcontent" placeholder="简单阐述项目的具体内容" class="inputborder" maxlength="500" auto-height="true" />
+
+                    <!-- 活动经费预算 -->
+                    <view class="subtitle">
+                        <text class="subtitle_font">活动经费预算:</text>
+                    </view>
+                    <!-- 预算金额部分 -->
+                    <view class="inputborder">
+                        <input type="text" name="Ytotal" placeholder="合计：xx元" bindinput="ysTotal" class="PnameInput" />
+                    </view>
+                    <view class="inputborder">
+                        <input type="text" name="YselfTotal" placeholder="自筹数：xx元" bindinput="yssTotal" class="PnameInput" />
+                    </view>
+                    <view class="inputborder">
+                        <input type="text" name="YneedTotal" placeholder="申请拨款数：xx元" bindinput="ysbTotal" class="PnameInput" />
+                    </view>
+
+
+
+
+
+                    <!-- 是否有赞助 -->
+                    <view class="inputborder">
+                        <view class="Pname">是否有赞助 <view class="xiaozi">*</view>
+                        </view>
+                        <view>
+                            <radio-group bindchange="radioChange2">
+                                <label wx:for="{{itens}}" wx:key="index" class="Pnamechoose">
+                                    <view>
+                                        <radio value="{{item.value}}" />
+                                    </view>
+                                    <view>{{item.name}}</view>
+                                </label>
+                            </radio-group>
+                        </view>
+                        <view hidden="{{displays}}">
+                            <view class="Pname">赞助相关信息 <view class="xiaozi">*</view>
+                            </view>
+                            <input type="text" name="Scompany" placeholder="赞助公司(必填)" class="inputborder" />
+                            <input type="text" name="Sform" placeholder="赞助形式" class="inputborder" />
+                            <input type="number" name="Smoney" placeholder="赞助金额(必填)" class="inputborder" />
+                            <!-- 选择是否已经提交合同 -->
+                            <view class="Pname">是否已经提交合同 <view class="xiaozi">*</view>
+                            </view>
+                            <radio-group bindchange="radioChange2plus">
+                                <label wx:for="{{contractItens}}" wx:key="index" class="Pnamechoose">
+                                    <view>
+                                        <radio value="{{item.value}}" />
+                                    </view>
+                                    <view>{{item.name}}</view>
+                                </label>
+                            </radio-group>
+                        </view>
+                    </view>
+
+                    <view class="inputborder">
+                        <view class="Pname2">是否需要借款
+                            <view class="xiaozi">*</view>
+                        </view>
+                        <view>
+                            <radio-group bindchange="radioChange">
+                                <label wx:for="{{items}}" wx:key="index" class="Pnamechoose">
+                                    <view>
+                                        <radio value="{{item.value}}" />
+                                    </view>
+                                    <view>{{item.name}}</view>
+                                </label>
+                            </radio-group>
+                        </view>
+
+
+                        <!-- 勾选需要借款 -->
+                        <view hidden="{{display}}">
+
+                            <view class="Pname2">借款人信息填写</view>
+                            <input type="text" name="Jname" placeholder="借款人*" class="inputborder" />
+
+                            <input type="text" name="Jgrade" placeholder="专业*" class="inputborder" />
+
+                            <input type="text" name="Jyear" placeholder="年纪*" class="inputborder" />
+
+
+                            <input type="number" name="Jphone" placeholder="联系电话*" class="inputborder" />
+
+                            <input type="number" name="Jmoney" placeholder="借款金额*" class="inputborder" />
+
+                        </view>
+
+                    </view>
+
+                    <!-- 是否需要发放劳务费 -->
+                    <view class="inputborder">
+                        <view class="Pname">是否需要申请发放教师的劳务费</view>
+                        <view class="xiaozi">*</view>
+                        <view class="xiaozi">（劳务申请表需提交两周提交）</view>
+                        <view>
+                            <radio-group bindchange="radioChange3">
+                                <label wx:for="{{itemslwf}}" wx:key="index" class="Pnamechoose">
+                                    <view>
+                                        <radio value="{{item.value}}"></radio>
+                                    </view>
+                                    <view>{{item.name}}</view>
+                                </label>
+                            </radio-group>
+                        </view>
+                        <view hidden="{{displaylwf}}">
+                            <view class="subtitle">
+                                <text class="Pname">劳务费申请事项填写</text>
+                            </view>
+                            <input type="text" name="Lobject" placeholder="发放对象填写" class="inputborder" />
+                            <input type="number" name="Lmoney" placeholder="申请金额" class="inputborder" />
+                        </view>
+
+                    </view>
+
+
+                    <view class="inputborder">
+                        <view class="Pname">是否需要上传至OA <view class="xiaozi">*</view>
+                        </view>
+                        <view>
+                            <radio-group bindchange="radioChange4">
+                                <label wx:for="{{itemsoa}}" wx:key="index" class="Pnamechoose">
+                                    <view>
+                                        <radio value="{{item.value}}" />
+                                    </view>
+                                    <view>{{item.name}}</view>
+                                </label>
+                            </radio-group>
+                        </view>
+                    </view>
+
+                    <button form-type="submit">提交</button>
+                </form>
             </view>
-            <view class="inputborder">
-              <view class="StartDate">
-                <picker mode="date" start="2017-09-01" bindchange="bindDatechangeStart">
-                  <view>{{liststart}}<image src="../../icon/outline.png" class="_icon"></image>
-                  </view>
-
-                </picker>
-              </view>
-            </view>
-          </view>
-
-          <view>
-            <!-- 截止时间 -->
-            <view class="subtitle">
-              <text class="subtitle_font">截止时间*</text>
-            </view>
-            <view class="inputborder">
-              <view class="eTime">
-                <picker mode="date" class="StartDate" start='{{liststart}}' bindchange="bindDatechangeEnd">
-                  <view>{{listend}}<image src="../../icon/outline.png" class="_icon"></image>
-                  </view>
-                </picker>
-              </view>
-            </view>
-          </view>
-
-          <!-- 活动地点 -->
-          <view class="subtitle">
-            <text class="subtitle_font">活动地点*</text>
-          </view>
-          <view class="inputborder">
-            <view class="eTime">
-              <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                <view class="xuanzheyuyue">
-                  当前选择：{{array[index]}}
-                </view>
-              </picker>
-            </view>
-          </view>
-          <view class="inputborder">
-            <input type="text" name="Hplace" placeholder="活动地点（必填*）" class="PnameInput"/>
-          </view>
-          <!-- 负责人 -->
-          <view class="subtitle">
-            <text class="subtitle_font">负责人:</text>
-          </view>
-          <!-- 负责人名字 -->
-          <view class="inputborder">
-            <input type="text" name="Fname" placeholder="名字（必填*）" class="PnameInput"/>
-          </view>
-          <!-- 负责人年级专业 -->
-          <view class="inputborder">
-            <input type="text" name="Fgrade" placeholder="年级专业（必填*）" class="PnameInput"/>
-          </view>
-          <!-- 负责人联系方式 -->
-          <view class="inputborder">
-            <input type="number" name="Fphone" placeholder="联系方式（必填*）" class="PnameInput"/>
-          </view>
-          <!-- 负责人电子邮箱 -->
-          <view class="inputborder">
-            <input type="text" name="Fmail" placeholder="电子邮箱（选填*）" class="PnameInput"/>
-          </view>
-
-          <!-- 预计参与人数 -->
-          <view class="subtitle">
-            <text class="subtitle_font">预计参与人数</text>
-          </view>
-          <input type="text" name="Hamount" placeholder="数量（必填*）" class="inputborder"/>
-
-          <!-- 项目内容阐述 -->
-          <view class="subtitle">
-            <text class="subtitle_font">项目内容阐述</text>
-          </view>
-          <textarea type="text" name="Hcontent" placeholder="简单阐述项目的具体内容" class="inputborder" maxlength="500" auto-height="true" />
-          
-          <!-- 活动经费预算 -->
-          <view class="subtitle">
-            <text class="subtitle_font">活动经费预算:</text>
-          </view>
-          <!-- 预算金额部分 -->
-          <view class="inputborder">
-            <input type="text" name="Ytotal" placeholder="合计：xx元" bindinput="ysTotal" class="PnameInput" />
-          </view>
-          <view class="inputborder">
-            <input type="text" name="YselfTotal"placeholder="自筹数：xx元" bindinput="yssTotal" class="PnameInput" />
-          </view>
-          <view class="inputborder">
-            <input type="text" name="YneedTotal" placeholder="申请拨款数：xx元" bindinput="ysbTotal" class="PnameInput" />
-          </view>
-
-
-
-
-
-          <!-- 是否有赞助 -->
-          <view class="inputborder">
-            <view class="Pname">是否有赞助 <view class="xiaozi">*</view>
-            </view>
-            <view>
-              <radio-group bindchange="radioChange2">
-                <label wx:for="{{itens}}" wx:key="index" class="Pnamechoose">
-                  <view>
-                    <radio value="{{item.value}}" />
-                  </view>
-                  <view>{{item.name}}</view>
-                </label>
-              </radio-group>
-            </view>
-            <view hidden="{{displays}}">
-              <view class="Pname">赞助相关信息 <view class="xiaozi">*</view>
-              </view>
-              <input type="text" name="Scompany"placeholder="赞助公司(必填)" class="inputborder"/>
-              <input type="text" name="Sform"placeholder="赞助形式" class="inputborder"/>
-              <input type="number" name="Smoney" placeholder="赞助金额(必填)" class="inputborder"/>
-              <!-- 选择是否已经提交合同 -->
-              <view class="Pname">是否已经提交合同 <view class="xiaozi">*</view>
-              </view>
-              <radio-group bindchange="radioChange2plus">
-                <label wx:for="{{contractItens}}" wx:key="index" class="Pnamechoose">
-                  <view>
-                    <radio value="{{item.value}}" />
-                  </view>
-                  <view>{{item.name}}</view>
-                </label>
-              </radio-group>
-            </view>
-          </view>
-
-          <view class="inputborder">
-            <view class="Pname2">是否需要借款
-              <view class="xiaozi">*</view>
-            </view>
-            <view>
-              <radio-group bindchange="radioChange">
-                <label wx:for="{{items}}" wx:key="index" class="Pnamechoose">
-                  <view>
-                    <radio value="{{item.value}}" />
-                  </view>
-                  <view>{{item.name}}</view>
-                </label>
-              </radio-group>
-            </view>
-
-
-            <!-- 勾选需要借款 -->
-            <view hidden="{{display}}">
-
-              <view class="Pname2">借款人信息填写</view>
-              <input type="text" name="Jname" placeholder="借款人*" class="inputborder"/>
-
-              <input type="text" name="Jgrade" placeholder="专业*" class="inputborder"/>
-
-              <input type="text" name="Jyear" placeholder="年纪*" class="inputborder"/>
-
-
-              <input type="number" name="Jphone" placeholder="联系电话*" class="inputborder"/>
-
-              <input type="number" name="Jmoney"placeholder="借款金额*" class="inputborder"/>
-
-            </view>
-
-          </view>
-
-          <!-- 是否需要发放劳务费 -->
-          <view class="inputborder">
-            <view class="Pname">是否需要申请发放教师的劳务费</view>
-            <view class="xiaozi">*</view>
-            <view class="xiaozi">（劳务申请表需提交两周提交）</view>
-            <view>
-              <radio-group bindchange="radioChange3">
-                <label wx:for="{{itemslwf}}" wx:key="index" class="Pnamechoose">
-                  <view>
-                    <radio value="{{item.value}}"></radio>
-                  </view>
-                  <view>{{item.name}}</view>
-                </label>
-              </radio-group>
-            </view>
-            <view hidden="{{displaylwf}}">
-              <view class="subtitle">
-                <text class="Pname">劳务费申请事项填写</text>
-              </view>
-              <input type="text" name="Lobject" placeholder="发放对象填写" class="inputborder" />
-              <input type="number" name="Lmoney" placeholder="申请金额" class="inputborder" />
-            </view>
-
-          </view>
-
-
-          <view class="inputborder">
-            <view class="Pname">是否需要上传至OA <view class="xiaozi">*</view>
-            </view>
-            <view>
-              <radio-group bindchange="radioChange4">
-                <label wx:for="{{itemsoa}}" wx:key="index" class="Pnamechoose">
-                  <view>
-                    <radio value="{{item.value}}" />
-                  </view>
-                  <view>{{item.name}}</view>
-                </label>
-              </radio-group>
-            </view>
-          </view>
-
-          <button form-type="submit">提交</button>
-        </form>
-      </view>
+        </view>
     </view>
-  </view>
 </block>
 <block wx:if="{{!canIUseGetUserProfile}}">
-  <view>
-    <image src="https://gitee.com/the-blade-is-in-the-scabbard/typora_photo_repo/raw/master/img/fail.png" class="fail"></image>
-    <view class="tip">获取用户请求失败，请重新申请</view>
-  </view>
-  <button style="position: absolute; bottom: 5px; left: 20px; right: 20px; width: 240rpx;" bindtap="canIUseGetUserProfile">重新申请</button>
+    <view>
+        <image src="https://gitee.com/the-blade-is-in-the-scabbard/typora_photo_repo/raw/master/img/fail.png" class="fail"></image>
+        <view class="tip">获取用户请求失败，请重新申请</view>
+    </view>
+    <open-data type="userAvatarUrl" style="position: absolute; top: 0px; left: 20rpx; width: 100rpx; height: 100rpx;"></open-data>
+    <open-data type="userNickName" style="position: absolute; top: 30rpx; left:140rpx; width: 200rpx; height: 100rpx;"></open-data>
+    <!-- 需要使用 button 来授权登录 -->
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" style="width: 70%;">授权登录</button>
+    <view wx:else>请升级微信版本</view>
 </block>

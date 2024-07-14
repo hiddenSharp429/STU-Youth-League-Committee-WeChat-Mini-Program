@@ -7,25 +7,28 @@
     </view>
     <van-notice-bar mode="closeable" text="用户所填全部信息都将用于确认是否为校内人员，以及方便联系有关负责人跟进活动进度" left-icon="volume-o" color="grey">
     </van-notice-bar>
+
     <!-- 归属组织 -->
     <view class="TopSubtitle">
       <text class="subtitle_font">所归属的组织:</text>
     </view>
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" class="inputborder">
+    <picker mode="selector" bindchange="bindOrgPickerChange" value="{{org_Index}}" range="{{org_array}}" class="inputborder">
       <view class="xuanzheyuyue">
-        当前选择：{{multiArray[0][multiIndex[0]]}}
+        当前选择：{{org_array[org_Index]}}
       </view>
     </picker>
+
     <!-- 预约的老师 -->
     <view class="subtitle">
       <text class="subtitle_font">预约的老师</text>
     </view>
-    <!-- bindMultiPickerChange1类似上面的bindMultiPickerChange，只不过复制了一遍，修改里面的值，如学生会..等 -->
-    <picker mode="multiSelector" bindchange="bindMultiPickerChange1" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray1}}" class="inputborder">
+    <!-- bindTeaPickerChange类似上面的bindOrgPickerChange，只不过复制了一遍，修改里面的值，如学生会..等 -->
+    <picker mode="selector" bindchange="bindTeacPickerChange" value="{{teac_Index}}" range="{{teac_array}}" class="inputborder">
       <view class="xuanzheyuyue">
-        当前选择：{{multiArray1[0][multiIndex1[0]]}}
+        当前选择：{{teac_array[teac_Index]}}
       </view>
     </picker>
+
     <!-- 预约的事项 -->
     <view class="subtitle">
       <text class="subtitle_font">预约事项</text>
@@ -33,6 +36,18 @@
     <view class="inputborder">
       <input type="text" placeholder="预约事项" class="PnameInput" bindinput="content" />
     </view>
+
+    <!-- 预约形式 -->
+    <view class="subtitle">
+      <text class="subtitle_font">预约形式</text>
+    </view>
+    <picker mode="selector" bindchange="bindFormPickerChange" value="{{form_Index}}" range="{{form_array}}" class="inputborder">
+      <view class="xuanzheyuyue">
+        当前选择：{{form_array[form_Index]}}
+      </view>
+    </picker>
+
+
     <!-- 预约的时间 -->
     <view class="subtitle">
       <text class="subtitle_font">预约时间:</text>

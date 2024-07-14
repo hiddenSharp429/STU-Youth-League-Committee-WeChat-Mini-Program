@@ -1,3 +1,8 @@
+.container {
+    background-color: rgb(247, 248, 250);
+    height: 100vh;
+}
+
 /* 登录界面 */
 .title {
     border-bottom: 2px solid grey;
@@ -24,47 +29,26 @@
     flex-direction: column;
 }
 
-.inputBox {
-    margin-top: 150rpx;
-}
-
-/* 输入账号的input */
-.inputborder1 {
-    margin-top: 5%;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 30px;
-    border: 1px solid #F2E6E6;
-    box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.25);
-}
-
-/* 输入密码的input */
-.inputborder2 {
-    margin-top: 5%;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 15px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 30px;
-    border: 1px solid #F2E6E6;
-    box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.25);
+.subTitle {
+    margin: 30rpx 0 30rpx 50rpx;
+    font-size: 35rpx;
+    color: gray;
 }
 
 /* button在wxss里面修改不了宽度和高度，故在wmxl里面添加style属性来实现 */
-.register-button {
-    border-radius: 80rpx;
-    margin-top: 20%;
-    padding-top: 15px;
-    padding-bottom: 15px;
+.registerButton {
+    border-radius: 10px;
+    position: absolute;
+    bottom: 30rpx;
     color: #FFFFFF;
     background-color: #D43030;
     box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.35);
+}
+
+.buttonContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
 }

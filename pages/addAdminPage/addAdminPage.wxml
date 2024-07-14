@@ -1,0 +1,21 @@
+<view class="container">
+  <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="info-o" text="请在下方先选择端口再输入你的注册时的账号。若有修改账号密码的需求可联系相关负责人。" />
+  <van-divider contentPosition="center" customStyle="color: black; border-color: black; font-size: 18px; width: 90% ; margin-left:20px ; margin-right:20px ; margin-top:5%">
+    添加小程序审批端使用用户
+  </van-divider>
+  <view class="checkBox">
+    <text>选择其对应的审批端:</text>
+    <view class="checkBox_content">
+      <van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
+        <van-radio name="1" shape="square" custom-class="radioItem">活动审批端</van-radio>
+        <van-radio name="2" shape="square" custom-class="radioItem">预约审批端</van-radio>
+      </van-radio-group>
+    </view>
+
+  </view>
+  <van-divider contentPosition="center" customStyle="color: black; border-color: black; font-size: 18px; width: 90% ; margin-left:20px ; margin-right:20px ; margin-top:20%">
+    用户注册所需的邀请码
+  </van-divider>
+  <input bindinput="getWxId" class="inputborder1" placeholder="输入需要注册用户的wxID"></input>
+  <button bindtap="addUser" style="width: 88%;">邀请用户</button>
+</view>

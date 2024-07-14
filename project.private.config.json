@@ -3,6 +3,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "",
+          "pathName": "pages/eligibility/eligibility",
+          "query": "type=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "申请",
           "pathName": "pages/apply/apply",
           "query": "",

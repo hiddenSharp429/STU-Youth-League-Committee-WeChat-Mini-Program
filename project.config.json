@@ -21,8 +21,6 @@
     "compileHotReLoad": true,
     "lazyloadPlaceholderEnable": false,
     "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -53,12 +51,11 @@
   },
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "srcMiniprogramRoot": "01/app/",
+  "condition": {},
+  "appid": "wx2ee9585543f03ff3",
   "libVersion": "2.25.1",
   "packOptions": {
     "ignore": [],
     "include": []
-  },
-  "appid": "wx2ee9585543f03ff3",
-  "projectname": "101%EF%BC%881%EF%BC%89",
-  "condition": {}
+  }
 }

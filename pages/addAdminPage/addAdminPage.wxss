@@ -1,0 +1,55 @@
+.container{
+    background-color: gainsboro;
+}
+
+.checkBox {
+  width: 90%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.checkBox_content {
+  margin-top: 15px;
+}
+
+text {
+  color: rgb(129, 52, 52);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* 输入账号的input */
+.inputborder1 {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+  border: 1px solid #eb2323;
+  box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.15);
+}
+
+/* button在wxss里面修改不了宽度和高度，故在wmxl里面添加style属性来实现 */
+button {
+  border-radius: 10px;
+  margin-top: 80%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #FFFFFF;
+  background-color: #D43030;
+  box-shadow: 16rpx 8rpx 24rpx rgba(212, 48, 48, 0.35);
+}
+
+.background {
+  width: 112%;
+  height: 100%;
+  position: absolute;
+  z-index: -999;
+}
+
+.radioItem {
+  margin-top: 20rpx;
+}
