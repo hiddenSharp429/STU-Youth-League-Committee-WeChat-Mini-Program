@@ -1,0 +1,14 @@
+/* 假设您想让 'centered' 类元素在 'container' 中居中 */
+.container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 设置高度确保居中适应整个视口 */
+    background-color: gainsboro;
+}
+
+.centered {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}

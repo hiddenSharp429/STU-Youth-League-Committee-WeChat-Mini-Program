@@ -1,0 +1,10 @@
+<view class="container">
+    <view class="centered">
+        <van-grid column-num="2" gutter="{{ 10 }}" custom-class="navigation">
+            <van-grid-item icon="user-o" icon-color="brown" url="/pages/addUserPage/addUserPage" text="添加用户端成员" />
+            <van-grid-item icon="revoke" icon-color="brown" url="/pages/eligibility/eligibility?type=0" text="撤销成员现有资格" />
+            <van-grid-item icon="manager-o" icon-color="brown" url="/pages/addAdminPage/addAdminPage" text="添加审批端成员" />
+            <van-grid-item icon="more-o" icon-color="brown" url="/pages/eligibility/eligibility?type=1" text="撤销成员注册资格" />
+        </van-grid>
+    </view>
+</view>

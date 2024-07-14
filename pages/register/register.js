@@ -66,7 +66,26 @@ Page({
                     wx.showToast({
                         title: '已注册成功',
                     })
+                    that.updateUnregisteredList()
 
+                })
+                .then(res => {
+                    if (this.data.isVip) {
+                        db.collection("vipUser")
+                            .add({
+                                data: {
+                                    account: that.data.account,
+                                    password: that.data.password,
+                                    name: that.data.name,
+                                }
+                            })
+                            .then(res => {
+                                console.log("success", res)
+                            })
+                            .catch(res => {
+                                console.log("err", res)
+                            })
+                    }
                 })
                 .catch(res => {
                     wx.showToast({
@@ -74,22 +93,6 @@ Page({
                         icon: "none"
                     })
                 })
-            if (this.data.isVip) {
-                db.collection("vipUser")
-                    .add({
-                        data: {
-                            account: that.data.account,
-                            password: that.data.password,
-                            name: that.data.name,
-                        }
-                    })
-                    .then(res => {
-                        console.log("success", res)
-                    })
-                    .catch(res => {
-                        console.log("err", res)
-                    })
-            }
         }
         if (this.data.isCheck && this.data.type == 1) {
             db.collection("user")
@@ -144,6 +147,23 @@ Page({
                 })
         }
     },
+
+    updateUnregisteredList() {
+        db.collection("studenUsertList")
+            .where({
+                wxId: this.data.wxId
+            })
+            .update({
+                registered: true
+            })
+            .then(res => {
+                console.log("修改成功", res)
+            })
+            .catch(res => {
+                console.log("修改失败", res)
+            })
+    },
+
     //验证是否为不受限预约用户
     async checkVip() {
         let that = this

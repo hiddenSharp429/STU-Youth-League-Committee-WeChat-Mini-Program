@@ -44,6 +44,7 @@
                 <view class='appointmentTeacher'>预约老师：{{item.g1_orderTeacher}}</view>
                 <view class="time">{{item.time}}</view>
                 <view class="subscriber">申请人：{{item.subscriber}}</view>
+                <view class="form">预约形式：{{item.form}}</view>
               </view>
               <!-- 右上角的状态栏 -->
               <!-- 用条件渲染来展示多种样式的活动内容 -->

@@ -49,6 +49,13 @@
       padding-top: 0rpx;
     }
 
+    .form{
+      position: absolute;
+      font-size: 25rpx;
+      bottom: -5rpx;
+      left: 30rpx;
+    }
+
     .subscriber {
       margin-bottom: 30rpx;
       font-size: 26rpx;

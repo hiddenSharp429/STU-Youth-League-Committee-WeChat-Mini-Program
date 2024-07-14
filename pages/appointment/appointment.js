@@ -14,15 +14,14 @@ Page({
     account: '',
     canIUseGetUserProfile: false,
     // 组织
-    multiArray: [
-      ['校团委', '学生会', '校青协', '汕大青年', '踹网', '社团中心', '研会', '主持队', '礼仪队']
-    ],
-    //老师
-    multiArray1: [
-      ['姚溱', '陈益纯', '林煜', '林蔷', '罗列', '黄嘉曼']
-    ],
-    multiIndex: [0],
-    multiIndex1: [0],
+    org_array: ['校团委', '学生会', '校青协', '汕大青年', '踹网', '社团中心', '研会', '主持队', '礼仪队'],
+    // 老师
+    teac_array: ['姚溱', '陈益纯', '林煜', '林蔷', '罗列', '黄嘉曼'],
+    // 形式
+    form_array: ['线下', '线上'],
+    org_Index: 0,
+    teac_Index: 0,
+    form_Index: 0,
     newins: '校团委',
     newtea: '姚溱',
     occupyTime: [],
@@ -141,36 +140,46 @@ Page({
       content: '为了确保活动能顺利进行，该页面将获取您相关的个人信息，点击确认同意方可填写相关信息',
       success(res) {
         if (res.confirm) {
-          that.setData({
-            canIUseGetUserProfile: true
+          wx.getSetting({
+            success(res) {
+              if (res.authSetting['scope.userInfo']) {
+                wx.getUserInfo({
+                  success: function (res) {
+                    that.setData({
+                      canIUseGetUserProfile: true
+                    })
+                    //调用云函数来获取用户openid
+                    wx.cloud.callFunction({
+                        name: 'getData'
+                    })
+                    .then(res => {
+                        console.log("用户openid", res.result.openid)
+                        wx.setStorage({
+                        key: "key",
+                        data: res.result.openid,
+                        encrypt: true, // 若开启加密存储，setStorage 和 getStorage 需要同时声明 encrypt 的值为 true
+                        success() {
+                            wx.getStorage({
+                            key: "key",
+                            encrypt: true, // 若开启加密存储，setStorage 和 getStorage 需要同时声明 encrypt 的值为 true
+                            success(res) {
+                                console.log("缓存的加密数据", res.data)
+                                that.setData({
+                                openid: res.data
+                                })
+                            }
+                            })
+                        }
+                        })
+                    })
+                    .catch(err => {
+                        console.log("请求云函数失败", err)
+                    })
+                  }
+                })
+              }
+            }
           })
-          //调用云函数来获取用户openid
-          wx.cloud.callFunction({
-              name: 'getData'
-            })
-            .then(res => {
-              console.log("用户openid", res.result.openid)
-              wx.setStorage({
-                key: "key",
-                data: res.result.openid,
-                encrypt: true, // 若开启加密存储，setStorage 和 getStorage 需要同时声明 encrypt 的值为 true
-                success() {
-                  wx.getStorage({
-                    key: "key",
-                    encrypt: true, // 若开启加密存储，setStorage 和 getStorage 需要同时声明 encrypt 的值为 true
-                    success(res) {
-                      console.log("缓存的加密数据", res.data)
-                      that.setData({
-                        openid: res.data
-                      })
-                    }
-                  })
-                }
-              })
-            })
-            .catch(err => {
-              console.log("请求云函数失败", err)
-            })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -363,7 +372,7 @@ Page({
     //同一个老师同一个时段占用不可选
     // 前提是选择完老师然后点击预约时间后会在数据里面搜索该老师当天已经预约的时间段
     DB.where({
-        g2_organTeacherId: this.data.multiIndex1[0],
+        g2_organTeacherId: this.data.teac_Index[0],
         state: _.or(0, 1),
         //！这里修改了一下 功能是当用户点击了日期的时候会筛查 选择的老师 和 老师的时间是否被占用，用了一个第一个day是指数据库里的属性day，后面的this.data.chooseTime是指用户点击的日期
         day: this.data.chooseTime,
@@ -434,115 +443,23 @@ Page({
     console.log("这个是rank", this.data.rank)
     console.log(parseFloat(this.data.rank))
   },
-  // onLoad: function (options) {
-  // },    
+
 
   // 选择归属的组织
   //       0是校团委，1是学生会，2是校青协，3是汕大青年，4是踹网，5是社联，6是研会，7是主持队
-  bindMultiPickerChange: function (e) {
-    console.log('picker发送选择改变，携带组织的值为', e.detail.value)
+  bindOrgPickerChange: function (e) {
     this.setData({
-      multiIndex: e.detail.value,
+      org_Index: e.detail.value,
     })
-    var newins0 = "校团委"
-    if (this.data.multiIndex[0] == 0) {
-      this.setData({
-        newins: newins0
-      })
-    }
-    var newins1 = "学生会"
-    if (this.data.multiIndex[0] == 1) {
-      this.setData({
-        newins: newins1
-      })
-    }
-    var newins2 = "校青协"
-    if (this.data.multiIndex[0] == 2) {
-      this.setData({
-        newins: newins2
-      })
-    }
-    var newins3 = "汕大青年"
-    if (this.data.multiIndex[0] == 3) {
-      this.setData({
-        newins: newins3
-      })
-    }
-    var newins4 = "踹网"
-    if (this.data.multiIndex[0] == 4) {
-      this.setData({
-        newins: newins4
-      })
-    }
-    var newins5 = "社团中心"
-    if (this.data.multiIndex[0] == 5) {
-      this.setData({
-        newins: newins5
-      })
-    }
-    var newins6 = "研会"
-    if (this.data.multiIndex[0] == 6) {
-      this.setData({
-        newins: newins6
-      })
-    }
-    var newins7 = "主持队"
-    if (this.data.multiIndex[0] == 7) {
-      this.setData({
-        newins: newins7
-      })
-    }
-    var newins8 = "礼仪队"
-    if (this.data.multiIndex[0] == 8) {
-      this.setData({
-        newins: newins8
-      })
-    }
   },
 
   //选择预约的老师
   //     0是姚溱  1是陈益纯  2是林煜  3是林蔷  4是罗列  5是黄嘉曼
-  bindMultiPickerChange1: function (e) {
-    console.log('picker发送选择改变，携带老师的名字为', e.detail.value)
+  bindTeacPickerChange: function (e) {
     this.setData({
-      multiIndex1: e.detail.value,
+      teac_Index: e.detail.value,
     })
-    var newtea0 = "姚溱"
-    if (this.data.multiIndex1[0] == 0) {
-      this.setData({
-        newtea: newtea0
-      })
-    }
-    var newtea1 = "陈益纯"
-    if (this.data.multiIndex1[0] == 1) {
-      this.setData({
-        newtea: newtea1
-      })
-    }
-    var newtea2 = "林煜"
-    if (this.data.multiIndex1[0] == 2) {
-      this.setData({
-        newtea: newtea2
-      })
-    }
-    var newtea3 = "林蔷"
-    if (this.data.multiIndex1[0] == 3) {
-      this.setData({
-        newtea: newtea3
-      })
-    }
-    var newtea4 = "罗列"
-    if (this.data.multiIndex1[0] == 4) {
-      this.setData({
-        newtea: newtea4
-      })
-    }
-    var newtea5 = "黄嘉曼"
-    if (this.data.multiIndex1[0] == 5) {
-      this.setData({
-        newtea: newtea5
-      })
-    }
+
     //当用户每调整选择的老师一次就将日期和可选时间段重新渲染一遍
     var list = this.data.hourList;
     for (var i = 0; i < list.length; i++) {
@@ -556,6 +473,14 @@ Page({
       hourIndex: -1,
     })
   },
+
+  //选择预约形式
+  bindFormPickerChange: function (e) {
+    this.setData({
+      form_Index: e.detail.value,
+    })
+  },
+
 
   // 预约事项
   content(res) {
@@ -618,10 +543,9 @@ Page({
                     }
                   })
                 }, 2000);
-              }
-              else{
+              } else {
                 wx.showToast({
-                  icon:"error",
+                  icon: "error",
                   title: '您的账号无权限',
                 })
                 return
@@ -729,10 +653,11 @@ Page({
               // 上传所归属的组织的信息 g1 是组织的中文名称， g2是 组织的id值
               //其中 g2的值为0是校团委，1是学生会，2是青协，3是汕青，4是踹网
               //同理预约老师
-              g1_orderInstitute: that.data.newins,
-              g2_organizationId: that.data.multiIndex[0],
-              g1_orderTeacher: that.data.newtea,
-              g2_organTeacherId: that.data.multiIndex1[0],
+              g1_orderInstitute: that.data.org_array[that.data.org_Index],
+              g2_organizationId: that.data.org_Index,
+              g1_orderTeacher: that.data.teac_array[that.data.teac_Index],
+              g2_organTeacherId: that.data.teac_Index,
+              form: that.data.form_array[that.data.form_Index],
               appointment: that.data.yyTime,
               time: presentDayTime,
               TimeOfSubmission: TimeOfSubmission,

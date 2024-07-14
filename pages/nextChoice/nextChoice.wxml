@@ -12,8 +12,8 @@
     <text style="font-size: 36rpx; float: left; margin-left: 80rpx;">我要审批预约 </text>
     <van-icon name="edit" size="60rpx" custom-style="height:60rpx; margin-top:15rpx;" />
   </button>
-  <van-divider contentPosition="center" customStyle="color: grey; border-color: grey; font-size: 36rpx; width: 90% ; position: absolute; margin-left:40rpx ; margin-right:40rpx ; bottom:0px">
-    Copyright© STU引力弹簧工作室
+  <van-divider contentPosition="center" customStyle="color: grey; border-color: grey; font-size: 20rpx; width: 90% ; position: absolute; margin-left:40rpx ; margin-right:40rpx ; bottom:0px">
+    @Author:hiddenSharp429 @email:z404878860@163.com
   </van-divider>
 </view>
 

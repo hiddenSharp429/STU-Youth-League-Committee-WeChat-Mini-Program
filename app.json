@@ -15,7 +15,11 @@
     "pages/vip/vip",
     "pages/retrieve/retrieve",
     "pages/register/register",
-    "pages/addUserPage/addUserPage"
+    "pages/addUserPage/addUserPage",
+    "pages/addAdminPage/addAdminPage",
+    "pages/userManagement/userManagement",
+    "pages/eligibility/eligibility"
+
   ],
   "window": {
        "backgroundTextStyle": "light",
