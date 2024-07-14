@@ -1,4 +1,4 @@
-# StuCCYL-miniprogram
+# STU-Youth-League-Committee-WeChat-Mini-Program
 
 > [TOC]
 
