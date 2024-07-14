@@ -2,7 +2,7 @@
  * @Author: hiddenSharp429 z404878860@163.com
  * @Date: 2023-11-12 15:35:40
  * @LastEditors: hiddenSharp429 z404878860@163.com
- * @LastEditTime: 2024-07-14 22:11:10
+ * @LastEditTime: 2024-07-14 22:21:29
  * @FilePath: /CCYL/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -82,22 +82,22 @@ STU-YLC-Wechat-Miniprogram
 ## 截图
 
 ### 首页
-![Home Page](https://pic.imgdb.cn/item/6693d9ccd9c307b7e90c4901.png)
+<img src="https://pic.imgdb.cn/item/6693d9ccd9c307b7e90c4901.png" alt="Home Page" height="350"/>
 
 ### 教师预约申请页面
-![Teacher Appointment Application](https://pic.imgdb.cn/item/6693d869d9c307b7e90a00f1.png)
+<img src="https://pic.imgdb.cn/item/6693d869d9c307b7e90a00f1.png" alt="Home Page" height="350"/>
 
 ### 活动申请页面
-![Activity Application](https://pic.imgdb.cn/item/6693d869d9c307b7e90a0115.png)
+<img src="https://pic.imgdb.cn/item/6693d869d9c307b7e90a0115.png" alt="Home Page" height="350"/>
 
 ### 活动申请审批页面
-![Approval Activity Application](https://pic.imgdb.cn/item/6693d869d9c307b7e90a00d9.png)
+<img src="https://pic.imgdb.cn/item/6693d869d9c307b7e90a00d9.png" alt="Home Page" height="350"/>
 
 ### 事件详情页面
-![Event Detail page](https://pic.imgdb.cn/item/6693d869d9c307b7e90a00a4.png)
+<img src="https://pic.imgdb.cn/item/6693d869d9c307b7e90a00a4.png" alt="Home Page" height="350"/>
 
 ### 账户管理页面
-![Event Detail page](https://pic.imgdb.cn/item/6693d869d9c307b7e90a0064.png)
+<img src="https://pic.imgdb.cn/item/6693d869d9c307b7e90a0064.png" alt="Home Page" height="350"/>
 
 ## 贡献
 
