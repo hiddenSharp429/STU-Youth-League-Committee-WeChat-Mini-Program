@@ -2,7 +2,7 @@
  * @Author: hiddenSharp429 z404878860@163.com
  * @Date: 2023-11-12 15:35:40
  * @LastEditors: hiddenSharp429 z404878860@163.com
- * @LastEditTime: 2024-07-14 22:22:49
+ * @LastEditTime: 2024-07-14 23:37:00
  * @FilePath: /CCYL/README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -11,7 +11,7 @@
 
 <div align="center">
   
-  [![Static Badge](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-%40hiddenSharp429-red)](https://github.com/hiddenSharp429/Desktop-portable-topological-sorting-application/blob/main/README_CN.md)    |  [![Static Badge](https://img.shields.io/badge/English-%40hiddenSharp429-blue)](https://github.com/hiddenSharp429/Desktop-portable-topological-sorting-application?tab=readme-ov-file)  
+  [![Static Badge](https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-%40hiddenSharp429-red)](https://github.com/hiddenSharp429/STU-Youth-League-Committee-WeChat-Mini-Program/blob/master/README_CN.md)    |  [![Static Badge](https://img.shields.io/badge/English-%40hiddenSharp429-blue)](https://github.com/hiddenSharp429/STU-Youth-League-Committee-WeChat-Mini-Program)  |    [![Online Docs](https://img.shields.io/badge/Online%20Docs-%40hiddenSharp429-brown)](https://hiddensharp429.github.io/STU-Youth-League-Committee-WeChat-Mini-Program/#/) 
   
 </div>
 
