@@ -232,7 +232,29 @@ Page({
                 console.log("请求数据库失败")
             })
 
+    },
+    copyGitHubLink() {
+        wx.showModal({
+            title: '告知',
+            content: '本项目为开源项目，22年开始开发，目前作者已大四，至今仍在独自维护该项目，下附仓库链接，欢迎大家star并提出宝贵意见，谢谢！',
+            showCancel: true,
+            confirmText: '复制链接',
+            cancelText: '取消',
+            success: (res) => {
+                if (res.confirm) {
+                    wx.setClipboardData({
+                        data: 'https://github.com/hiddenSharp429/STU-Youth-League-Committee-WeChat-Mini-Program', 
+                        success: () => {
+                            wx.showToast({
+                                title: '链接已复制',
+                                icon: 'success'
+                            });
+                        }
+                    });
+                } else if (res.cancel) {
+                    console.log('用户取消了复制');
+                }
+            }
+        });
     }
-
-
 })

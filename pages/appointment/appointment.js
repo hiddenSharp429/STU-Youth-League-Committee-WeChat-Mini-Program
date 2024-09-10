@@ -430,14 +430,15 @@ Page({
     this.setData({
       day: choiceDay
     })
+    // Update to include the year in the chosen time
     var chooseTime = new Date().getFullYear() + "-" + this.data.chooseTime + " " + this.data.chooseHour
     this.setData({
       yyTime: chooseTime
     })
     console.log('这是选择时间的-形式', chooseTime)
-    console.log("这是选择时间的.形式", this.data.rankDay + e.currentTarget.dataset.index)
+    // Update rank to include year for uniqueness
     this.setData({
-      rank: this.data.rankDay + e.currentTarget.dataset.index
+      rank: new Date().getFullYear() + this.data.rankDay + e.currentTarget.dataset.index // Include year in rank
     })
     //下面第一个是string类型，第二个是float类型
     console.log("这个是rank", this.data.rank)
