@@ -68,7 +68,7 @@ Page({
     }
     this.onLoad()
   },
-  //点击“导出excel”后弹出动作面板
+  //点击"导出excel"后弹出动作面板
   Download() {
     this.setData({
       show: true
@@ -146,9 +146,10 @@ Page({
   },
   getList(e) {
     const Loading = this.selectComponent('#my-loading')
+    this.autoRejectExpired(); // 添加自动拒绝逾期申请的调用
     if (!this.data.allDate && e == 1) {
       db.collection("appointment")
-        .orderBy('rank', 'desc')
+        .orderBy('appointment', 'desc')
         .limit(4)
         .where({
           state: e,
@@ -166,7 +167,7 @@ Page({
         })
     } else {
       db.collection("appointment")
-        .orderBy('rank', 'desc')
+        .orderBy('appointment', 'desc')
         .limit(4)
         .where({
           state: e,
@@ -183,11 +184,49 @@ Page({
         })
     }
   },
+
+  autoRejectExpired() {
+    const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000); // 获取一周前的日期
+    oneWeekAgo.setHours(0, 0, 0, 0); // 设置为当天的开始时间
+    const formattedOneWeekAgo = oneWeekAgo.toISOString().split('T')[0]; // 格式化为 YYYY-MM-DD
+    console.log("oneWeekAgo", formattedOneWeekAgo);
+  
+    db.collection("appointment")
+      .where({
+        state: 0 // 只处理待审批的申请
+      })
+      .get()
+      .then(res => {
+        const expiredAppointments = res.data.filter(item => {
+          // 将 TimeOfSubmission 转换为日期对象进行比较
+          return new Date(item.TimeOfSubmission) < oneWeekAgo;
+        });
+  
+        console.log("过期的申请:", expiredAppointments); // 输出过期的申请
+  
+        const updatePromises = expiredAppointments.map(item => {
+          return db.collection("appointment").doc(item._id).update({
+            data: {
+              state: 2, // 设置为已驳回
+              rejectReason: '预期自动拒绝' // 设置拒绝原因
+            }
+          });
+        });
+        return Promise.all(updatePromises);
+      })
+      .then(() => {
+        console.log("所有逾期申请已成功拒绝");
+      })
+      .catch(err => {
+        console.error("自动拒绝逾期申请失败", err);
+      });
+  },
+
   onLoad(options) {
     const Loading = this.selectComponent('#my-loading')
     Loading.OnStart();
     let that = this
-    //当选中的是“待审批”执行代码
+    //当选中的是"待审批"执行代码
     if (this.data.active == 0) {
       db.collection("appointment")
         .where({
@@ -209,7 +248,7 @@ Page({
         })
       this.getList(0)
     }
-    //当选择的是“已通过”执行
+    //当选择的是"已通过"执行
     //全日期
     if (this.data.active == 1 && this.data.allDate) {
       db.collection("appointment")
@@ -255,7 +294,7 @@ Page({
         })
       this.getList(1)
     }
-    //当选择的是“已驳回”执行
+    //当选择的是"已驳回"执行
     if (this.data.active == 2) {
       db.collection("appointment")
         .where({
@@ -280,20 +319,27 @@ Page({
   },
   //排序
   up() {
+    // Toggle sorting state
+    this.setData({
+      isSortedAsc: !this.data.isSortedAsc // 新增状态以跟踪排序方向
+    });
+
+    const order = this.data.isSortedAsc ? 'asc' : 'desc'; // 根据状态选择排序方式
+
     db.collection("appointment")
       .where({
         state: 0,
       })
-      .orderBy('rank', 'asc')
+      .orderBy('appointment', order) // 使用动态排序
       .get()
       .then(res => {
-        console.log('升序成功', res.data)
+        console.log('排序成功', res.data)
         this.setData({
           list: res.data
         })
       })
       .catch(err => {
-        console.log('升序失败')
+        console.log('排序失败')
       })
   },
   //一键导出excel表格

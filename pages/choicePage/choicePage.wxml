@@ -17,10 +17,12 @@
     <view style="width: 140rpx;height: 40rpx; font-size: 28rpx; text-align: center; font-weight: 700; color: brown;">手册及日志</view>
     <image src="../../icon/guide.png" style="width: 140rpx;height: 140rpx;"></image>
   </view>
-  <!-- 右上角的版本标识 -->
+  <!-- 右上角的版本标识  -->
   <view class="versionTip">
-    v2.5.5
+    v2.6
   </view>
+  <!-- 左上角的GitHub仓库标识 -->
+  <image src="/icon/Github.jpeg" bindtap="copyGitHubLink" style="position: absolute; top: 20px; left: 20px; width: 100rpx; height: 100rpx;" />
   <!-- 左下角的添加用户 -->
   <image src="/icon/addUser.png" alt="" style="position: absolute; bottom: 50px; left:20px; width: 100rpx;height: 100rpx;" bindtap="enterUserManagementPage"/>
   <van-divider contentPosition="center" customStyle="color: grey; border-color: grey; font-size: 20rpx; width: 90% ; position: absolute;margin-left:40rpx ; margin-right:40rpx ; bottom:0px">
